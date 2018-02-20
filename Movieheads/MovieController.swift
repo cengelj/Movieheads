@@ -9,7 +9,8 @@
 import UIKit
 
 class MovieController: UIViewController {
-	
+	@IBOutlet var categories: [UILabel]!
+	@IBOutlet var movieImage: UIImage!
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		// Do any additional setup after loading the view, typically from a nib.
