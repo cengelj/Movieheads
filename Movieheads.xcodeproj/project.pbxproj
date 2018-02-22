@@ -92,8 +92,8 @@
 			isa = PBXGroup;
 			children = (
 				1E987904203CAA7400947638 /* MovieController.swift */,
-				1E98790B203CAF4000947638 /* MoviePage.storyboard */,
 				1E987911203F10DF00947638 /* Movie.swift */,
+				1E98790B203CAF4000947638 /* MoviePage.storyboard */,
 			);
 			path = "Movie Page";
 			sourceTree = "<group>";
