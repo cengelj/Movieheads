@@ -98,8 +98,8 @@
 		1E987907203CAE7A00947638 /* Search Page */ = {
 			isa = PBXGroup;
 			children = (
-				1E98790D203CB01400947638 /* Search.storyboard */,
 				1E98790F203CB04700947638 /*  SearchController.swift */,
+				1E98790D203CB01400947638 /* Search.storyboard */,
 			);
 			path = "Search Page";
 			sourceTree = "<group>";
