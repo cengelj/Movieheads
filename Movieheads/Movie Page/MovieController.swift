@@ -9,18 +9,21 @@
 import UIKit
 
 class MovieController: UIViewController {
-	@IBOutlet var categories: [UILabel]!
 	@IBOutlet var movieImage: UIImage!
-	@IBOutlet var ratings:UITableView!
+	@IBOutlet var ratings:UICollectionView!
+	@IBOutlet var search:UISearchBar!
+	@IBOutlet var name:UILabel!
+	
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		// Do any additional setup after loading the view, typically from a nib.
 	}
-	
 	override func didReceiveMemoryWarning() {
 		super.didReceiveMemoryWarning()
 		// Dispose of any resources that can be recreated.
 	}
-	
+	func setupView(){
+		
+	}
 	
 }
