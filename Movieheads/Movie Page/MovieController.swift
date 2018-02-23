@@ -9,10 +9,14 @@
 import UIKit
 
 class MovieController: UIViewController {
-	@IBOutlet var movieImage: UIImage!
+	@IBOutlet var movieBanner: UIImageView!
+	@IBOutlet var movieImage: UIImageView!
 	@IBOutlet var ratings:UICollectionView!
 	@IBOutlet var search:UISearchBar!
 	@IBOutlet var name:UILabel!
+	@IBOutlet var mpaa:UILabel!
+	
+	var movie:Movie!			// Will be set equal to the movie w/prepareforsegue
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -23,6 +27,10 @@ class MovieController: UIViewController {
 		// Dispose of any resources that can be recreated.
 	}
 	func setupView(){
+		if let i = movie.image{movieImage.image = i}		// Later load asynchronously
+		if let b = movie.banner{movieBanner.image = b}
+		mpaa.text = movie.mpaa
+		name.text = movie.name
 		
 	}
 	

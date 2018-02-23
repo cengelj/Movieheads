@@ -21,15 +21,17 @@ class Movie{
 	var info:[String:[String]]	//Basic movie metadata
 	var released:String			//To-Do: change released to date object and convert in the init.
 	var tagline:String
-	var mpaa:Int				//MPAA Rating from 0-5. NR, G, PG, PG-13, R, NC-17. Expand for TV Movies?
+	var mpaa:String				//MPAA Rating
 	var image:UIImage?			//To-Do: Load seperately from online.
 								//Consider using a singleton to grab the current category list.
+	var banner:UIImage?
 	
-	init(name:String="Unknown", tagline:String="Unknown", release:String="Unknown", mpaa:Int=0, info:[String:[String]]=[String:[String]]()){
+	init(name:String="Unknown", tagline:String="Unknown", release:String="Unknown", mpaa:String="UnRated", info:[String:[String]]=[String:[String]](), banner:UIImage){
 		self.name = name
 		self.info = info
 		self.released = release
 		self.tagline = tagline
 		self.mpaa = mpaa
+		self.banner = banner
 	}
 }
