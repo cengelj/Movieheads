@@ -113,6 +113,7 @@
 		1E987908203CAE8300947638 /* Load & Landing Screens */ = {
 			isa = PBXGroup;
 			children = (
+				1EA31EB42034A5CD0092E4B8 /* LaunchScreen.storyboard */,
 				1EA31EAD2034A5CD0092E4B8 /* LoadScreenController.swift */,
 				1E987909203CAF1400947638 /* LandingScreenController.swift */,
 				1EA31EAF2034A5CD0092E4B8 /* Main.storyboard */,
@@ -148,7 +149,6 @@
 				1E987906203CAE6C00947638 /* Movie Page */,
 				1EA31EAB2034A5CD0092E4B8 /* AppDelegate.swift */,
 				1EA31EB22034A5CD0092E4B8 /* Assets.xcassets */,
-				1EA31EB42034A5CD0092E4B8 /* LaunchScreen.storyboard */,
 				1EA31EB72034A5CD0092E4B8 /* Info.plist */,
 				1EA31ED92034A8D60092E4B8 /* APIKeys.swift */,
 			);
