@@ -221,8 +221,50 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="SzE-Hf-FbS">
+                                <rect key="frame" x="0.0" y="73" width="375" height="128"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JZY-76-9gL">
+                                <rect key="frame" x="25" y="87" width="100" height="100"/>
+                            </imageView>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="pAG-1k-0F2">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="56"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Title" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="baZ-Va-aau">
+                                <rect key="frame" x="16" y="209" width="240" height="51"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="35"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <textView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="bottomRight" editable="NO" text="PG-13" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eyO-Sj-pbc">
+                                <rect key="frame" x="239" y="136" width="120" height="51"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="8"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="xIh-jk-xoj" firstAttribute="bottom" secondItem="baZ-Va-aau" secondAttribute="bottom" constant="407" id="0PM-Sx-iKV"/>
+                            <constraint firstItem="SzE-Hf-FbS" firstAttribute="leading" secondItem="xIh-jk-xoj" secondAttribute="leading" id="4AF-kq-cMc"/>
+                            <constraint firstItem="xIh-jk-xoj" firstAttribute="trailing" secondItem="SzE-Hf-FbS" secondAttribute="trailing" id="4cl-jS-FSE"/>
+                            <constraint firstItem="baZ-Va-aau" firstAttribute="leading" secondItem="xIh-jk-xoj" secondAttribute="leading" constant="16" id="8Jz-3u-LKI"/>
+                            <constraint firstItem="xIh-jk-xoj" firstAttribute="trailing" secondItem="pAG-1k-0F2" secondAttribute="trailing" id="GcG-IS-PwX"/>
+                            <constraint firstItem="eyO-Sj-pbc" firstAttribute="leading" secondItem="xIh-jk-xoj" secondAttribute="leading" constant="239" id="Ioe-xz-DHF"/>
+                            <constraint firstItem="xIh-jk-xoj" firstAttribute="trailing" secondItem="baZ-Va-aau" secondAttribute="trailing" constant="119" id="KaC-sM-Ozq"/>
+                            <constraint firstItem="eyO-Sj-pbc" firstAttribute="top" secondItem="xIh-jk-xoj" secondAttribute="top" constant="116" id="Nsd-hG-cwu"/>
+                            <constraint firstItem="xIh-jk-xoj" firstAttribute="bottom" secondItem="pAG-1k-0F2" secondAttribute="bottom" constant="611" id="QgU-fC-WvH"/>
+                            <constraint firstItem="xIh-jk-xoj" firstAttribute="bottom" secondItem="SzE-Hf-FbS" secondAttribute="bottom" constant="466" id="R2z-qB-qkH"/>
+                            <constraint firstItem="xIh-jk-xoj" firstAttribute="trailing" secondItem="eyO-Sj-pbc" secondAttribute="trailing" constant="16" id="W1F-N3-M4Z"/>
+                            <constraint firstItem="xIh-jk-xoj" firstAttribute="trailing" secondItem="JZY-76-9gL" secondAttribute="trailing" constant="250" id="YXY-HU-OM5"/>
+                            <constraint firstItem="SzE-Hf-FbS" firstAttribute="top" secondItem="xIh-jk-xoj" secondAttribute="top" constant="53" id="fWu-YY-VpX"/>
+                            <constraint firstItem="baZ-Va-aau" firstAttribute="top" secondItem="SzE-Hf-FbS" secondAttribute="bottom" constant="8" id="khD-TT-Laq"/>
+                            <constraint firstItem="JZY-76-9gL" firstAttribute="leading" secondItem="xIh-jk-xoj" secondAttribute="leading" constant="25" id="mgz-ys-dfk"/>
+                            <constraint firstItem="pAG-1k-0F2" firstAttribute="leading" secondItem="xIh-jk-xoj" secondAttribute="leading" id="nSU-H1-fCL"/>
+                            <constraint firstItem="xIh-jk-xoj" firstAttribute="bottom" secondItem="JZY-76-9gL" secondAttribute="bottom" constant="480" id="rlV-Rz-AKH"/>
+                            <constraint firstItem="xIh-jk-xoj" firstAttribute="bottom" secondItem="eyO-Sj-pbc" secondAttribute="bottom" constant="480" id="yco-21-N4o"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="xIh-jk-xoj"/>
                     </view>
                 </viewController>
