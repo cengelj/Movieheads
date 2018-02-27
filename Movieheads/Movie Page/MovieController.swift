@@ -13,8 +13,8 @@ class MovieController: UIViewController {
 	@IBOutlet var movieImage: UIImageView!
 	@IBOutlet var ratings:UICollectionView!
 	@IBOutlet var search:UISearchBar!
-	@IBOutlet var name:UILabel!
-	@IBOutlet var mpaa:UILabel!
+	@IBOutlet var name:UITextView!
+	@IBOutlet var mpaa:UITextView!
 	
 	var movie:Movie!			// Will be set equal to the movie w/prepareforsegue
 	

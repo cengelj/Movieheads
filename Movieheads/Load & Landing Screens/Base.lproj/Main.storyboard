@@ -13,11 +13,43 @@
         <!--Landing Screen Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="LandingScreenController" customModule="Movieheads" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController useStoryboardIdentifierAsRestorationIdentifier="YES" id="BYZ-38-t0r" customClass="LandingScreenController" customModule="Movieheads" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="70J-CC-Kwh">
+                                <rect key="frame" x="133" y="121" width="109" height="30"/>
+                                <state key="normal" title="To SearchBoard"/>
+                                <connections>
+                                    <action selector="toSearch:" destination="BYZ-38-t0r" eventType="touchUpInside" id="FNQ-W4-duh"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H4V-i3-Aa6">
+                                <rect key="frame" x="137" y="318" width="100" height="30"/>
+                                <state key="normal" title="To Movie Page"/>
+                                <connections>
+                                    <action selector="toMovie:" destination="BYZ-38-t0r" eventType="touchUpInside" id="UG4-YW-3QK"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hTA-3c-cKp">
+                                <rect key="frame" x="134" y="496" width="106" height="30"/>
+                                <state key="normal" title="To Load Screen"/>
+                                <connections>
+                                    <action selector="toLoad:" destination="BYZ-38-t0r" eventType="touchUpInside" id="de4-Ao-DzG"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="70J-CC-Kwh" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="101" id="8Uh-PF-IIb"/>
+                            <constraint firstItem="hTA-3c-cKp" firstAttribute="top" secondItem="H4V-i3-Aa6" secondAttribute="bottom" constant="148" id="XrN-kV-yub"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="hTA-3c-cKp" secondAttribute="bottom" constant="141" id="Zcl-B9-buo"/>
+                            <constraint firstItem="hTA-3c-cKp" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="ae8-vQ-veU"/>
+                            <constraint firstItem="H4V-i3-Aa6" firstAttribute="top" secondItem="70J-CC-Kwh" secondAttribute="bottom" constant="167" id="gXT-O4-xIB"/>
+                            <constraint firstItem="70J-CC-Kwh" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="r6r-kO-Jvi"/>
+                            <constraint firstItem="H4V-i3-Aa6" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="xiZ-0X-rvs"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                 </viewController>

@@ -6,6 +6,8 @@
 //  Copyright © 2018 Joseph Cengel (student LM). All rights reserved.
 //
 
+import UIKit
+
 class LandingScreenController: UIViewController {
 	
 	override func viewDidLoad() {
@@ -16,6 +18,27 @@ class LandingScreenController: UIViewController {
 	override func didReceiveMemoryWarning() {
 		super.didReceiveMemoryWarning()
 		// Dispose of any resources that can be recreated.
+	}
+	
+	@IBAction func toSearch(_ sender: UIButton) {
+		var storyboard = UIStoryboard(name: "Search", bundle: nil)
+		
+		var controller = storyboard.instantiateInitialViewController()!
+		//storyboard.instantiateViewController(withIdentifier: "InitialController") as! SearchController
+		self.present(controller, animated: true, completion: nil)
+		
+	}
+	@IBAction func toMovie(_ sender: UIButton) {
+		var storyboard = UIStoryboard(name: "MoviePage", bundle: nil)
+		var controller = storyboard.instantiateInitialViewController()!
+		//storyboard.instantiateViewController(withIdentifier: "Movie Controller") as! MovieController
+		self.present(controller, animated: true, completion: nil)
+	}
+	@IBAction func toLoad(_ sender: UIButton) {
+		var storyboard = UIStoryboard(name: "LaunchScreen", bundle: nil)
+		var controller = storyboard.instantiateInitialViewController()!
+		//storyboard.instantiateViewController(withIdentifier: "Load Screen Controller") as! LoadScreenController
+		self.present(controller, animated: true, completion: nil)
 	}
 	
 	

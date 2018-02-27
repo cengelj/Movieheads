@@ -10,9 +10,9 @@ import UIKit
 
 class MovieDataSource: NSObject, UICollectionViewDataSource{
 	func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-		return 8
+		return 10
 	}
 	func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-		<#code#>
+		return UICollectionViewCell()
 	}
 }
