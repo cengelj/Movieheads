@@ -15,12 +15,11 @@ class MovieDataSource: NSObject, UICollectionViewDataSource{
 	}
 	func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 		var cell:UICollectionViewCell
-		print(indexPath.row)
 		if(indexPath.row%2==0){
-			cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Category"+String(describing:indexPath.row/2), for: indexPath)
+			cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Category", for: indexPath)
 		}
 		else{
-			cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Rating"+String(describing:indexPath.row/2), for: indexPath)
+			cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Rating", for: indexPath)
 		}
 		cell.layer.borderWidth = 0.5
 		cell.layer.borderColor = UIColor.lightGray.cgColor
