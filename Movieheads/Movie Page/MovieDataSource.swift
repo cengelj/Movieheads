@@ -9,10 +9,22 @@
 import UIKit
 
 class MovieDataSource: NSObject, UICollectionViewDataSource{
+	
 	func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
 		return 10
 	}
 	func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-		return UICollectionViewCell()
+		var cell:UICollectionViewCell
+		print(indexPath.row)
+		if(indexPath.row%2==0){
+			cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Category"+String(describing:indexPath.row/2), for: indexPath)
+		}
+		else{
+			cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Rating"+String(describing:indexPath.row/2), for: indexPath)
+		}
+		cell.layer.borderWidth = 0.5
+		cell.layer.borderColor = UIColor.lightGray.cgColor
+		
+		return cell
 	}
 }
