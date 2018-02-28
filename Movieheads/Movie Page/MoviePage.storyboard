@@ -62,6 +62,9 @@
                                                         <segment title=""/>
                                                         <segment title=""/>
                                                     </segments>
+                                                    <connections>
+                                                        <action selector="valueChanged:" destination="hf4-1p-3HC" eventType="valueChanged" id="v13-cR-Pab"/>
+                                                    </connections>
                                                 </segmentedControl>
                                             </subviews>
                                         </view>

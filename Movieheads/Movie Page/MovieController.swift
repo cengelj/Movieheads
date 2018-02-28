@@ -33,5 +33,7 @@ class MovieController: UIViewController {
 		name.text = movie.name
 		
 	}
-	
+	@IBAction func valueChanged(_ sender: UISegmentedControl) {
+		
+	}
 }
