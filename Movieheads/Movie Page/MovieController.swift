@@ -47,4 +47,5 @@ class MovieController: UIViewController {
 			}
 		}
 	}
+	
 }
