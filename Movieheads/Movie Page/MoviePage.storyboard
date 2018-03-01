@@ -101,7 +101,7 @@
                                 </constraints>
                             </imageView>
                             <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="pAG-1k-0F2">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="56"/>
+                                <rect key="frame" x="0.0" y="5" width="375" height="58"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Movie Title" textAlignment="justified" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="baZ-Va-aau">
@@ -132,7 +132,7 @@
                             <constraint firstItem="xIh-jk-xoj" firstAttribute="trailing" secondItem="pAG-1k-0F2" secondAttribute="trailing" id="GcG-IS-PwX"/>
                             <constraint firstItem="JZY-76-9gL" firstAttribute="top" secondItem="xIh-jk-xoj" secondAttribute="top" constant="65" id="QCf-T8-bfb"/>
                             <constraint firstItem="xIh-jk-xoj" firstAttribute="bottom" secondItem="SzE-Hf-FbS" secondAttribute="bottom" constant="466" id="R2z-qB-qkH"/>
-                            <constraint firstItem="SzE-Hf-FbS" firstAttribute="top" secondItem="pAG-1k-0F2" secondAttribute="bottom" constant="17" id="Raj-nw-uRI"/>
+                            <constraint firstItem="SzE-Hf-FbS" firstAttribute="top" secondItem="pAG-1k-0F2" secondAttribute="bottom" constant="10" id="Raj-nw-uRI"/>
                             <constraint firstItem="xIh-jk-xoj" firstAttribute="trailing" secondItem="eyO-Sj-pbc" secondAttribute="trailing" constant="16" id="VsT-TM-Xbu"/>
                             <constraint firstItem="eyO-Sj-pbc" firstAttribute="top" secondItem="xIh-jk-xoj" secondAttribute="top" constant="133" id="Wv5-hy-fsT"/>
                             <constraint firstItem="xIh-jk-xoj" firstAttribute="bottom" secondItem="9VJ-6e-6gr" secondAttribute="bottom" constant="57" id="afa-4A-cik"/>
@@ -143,7 +143,7 @@
                             <constraint firstItem="xIh-jk-xoj" firstAttribute="trailing" secondItem="baZ-Va-aau" secondAttribute="trailing" id="hHw-Vt-3HZ"/>
                             <constraint firstItem="baZ-Va-aau" firstAttribute="top" secondItem="SzE-Hf-FbS" secondAttribute="bottom" id="khD-TT-Laq"/>
                             <constraint firstItem="eyO-Sj-pbc" firstAttribute="leading" secondItem="xIh-jk-xoj" secondAttribute="leading" constant="278" id="m4k-n5-aK8"/>
-                            <constraint firstItem="pAG-1k-0F2" firstAttribute="top" secondItem="0qj-ao-PD6" secondAttribute="top" id="n5B-DN-GHQ"/>
+                            <constraint firstItem="pAG-1k-0F2" firstAttribute="top" secondItem="0qj-ao-PD6" secondAttribute="top" constant="5" id="n5B-DN-GHQ"/>
                             <constraint firstItem="pAG-1k-0F2" firstAttribute="leading" secondItem="xIh-jk-xoj" secondAttribute="leading" id="nSU-H1-fCL"/>
                             <constraint firstItem="xIh-jk-xoj" firstAttribute="bottom" secondItem="JZY-76-9gL" secondAttribute="bottom" constant="482" id="yOY-PM-yDz"/>
                         </constraints>

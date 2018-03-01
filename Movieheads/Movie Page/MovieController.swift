@@ -29,6 +29,7 @@ class MovieController: UIViewController {
 		super.didReceiveMemoryWarning()
 		// Dispose of any resources that can be recreated.
 	}
+	override var prefersStatusBarHidden: Bool{return true}
 	func setupView(){
 		if let i = movie.image{movieImage.image = i}		// Later load asynchronously
 		if let b = movie.banner{movieBanner.image = b}
