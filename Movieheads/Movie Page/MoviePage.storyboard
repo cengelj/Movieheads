@@ -52,15 +52,16 @@
                                             <rect key="frame" x="0.0" y="0.0" width="160" height="50"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="pBJ-bX-gKS">
-                                                    <rect key="frame" x="19" y="11" width="121" height="28"/>
+                                                <segmentedControl opaque="NO" contentMode="scaleAspectFit" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" translatesAutoresizingMaskIntoConstraints="NO" id="pBJ-bX-gKS">
+                                                    <rect key="frame" x="19" y="11" width="121" height="29"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <segments>
-                                                        <segment title="First"/>
-                                                        <segment title="Second"/>
-                                                        <segment title=""/>
-                                                        <segment title=""/>
-                                                        <segment title=""/>
+                                                        <segment title="O"/>
+                                                        <segment title="O"/>
+                                                        <segment title="O"/>
+                                                        <segment title="O"/>
+                                                        <segment title="O"/>
                                                     </segments>
                                                     <connections>
                                                         <action selector="valueChanged:" destination="hf4-1p-3HC" eventType="valueChanged" id="v13-cR-Pab"/>

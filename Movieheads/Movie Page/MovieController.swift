@@ -15,6 +15,9 @@ class MovieController: UIViewController {
 	@IBOutlet var search:UISearchBar!
 	@IBOutlet var name:UITextView!
 	@IBOutlet var mpaa:UITextView!
+	var black = #imageLiteral(resourceName: "black")
+	var white = #imageLiteral(resourceName: "white")
+	
 	
 	var movie:Movie!			// Will be set equal to the movie w/prepareforsegue
 	
@@ -34,6 +37,13 @@ class MovieController: UIViewController {
 		
 	}
 	@IBAction func valueChanged(_ sender: UISegmentedControl) {
-		
+		for i in 0...sender.selectedSegmentIndex{
+			sender.setTitle("X", forSegmentAt: i)
+		}
+		if sender.selectedSegmentIndex+1 <= sender.numberOfSegments-1{
+			for i in sender.selectedSegmentIndex+1...sender.numberOfSegments-1{
+				sender.setTitle("O", forSegmentAt: i)
+			}
+		}
 	}
 }
