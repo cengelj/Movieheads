@@ -24,6 +24,7 @@
 		1EA31EDA2034A8D70092E4B8 /* APIKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EA31ED92034A8D60092E4B8 /* APIKeys.swift */; };
 		66EDBCD287BA3E3597EE08DF /* Pods_MovieheadsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D4AA6D90B4FECDB905F6356 /* Pods_MovieheadsTests.framework */; };
 		8E230CBC83338384F30D6739 /* Pods_MovieheadsUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91B4B48A79F4B1FF8FE16D78 /* Pods_MovieheadsUITests.framework */; };
+		D0936F7F204717DE00813A20 /* SearchDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0936F7E204717DE00813A20 /* SearchDataSource.swift */; };
 		FD57D3BC14C3CDED62C97758 /* Pods_Movieheads.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 346522F1C998FCF452ED3CFE /* Pods_Movieheads.framework */; };
 /* End PBXBuildFile section */
 
@@ -75,6 +76,7 @@
 		8BA54F98D12FB873B98954DA /* Pods-MovieheadsUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MovieheadsUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MovieheadsUITests/Pods-MovieheadsUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		91B4B48A79F4B1FF8FE16D78 /* Pods_MovieheadsUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MovieheadsUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9FA6879C3AC01D63EC5C32D9 /* Pods-Movieheads.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Movieheads.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Movieheads/Pods-Movieheads.debug.xcconfig"; sourceTree = "<group>"; };
+		D0936F7E204717DE00813A20 /* SearchDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchDataSource.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +122,7 @@
 			isa = PBXGroup;
 			children = (
 				1E98790F203CB04700947638 /*  SearchController.swift */,
+				D0936F7E204717DE00813A20 /* SearchDataSource.swift */,
 				1E98790D203CB01400947638 /* Search.storyboard */,
 			);
 			path = "Search Page";
@@ -513,6 +516,7 @@
 				1E987912203F10DF00947638 /* Movie.swift in Sources */,
 				1E98790A203CAF1400947638 /* LandingScreenController.swift in Sources */,
 				1E987905203CAA7400947638 /* MovieController.swift in Sources */,
+				D0936F7F204717DE00813A20 /* SearchDataSource.swift in Sources */,
 				1E9F845D203F3629007CF0DD /* MovieDataSource.swift in Sources */,
 				1EA31EDA2034A8D70092E4B8 /* APIKeys.swift in Sources */,
 				1EA31EAE2034A5CD0092E4B8 /* LoadScreenController.swift in Sources */,
