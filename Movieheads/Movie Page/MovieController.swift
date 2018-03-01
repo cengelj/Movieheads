@@ -15,6 +15,9 @@ class MovieController: UIViewController {
 	@IBOutlet var search:UISearchBar!
 	@IBOutlet var name:UITextView!
 	@IBOutlet var mpaa:UITextView!
+	var black = #imageLiteral(resourceName: "black")
+	var white = #imageLiteral(resourceName: "white")
+	
 	
 	var movie:Movie!			// Will be set equal to the movie w/prepareforsegue
 	
@@ -26,6 +29,7 @@ class MovieController: UIViewController {
 		super.didReceiveMemoryWarning()
 		// Dispose of any resources that can be recreated.
 	}
+	override var prefersStatusBarHidden: Bool{return true}
 	func setupView(){
 		if let i = movie.image{movieImage.image = i}		// Later load asynchronously
 		if let b = movie.banner{movieBanner.image = b}
@@ -34,6 +38,14 @@ class MovieController: UIViewController {
 		
 	}
 	@IBAction func valueChanged(_ sender: UISegmentedControl) {
-		
+		for i in 0...sender.selectedSegmentIndex{
+			sender.setTitle("X", forSegmentAt: i)
+		}
+		if sender.selectedSegmentIndex+1 <= sender.numberOfSegments-1{
+			for i in sender.selectedSegmentIndex+1...sender.numberOfSegments-1{
+				sender.setTitle("O", forSegmentAt: i)
+			}
+		}
 	}
+	
 }

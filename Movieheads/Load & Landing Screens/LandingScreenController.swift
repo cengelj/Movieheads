@@ -19,24 +19,25 @@ class LandingScreenController: UIViewController {
 		super.didReceiveMemoryWarning()
 		// Dispose of any resources that can be recreated.
 	}
+	override var prefersStatusBarHidden: Bool{return true}
 	
 	@IBAction func toSearch(_ sender: UIButton) {
-		var storyboard = UIStoryboard(name: "Search", bundle: nil)
+		let storyboard = UIStoryboard(name: "Search", bundle: nil)
 		
-		var controller = storyboard.instantiateInitialViewController()!
+		let controller = storyboard.instantiateInitialViewController()!
 		//storyboard.instantiateViewController(withIdentifier: "InitialController") as! SearchController
 		self.present(controller, animated: true, completion: nil)
 		
 	}
 	@IBAction func toMovie(_ sender: UIButton) {
-		var storyboard = UIStoryboard(name: "MoviePage", bundle: nil)
-		var controller = storyboard.instantiateInitialViewController()!
+		let storyboard = UIStoryboard(name: "MoviePage", bundle: nil)
+		let controller = storyboard.instantiateInitialViewController()!
 		//storyboard.instantiateViewController(withIdentifier: "Movie Controller") as! MovieController
 		self.present(controller, animated: true, completion: nil)
 	}
 	@IBAction func toLoad(_ sender: UIButton) {
-		var storyboard = UIStoryboard(name: "LaunchScreen", bundle: nil)
-		var controller = storyboard.instantiateInitialViewController()!
+		let storyboard = UIStoryboard(name: "LaunchScreen", bundle: nil)
+		let controller = storyboard.instantiateInitialViewController()!
 		//storyboard.instantiateViewController(withIdentifier: "Load Screen Controller") as! LoadScreenController
 		self.present(controller, animated: true, completion: nil)
 	}

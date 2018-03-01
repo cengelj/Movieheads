@@ -9,14 +9,17 @@
 import UIKit
 
 class MovieDataSource: NSObject, UICollectionViewDataSource{
+	let categories:[String] = ["Comedy", "Plot Complexity", "Violence", "Acting", "Dialogue", "Other", "Other"]
 	
 	func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-		return 30
+		return categories.count*2
 	}
 	func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 		var cell:UICollectionViewCell
 		if(indexPath.row%2==0){
 			cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Category", for: indexPath)
+			let label = cell.viewWithTag(1) as! UILabel
+			label.text = categories[indexPath.row/2]
 		}
 		else{
 			cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Rating", for: indexPath)

@@ -13,7 +13,6 @@
         <!--Search Controller-->
         <scene sceneID="Tm5-FC-yIs">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="yIP-Lq-oh3" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController title="Search Controller" useStoryboardIdentifierAsRestorationIdentifier="YES" id="rkD-Pj-v9r" customClass="SearchController" customModule="Movieheads" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3B5-yl-HCb">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -42,6 +41,7 @@
                         <viewLayoutGuide key="safeArea" id="DfU-o5-NJl"/>
                     </view>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yIP-Lq-oh3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1252" y="36"/>
         </scene>

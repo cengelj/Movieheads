@@ -21,7 +21,6 @@
 		1EA31EB62034A5CD0092E4B8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1EA31EB42034A5CD0092E4B8 /* LaunchScreen.storyboard */; };
 		1EA31EC12034A5CE0092E4B8 /* MovieheadsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EA31EC02034A5CE0092E4B8 /* MovieheadsTests.swift */; };
 		1EA31ECC2034A5CE0092E4B8 /* MovieheadsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EA31ECB2034A5CE0092E4B8 /* MovieheadsUITests.swift */; };
-		1EA31EDA2034A8D70092E4B8 /* APIKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EA31ED92034A8D60092E4B8 /* APIKeys.swift */; };
 		66EDBCD287BA3E3597EE08DF /* Pods_MovieheadsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D4AA6D90B4FECDB905F6356 /* Pods_MovieheadsTests.framework */; };
 		8E230CBC83338384F30D6739 /* Pods_MovieheadsUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91B4B48A79F4B1FF8FE16D78 /* Pods_MovieheadsUITests.framework */; };
 		D0936F7F204717DE00813A20 /* SearchDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0936F7E204717DE00813A20 /* SearchDataSource.swift */; };
@@ -67,7 +66,6 @@
 		1EA31EC72034A5CE0092E4B8 /* MovieheadsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MovieheadsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1EA31ECB2034A5CE0092E4B8 /* MovieheadsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieheadsUITests.swift; sourceTree = "<group>"; };
 		1EA31ECD2034A5CE0092E4B8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		1EA31ED92034A8D60092E4B8 /* APIKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKeys.swift; sourceTree = "<group>"; };
 		346522F1C998FCF452ED3CFE /* Pods_Movieheads.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Movieheads.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D4AA6D90B4FECDB905F6356 /* Pods_MovieheadsTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MovieheadsTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		559CE04BF3508D5125D82D9A /* Pods-MovieheadsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MovieheadsTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MovieheadsTests/Pods-MovieheadsTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -132,6 +130,7 @@
 			isa = PBXGroup;
 			children = (
 				1EA31EB42034A5CD0092E4B8 /* LaunchScreen.storyboard */,
+				DFEACB8220471A9D00613C9F /* TempLandingPage.storyboard */,
 				1EA31EAD2034A5CD0092E4B8 /* LoadScreenController.swift */,
 				1E987909203CAF1400947638 /* LandingScreenController.swift */,
 				1EA31EAF2034A5CD0092E4B8 /* Main.storyboard */,
@@ -170,7 +169,6 @@
 				1EA31EAB2034A5CD0092E4B8 /* AppDelegate.swift */,
 				1EA31EB22034A5CD0092E4B8 /* Assets.xcassets */,
 				1EA31EB72034A5CD0092E4B8 /* Info.plist */,
-				1EA31ED92034A8D60092E4B8 /* APIKeys.swift */,
 			);
 			path = Movieheads;
 			sourceTree = "<group>";
@@ -337,6 +335,7 @@
 				1EA31EB32034A5CD0092E4B8 /* Assets.xcassets in Resources */,
 				1EA31EB12034A5CD0092E4B8 /* Main.storyboard in Resources */,
 				1E98790E203CB01400947638 /* Search.storyboard in Resources */,
+				DFEACB8320471A9D00613C9F /* TempLandingPage.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -518,7 +517,6 @@
 				1E987905203CAA7400947638 /* MovieController.swift in Sources */,
 				D0936F7F204717DE00813A20 /* SearchDataSource.swift in Sources */,
 				1E9F845D203F3629007CF0DD /* MovieDataSource.swift in Sources */,
-				1EA31EDA2034A8D70092E4B8 /* APIKeys.swift in Sources */,
 				1EA31EAE2034A5CD0092E4B8 /* LoadScreenController.swift in Sources */,
 				1E987910203CB04700947638 /*  SearchController.swift in Sources */,
 				1EA31EAC2034A5CD0092E4B8 /* AppDelegate.swift in Sources */,
