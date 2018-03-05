@@ -17,7 +17,7 @@
 import UIKit
 
 class Movie{
-	var name:String				//Movie name
+	var title:String			//Movie name
 	var info:[String:[String]]	//Basic movie metadata
 	var released:String			//To-Do: change released to date object and convert in the init.
 	var tagline:String
@@ -26,8 +26,8 @@ class Movie{
 								//Consider using a singleton to grab the current category list.
 	var banner:UIImage?
 	
-	init(name:String="Unknown", tagline:String="Unknown", release:String="Unknown", mpaa:String="UnRated", info:[String:[String]]=[String:[String]](), banner:UIImage){
-		self.name = name
+	init(title:String="Unknown", tagline:String="Unknown", release:String="Unknown", mpaa:String="UnRated", info:[String:[String]]=[String:[String]](), banner:UIImage=UIImage()){
+		self.title = title
 		self.info = info
 		self.released = release
 		self.tagline = tagline

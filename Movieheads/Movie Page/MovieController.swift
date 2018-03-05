@@ -7,22 +7,24 @@
 //
 
 import UIKit
+import Pods_Movieheads
+import TMDBSwift
 
 class MovieController: UIViewController {
 	@IBOutlet var movieBanner: UIImageView!
 	@IBOutlet var movieImage: UIImageView!
 	@IBOutlet var ratings:UICollectionView!
-	@IBOutlet var search:UISearchBar!
 	@IBOutlet var name:UITextView!
 	@IBOutlet var mpaa:UITextView!
 	var black = #imageLiteral(resourceName: "black")
 	var white = #imageLiteral(resourceName: "white")
 	
 	
-	var movie:Movie!			// Will be set equal to the movie w/prepareforsegue
+	var movie:MovieMDB!					// Set equal upon instanciation
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
+		setupView()
 		// Do any additional setup after loading the view, typically from a nib.
 	}
 	override func didReceiveMemoryWarning() {
@@ -31,10 +33,10 @@ class MovieController: UIViewController {
 	}
 	override var prefersStatusBarHidden: Bool{return true}
 	func setupView(){
-		if let i = movie.image{movieImage.image = i}		// Later load asynchronously
-		if let b = movie.banner{movieBanner.image = b}
-		mpaa.text = movie.mpaa
-		name.text = movie.name
+		//if let i = movie.image{movieImage.image = i}		// Later load asynchronously
+		//if let b = movie.banner{movieBanner.image = b}
+		mpaa.text = "PG-13"	//Temp
+		name.text = movie.title
 		
 	}
 	@IBAction func valueChanged(_ sender: UISegmentedControl) {
