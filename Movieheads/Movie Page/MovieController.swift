@@ -23,6 +23,7 @@ class MovieController: UIViewController {
 	var movie:MovieMDB!					// Set equal upon instanciation
 	
 	override func viewDidLoad() {
+
 		super.viewDidLoad()
 		setupView()
 		// Do any additional setup after loading the view, typically from a nib.
@@ -34,7 +35,23 @@ class MovieController: UIViewController {
 	override var prefersStatusBarHidden: Bool{return true}
 	func setupView(){
 		//if let i = movie.image{movieImage.image = i}		// Later load asynchronously
-		//if let b = movie.banner{movieBanner.image = b}
+		if let param = URL(string:"https://image.tmdb.org/t/p/w300_and_h450_bestv2/\(movie.poster_path!)"){
+			loadPoster(param)
+		}
+		if let param = URL(string:"https://image.tmdb.org/t/p/w780/\(movie.backdrop_path!)"){
+			loadBanner(param)
+		}
+		
+		let blur = UIBlurEffect(style: UIBlurEffectStyle.prominent)
+		let blurEffectView = UIVisualEffectView(effect: blur)
+		blurEffectView.alpha = 0.4
+		
+		blurEffectView.frame = movieBanner.bounds
+		blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+		movieBanner.addSubview(blurEffectView)
+		
+		
+		movieBanner.tintColor = UIColor.black
 		mpaa.text = "PG-13"	//Temp
 		name.text = movie.title
 		
@@ -49,5 +66,20 @@ class MovieController: UIViewController {
 			}
 		}
 	}
-	
+	func loadBanner(_ URL: Foundation.URL) {
+		let request = URLRequest(url: URL)
+		NSURLConnection.sendAsynchronousRequest(request, queue: OperationQueue.main) { response, data, error in
+			if let imageData = data {
+				self.movieBanner.image = UIImage(data: imageData)
+			}
+		}
+	}
+	func loadPoster(_ URL: Foundation.URL) {
+		let request = URLRequest(url: URL)
+		NSURLConnection.sendAsynchronousRequest(request, queue: OperationQueue.main) { response, data, error in
+			if let imageData = data {
+				self.movieImage.image = UIImage(data: imageData)
+			}
+		}
+	}
 }

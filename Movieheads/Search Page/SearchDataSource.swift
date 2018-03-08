@@ -32,6 +32,9 @@ class SearchDataSource: NSObject, UITableViewDataSource {
 				self.set(movies: movies)
 				tableView.reloadData()
 			}
+			else{
+				tableView.reloadData()
+			}
 		}
 	}
 	func set(movies:[MovieMDB]){
