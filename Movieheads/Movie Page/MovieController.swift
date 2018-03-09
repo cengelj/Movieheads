@@ -35,11 +35,16 @@ class MovieController: UIViewController {
 	override var prefersStatusBarHidden: Bool{return true}
 	func setupView(){
 		//if let i = movie.image{movieImage.image = i}		// Later load asynchronously
-		if let param = URL(string:"https://image.tmdb.org/t/p/w300_and_h450_bestv2/\(movie.poster_path!)"){
-			loadPoster(param)
+		if let path = movie.poster_path{
+			if let param = URL(string:"https://image.tmdb.org/t/p/w300_and_h450_bestv2/\(path)"){
+				loadPoster(param)
+			}
 		}
-		if let param = URL(string:"https://image.tmdb.org/t/p/w780/\(movie.backdrop_path!)"){
-			loadBanner(param)
+		if let path = movie.backdrop_path{
+			if let param = URL(string:"https://image.tmdb.org/t/p/w780/\(path)"){
+				loadBanner(param)
+		}
+		
 		}
 		
 		let blur = UIBlurEffect(style: UIBlurEffectStyle.prominent)
