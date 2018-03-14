@@ -11,9 +11,6 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="AmericanTypewriter.ttc">
-            <string>AmericanTypewriter</string>
-        </array>
         <array key="HelveticaNeueLights.ttc">
             <string>HelveticaNeue-Light</string>
         </array>
@@ -111,7 +108,7 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="137"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="white" translatesAutoresizingMaskIntoConstraints="NO" id="JZY-76-9gL">
-                                <rect key="frame" x="25" y="82.5" width="75" height="100"/>
+                                <rect key="frame" x="25" y="83" width="75" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="JZY-76-9gL" secondAttribute="height" multiplier="3:4" id="7jq-CS-jyc"/>
                                     <constraint firstAttribute="width" constant="75" id="wvd-kt-bi1"/>
@@ -123,34 +120,27 @@
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="30"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <textView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="bottomRight" editable="NO" text="PG-13" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eyO-Sj-pbc">
-                                <rect key="frame" x="278" y="153" width="81" height="34"/>
-                                <accessibility key="accessibilityConfiguration">
-                                    <accessibilityTraits key="traits" notEnabled="YES"/>
-                                </accessibility>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="MPAA_G" translatesAutoresizingMaskIntoConstraints="NO" id="9RZ-am-RJp">
+                                <rect key="frame" x="268" y="161" width="107" height="40"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="eyO-Sj-pbc" secondAttribute="height" multiplier="81:34" id="BYn-y3-NZW"/>
+                                    <constraint firstAttribute="height" constant="40" id="3ku-zz-yiq"/>
                                 </constraints>
-                                <color key="textColor" red="0.98299499254798073" green="1" blue="0.98738362341731012" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="20"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="xIh-jk-xoj" firstAttribute="bottom" secondItem="baZ-Va-aau" secondAttribute="bottom" constant="407" id="0PM-Sx-iKV"/>
+                            <constraint firstItem="9RZ-am-RJp" firstAttribute="trailing" secondItem="SzE-Hf-FbS" secondAttribute="trailing" id="1Fk-65-99z"/>
                             <constraint firstItem="SzE-Hf-FbS" firstAttribute="leading" secondItem="xIh-jk-xoj" secondAttribute="leading" id="4AF-kq-cMc"/>
                             <constraint firstItem="xIh-jk-xoj" firstAttribute="trailing" secondItem="SzE-Hf-FbS" secondAttribute="trailing" id="4cl-jS-FSE"/>
                             <constraint firstItem="baZ-Va-aau" firstAttribute="leading" secondItem="xIh-jk-xoj" secondAttribute="leading" id="8Jz-3u-LKI"/>
                             <constraint firstItem="9VJ-6e-6gr" firstAttribute="leading" secondItem="xIh-jk-xoj" secondAttribute="leading" constant="16" id="9Cd-So-R6W"/>
                             <constraint firstItem="9VJ-6e-6gr" firstAttribute="top" secondItem="baZ-Va-aau" secondAttribute="bottom" constant="5" id="AIg-7x-JXF"/>
                             <constraint firstItem="JZY-76-9gL" firstAttribute="leading" secondItem="xIh-jk-xoj" secondAttribute="leading" constant="25" id="CwB-5g-v3q"/>
-                            <constraint firstItem="xIh-jk-xoj" firstAttribute="trailing" secondItem="eyO-Sj-pbc" secondAttribute="trailing" constant="16" id="QYa-JL-A4g"/>
                             <constraint firstItem="xIh-jk-xoj" firstAttribute="bottom" secondItem="SzE-Hf-FbS" secondAttribute="bottom" constant="466" id="R2z-qB-qkH"/>
+                            <constraint firstItem="9RZ-am-RJp" firstAttribute="top" secondItem="SzE-Hf-FbS" secondAttribute="bottom" constant="-40" id="SuZ-pv-RSi"/>
                             <constraint firstItem="xIh-jk-xoj" firstAttribute="bottom" secondItem="9VJ-6e-6gr" secondAttribute="bottom" constant="57" id="afa-4A-cik"/>
-                            <constraint firstItem="baZ-Va-aau" firstAttribute="top" secondItem="eyO-Sj-pbc" secondAttribute="bottom" constant="14" id="atJ-Cg-xgh"/>
-                            <constraint firstItem="eyO-Sj-pbc" firstAttribute="top" secondItem="xIh-jk-xoj" secondAttribute="top" constant="89" id="c4O-Ff-6ZJ"/>
-                            <constraint firstItem="eyO-Sj-pbc" firstAttribute="leading" secondItem="xIh-jk-xoj" secondAttribute="leading" constant="278" id="cn1-su-Tbu"/>
                             <constraint firstItem="xIh-jk-xoj" firstAttribute="trailing" secondItem="9VJ-6e-6gr" secondAttribute="trailing" constant="16" id="dVF-cI-OhM"/>
                             <constraint firstItem="SzE-Hf-FbS" firstAttribute="top" secondItem="xIh-jk-xoj" secondAttribute="top" id="fWu-YY-VpX"/>
                             <constraint firstItem="xIh-jk-xoj" firstAttribute="trailing" secondItem="baZ-Va-aau" secondAttribute="trailing" id="hHw-Vt-3HZ"/>
@@ -164,7 +154,7 @@
                     <connections>
                         <outlet property="movieBanner" destination="SzE-Hf-FbS" id="AQl-6h-wzc"/>
                         <outlet property="movieImage" destination="JZY-76-9gL" id="jTp-I0-YP1"/>
-                        <outlet property="mpaa" destination="eyO-Sj-pbc" id="h23-mK-WRY"/>
+                        <outlet property="mpaa" destination="9RZ-am-RJp" id="T1w-x9-piw"/>
                         <outlet property="name" destination="baZ-Va-aau" id="Yk6-Kl-8gi"/>
                         <outlet property="ratings" destination="9VJ-6e-6gr" id="heL-5t-9aP"/>
                     </connections>
@@ -176,6 +166,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="MPAA_G" width="107" height="93"/>
         <image name="black" width="50" height="50"/>
         <image name="white" width="50" height="50"/>
     </resources>

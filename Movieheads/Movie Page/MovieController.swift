@@ -15,9 +15,10 @@ class MovieController: UIViewController {
 	@IBOutlet var movieImage: UIImageView!
 	@IBOutlet var ratings:UICollectionView!
 	@IBOutlet var name:UITextView!
-	@IBOutlet var mpaa:UITextView!
+	@IBOutlet weak var mpaa: UIImageView!
 	var black = #imageLiteral(resourceName: "black")
 	var white = #imageLiteral(resourceName: "white")
+	
 	
 	
 	var movie:MovieMDB!					// Set equal upon instanciation
@@ -57,9 +58,58 @@ class MovieController: UIViewController {
 		
 		
 		movieBanner.tintColor = UIColor.black
-		mpaa.text = "PG-13"	//Temp
 		name.text = movie.title
+		let request = URLRequest(url: URL(string: "https://api.themoviedb.org/3/movie/\(movie.id!)/release_dates?api_key=\(APIKeys.shared.key)")!)
+		URLSession.shared.dataTask(with: request){ data, response, error in
+			if let jsonData = data,
+				let feed = (try? JSONSerialization.jsonObject(with: jsonData, options: .mutableContainers)) as? NSDictionary{
+				let results = feed.value(forKey: "results") as! NSArray
+				loop: for i in (0...results.count-1).reversed(){
+					let dict = results[i] as! NSDictionary
+					let country = dict.value(forKey: "iso_3166_1") as! NSString
+					if country == "US"{
+						let outer = dict.value(forKey: "release_dates") as! NSArray
+						let inner = outer[0] as! NSDictionary
+						let str = inner.value(forKey: "certification") as? String
+						DispatchQueue.main.async {						//Run it on the main thread as per swift guidelines
+							if let s = str {
+								if s == ""{self.setMPAA(string: "UR")}
+								else{self.setMPAA(string: s)}
+							}
+							else{self.setMPAA(string: "UR")}
+						}
+						
+						break loop
+					}
+				}
+				
+			}
+			}.resume()
 		
+	}
+	func setMPAA(string:String){
+		switch(string){
+			case "G":
+				mpaa.image = #imageLiteral(resourceName: "MPAA_G")
+				mpaa.addConstraint(NSLayoutConstraint(item: mpaa, attribute: NSLayoutAttribute.height, relatedBy: NSLayoutRelation.equal, toItem: mpaa, attribute: NSLayoutAttribute.width, multiplier: 1.0, constant: 0))
+				mpaa.frame = CGRect(origin: mpaa.frame.origin, size: CGSize(width: 40.0, height: 40.0))
+			case "PG":
+				mpaa.image = #imageLiteral(resourceName: "MPAA_PG")
+				mpaa.addConstraint(NSLayoutConstraint(item: mpaa, attribute: NSLayoutAttribute.height, relatedBy: NSLayoutRelation.equal, toItem: mpaa, attribute: NSLayoutAttribute.width, multiplier: 0.5333333333, constant: 0))
+				mpaa.frame = CGRect(origin: mpaa.frame.origin, size: CGSize(width: 75.0, height: 40.0))
+			case "PG-13":
+				mpaa.image = #imageLiteral(resourceName: "MPAA_PG13")
+				mpaa.addConstraint(NSLayoutConstraint(item: mpaa, attribute: NSLayoutAttribute.height, relatedBy: NSLayoutRelation.equal, toItem: mpaa, attribute: NSLayoutAttribute.width, multiplier: 0.2857142857, constant: 0))
+				mpaa.frame = CGRect(origin: mpaa.frame.origin, size: CGSize(width: 141.0, height: 40.0))
+			case "R":
+				mpaa.image = #imageLiteral(resourceName: "MPAA_R")
+				mpaa.addConstraint(NSLayoutConstraint(item: mpaa, attribute: NSLayoutAttribute.height, relatedBy: NSLayoutRelation.equal, toItem: mpaa, attribute: NSLayoutAttribute.width, multiplier: 1.0, constant: 0))
+				mpaa.frame = CGRect(origin: mpaa.frame.origin, size: CGSize(width: 40.0, height: 40.0))
+			default:
+				mpaa.image = #imageLiteral(resourceName: "MPAA_G")
+				mpaa.addConstraint(NSLayoutConstraint(item: mpaa, attribute: NSLayoutAttribute.height, relatedBy: NSLayoutRelation.equal, toItem: mpaa, attribute: NSLayoutAttribute.width, multiplier: 1.0, constant: 0))
+				mpaa.frame = CGRect(origin: mpaa.frame.origin, size: CGSize(width: 40.0, height: 40.0))
+		}
 	}
 	@IBAction func valueChanged(_ sender: UISegmentedControl) {
 		for i in 0...sender.selectedSegmentIndex{
