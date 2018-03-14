@@ -19,8 +19,6 @@ class MovieController: UIViewController {
 	var black = #imageLiteral(resourceName: "black")
 	var white = #imageLiteral(resourceName: "white")
 	
-	
-	
 	var movie:MovieMDB!					// Set equal upon instanciation
 	
 	override func viewDidLoad() {
@@ -98,11 +96,11 @@ class MovieController: UIViewController {
 				mpaa.addConstraint(NSLayoutConstraint(item: mpaa, attribute: NSLayoutAttribute.height, relatedBy: NSLayoutRelation.equal, toItem: mpaa, attribute: NSLayoutAttribute.width, multiplier: 0.5333333333, constant: 0))
 				mpaa.frame = CGRect(origin: mpaa.frame.origin, size: CGSize(width: 75.0, height: 40.0))
 			case "NR":
-				mpaa.image = #imageLiteral(resourceName: "MPAA_PG")
+				mpaa.image = #imageLiteral(resourceName: "MPAA_NR")
 				mpaa.addConstraint(NSLayoutConstraint(item: mpaa, attribute: NSLayoutAttribute.height, relatedBy: NSLayoutRelation.equal, toItem: mpaa, attribute: NSLayoutAttribute.width, multiplier: 0.5333333333, constant: 0))
 				mpaa.frame = CGRect(origin: mpaa.frame.origin, size: CGSize(width: 75.0, height: 40.0))
 			case "UR":
-				mpaa.image = #imageLiteral(resourceName: "MPAA_PG")
+				mpaa.image = #imageLiteral(resourceName: "MPAA_UR")
 				mpaa.addConstraint(NSLayoutConstraint(item: mpaa, attribute: NSLayoutAttribute.height, relatedBy: NSLayoutRelation.equal, toItem: mpaa, attribute: NSLayoutAttribute.width, multiplier: 0.5333333333, constant: 0))
 				mpaa.frame = CGRect(origin: mpaa.frame.origin, size: CGSize(width: 75.0, height: 40.0))
 			case "PG-13":
@@ -110,7 +108,7 @@ class MovieController: UIViewController {
 				mpaa.addConstraint(NSLayoutConstraint(item: mpaa, attribute: NSLayoutAttribute.height, relatedBy: NSLayoutRelation.equal, toItem: mpaa, attribute: NSLayoutAttribute.width, multiplier: 0.2857142857, constant: 0))
 				mpaa.frame = CGRect(origin: mpaa.frame.origin, size: CGSize(width: 141.0, height: 40.0))
 			case "NC-17":
-				mpaa.image = #imageLiteral(resourceName: "MPAA_PG13")
+				mpaa.image = #imageLiteral(resourceName: "MPAA_NC17")
 				mpaa.addConstraint(NSLayoutConstraint(item: mpaa, attribute: NSLayoutAttribute.height, relatedBy: NSLayoutRelation.equal, toItem: mpaa, attribute: NSLayoutAttribute.width, multiplier: 0.2857142857, constant: 0))
 				mpaa.frame = CGRect(origin: mpaa.frame.origin, size: CGSize(width: 141.0, height: 40.0))
 			case "R":
@@ -118,7 +116,7 @@ class MovieController: UIViewController {
 				mpaa.addConstraint(NSLayoutConstraint(item: mpaa, attribute: NSLayoutAttribute.height, relatedBy: NSLayoutRelation.equal, toItem: mpaa, attribute: NSLayoutAttribute.width, multiplier: 1.0, constant: 0))
 				mpaa.frame = CGRect(origin: mpaa.frame.origin, size: CGSize(width: 40.0, height: 40.0))
 			default:
-				mpaa.image = #imageLiteral(resourceName: "MPAA_G")
+				mpaa.image = #imageLiteral(resourceName: "MPAA_NR")
 				mpaa.addConstraint(NSLayoutConstraint(item: mpaa, attribute: NSLayoutAttribute.height, relatedBy: NSLayoutRelation.equal, toItem: mpaa, attribute: NSLayoutAttribute.width, multiplier: 1.0, constant: 0))
 				mpaa.frame = CGRect(origin: mpaa.frame.origin, size: CGSize(width: 40.0, height: 40.0))
 		}
