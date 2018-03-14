@@ -32,6 +32,9 @@ class MovieController: UIViewController {
 		// Dispose of any resources that can be recreated.
 	}
 	override var prefersStatusBarHidden: Bool{return true}
+	@IBAction func backButtonPressed(_ sender: UIBarButtonItem) {
+	}
+	
 	func setupView(){
 		//if let i = movie.image{movieImage.image = i}		// Later load asynchronously
 		if let path = movie.poster_path{

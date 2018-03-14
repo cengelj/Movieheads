@@ -150,7 +150,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="xIh-jk-xoj"/>
                     </view>
-                    <navigationItem key="navigationItem" id="zrU-Iv-PtL"/>
+                    <navigationItem key="navigationItem" id="zrU-Iv-PtL">
+                        <barButtonItem key="leftBarButtonItem" title="❮" id="7MA-BQ-XdW">
+                            <connections>
+                                <action selector="backButtonPressed:" destination="hf4-1p-3HC" id="mRD-2n-L20"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="movieBanner" destination="SzE-Hf-FbS" id="AQl-6h-wzc"/>
                         <outlet property="movieImage" destination="JZY-76-9gL" id="jTp-I0-YP1"/>
