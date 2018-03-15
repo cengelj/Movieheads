@@ -65,7 +65,13 @@
                             <outlet property="delegate" destination="tdl-kL-edA" id="f7P-eR-RgH"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="8wX-W5-xfC"/>
+                    <navigationItem key="navigationItem" id="8wX-W5-xfC">
+                        <barButtonItem key="leftBarButtonItem" title="❮" id="JS9-J7-oqJ">
+                            <connections>
+                                <action selector="backButtonPressed:" destination="rkD-Pj-v9r" id="dGO-pF-cmx"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="NCP-hJ-jkI" id="Gs0-qL-x7E"/>
                     </connections>

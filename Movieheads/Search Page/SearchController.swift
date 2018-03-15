@@ -29,7 +29,11 @@ class SearchController: UIViewController, UITableViewDelegate, UISearchBarDelega
 	override func didReceiveMemoryWarning() {
 		super.didReceiveMemoryWarning()
 	}
-	
+	@IBAction func backButtonPressed(_ sender: UIBarButtonItem) {
+		topMostController().dismiss(animated: true) {
+			// Do any disassembly or whatever
+		}
+	}
 	override var prefersStatusBarHidden: Bool{return true}
 	func searchBarTextDidEndEditing(_ searchBar: UISearchBar){
 		searchDataSource.filter(searchText: searchBar.text!, tableView: tableView)
