@@ -27,10 +27,10 @@
             </objects>
             <point key="canvasLocation" x="-754" y="129"/>
         </scene>
-        <!--View Controller-->
+        <!--Landing Screen Controller-->
         <scene sceneID="fnL-UP-Be0">
             <objects>
-                <viewController id="C32-Do-ijP" sceneMemberID="viewController">
+                <viewController id="C32-Do-ijP" customClass="LandingScreenController" customModule="Movieheads" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ch6-Al-abH">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -55,8 +55,8 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tio-Ws-tAj">
-                                                    <rect key="frame" x="8" y="10" width="107" height="30"/>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tio-Ws-tAj">
+                                                    <rect key="frame" x="0.0" y="10" width="107" height="30"/>
                                                     <state key="normal" title="Category Name"/>
                                                 </button>
                                             </subviews>
@@ -103,23 +103,18 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
-                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="HJL-Ga-ied">
-                                <rect key="frame" x="0.0" y="58" width="375" height="56"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </searchBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="c0v-ww-NFe" firstAttribute="trailing" secondItem="HJL-Ga-ied" secondAttribute="trailing" id="CuU-9B-vRd"/>
                             <constraint firstItem="c0v-ww-NFe" firstAttribute="bottom" secondItem="DvZ-CT-cIc" secondAttribute="bottom" id="UXZ-xe-sRq"/>
-                            <constraint firstItem="c0v-ww-NFe" firstAttribute="leading" secondItem="HJL-Ga-ied" secondAttribute="leading" id="YEm-Ne-XVI"/>
                             <constraint firstAttribute="trailing" secondItem="c0v-ww-NFe" secondAttribute="trailing" id="nym-wZ-juL"/>
                             <constraint firstItem="c0v-ww-NFe" firstAttribute="leading" secondItem="ch6-Al-abH" secondAttribute="leading" id="rAJ-vM-BgQ"/>
-                            <constraint firstItem="c0v-ww-NFe" firstAttribute="top" secondItem="HJL-Ga-ied" secondAttribute="bottom" id="wbx-wU-KsH"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="DvZ-CT-cIc"/>
                     </view>
-                    <navigationItem key="navigationItem" id="j99-Yh-Ktm"/>
+                    <navigationItem key="navigationItem" id="j99-Yh-Ktm">
+                        <barButtonItem key="leftBarButtonItem" systemItem="search" id="e83-ed-IDr"/>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3ob-T5-3GQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
