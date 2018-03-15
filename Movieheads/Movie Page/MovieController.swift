@@ -33,11 +33,13 @@ class MovieController: UIViewController {
 	}
 	override var prefersStatusBarHidden: Bool{return true}
 	@IBAction func backButtonPressed(_ sender: UIBarButtonItem) {
+		topMostController().dismiss(animated: true) {
+			// Cache info here?
+		}
 	}
 	
 	func setupView(){
-		//if let i = movie.image{movieImage.image = i}		// Later load asynchronously
-		if let path = movie.poster_path{
+		if let path = movie.poster_path{		//Asynchronous loading of images
 			if let param = URL(string:"https://image.tmdb.org/t/p/w300_and_h450_bestv2/\(path)"){
 				loadPoster(param)
 			}
@@ -49,7 +51,7 @@ class MovieController: UIViewController {
 		
 		}
 		
-		let blur = UIBlurEffect(style: UIBlurEffectStyle.prominent)
+		let blur = UIBlurEffect(style: UIBlurEffectStyle.prominent)	//Add blur to movie banner
 		let blurEffectView = UIVisualEffectView(effect: blur)
 		blurEffectView.alpha = 0.4
 		
@@ -60,6 +62,8 @@ class MovieController: UIViewController {
 		
 		movieBanner.tintColor = UIColor.black
 		name.text = movie.title
+		
+		//Load MPAA rating from API
 		let request = URLRequest(url: URL(string: "https://api.themoviedb.org/3/movie/\(movie.id!)/release_dates?api_key=\(APIKeys.shared.key)")!)
 		URLSession.shared.dataTask(with: request){ data, response, error in
 			if let jsonData = data,
@@ -79,15 +83,14 @@ class MovieController: UIViewController {
 							}
 							else{self.setMPAA(string: "UR")}
 						}
-						
 						break loop
 					}
 				}
-				
 			}
 			}.resume()
 		
 	}
+	//Set images for MPAA, as well as aspect ratios and size
 	func setMPAA(string:String){
 		switch(string){
 			case "G":
@@ -124,6 +127,8 @@ class MovieController: UIViewController {
 				mpaa.frame = CGRect(origin: mpaa.frame.origin, size: CGSize(width: 40.0, height: 40.0))
 		}
 	}
+	// Rating selection
+	// To-Do: Set icons and make prettier. 
 	@IBAction func valueChanged(_ sender: UISegmentedControl) {
 		for i in 0...sender.selectedSegmentIndex{
 			sender.setTitle("X", forSegmentAt: i)
@@ -134,6 +139,7 @@ class MovieController: UIViewController {
 			}
 		}
 	}
+	//Function to load banner. Maybe update to non-depreciated code?
 	func loadBanner(_ URL: Foundation.URL) {
 		let request = URLRequest(url: URL)
 		NSURLConnection.sendAsynchronousRequest(request, queue: OperationQueue.main) { response, data, error in
@@ -142,6 +148,7 @@ class MovieController: UIViewController {
 			}
 		}
 	}
+	//Function to load poster. Maybe update to non-depreciated code?
 	func loadPoster(_ URL: Foundation.URL) {
 		let request = URLRequest(url: URL)
 		NSURLConnection.sendAsynchronousRequest(request, queue: OperationQueue.main) { response, data, error in
@@ -149,5 +156,12 @@ class MovieController: UIViewController {
 				self.movieImage.image = UIImage(data: imageData)
 			}
 		}
+	}
+	func topMostController() -> UIViewController {
+		var topController: UIViewController = UIApplication.shared.keyWindow!.rootViewController!
+		while (topController.presentedViewController != nil) {
+			topController = topController.presentedViewController!
+		}
+		return topController
 	}
 }
