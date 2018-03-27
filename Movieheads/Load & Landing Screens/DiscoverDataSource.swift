@@ -13,13 +13,17 @@ import TMDBSwift
 class DiscoverDataSource: NSObject, UICollectionViewDataSource{
 	var genres:[String] = ["Action", "Horror", "Drama", "Comedy", "Science Fiction"]
 	var results = ["String":[MovieMDB]()]
-	let resultCount = 5
-	var images = [[UIImageView]]()
+	let resultCount = 20
+	var images = [[UIImage]]()
+	var collectionViews = [UICollectionView]()
 	
 	override init(){
 		super.init()
-		for genre in genres{
-			images.append([UIImageView]())
+		for number in 0..<genres.count{
+			images.append([UIImage]())
+			for i in 0..<20{
+				images[number].append(UIImage())
+			}
 		}
 	}
 	func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -27,7 +31,7 @@ class DiscoverDataSource: NSObject, UICollectionViewDataSource{
 			return genres.count*2
 		}
 		else{
-			return 5
+			return 20
 		}
 		
 	}
@@ -63,6 +67,13 @@ class DiscoverDataSource: NSObject, UICollectionViewDataSource{
 				let label = cell.viewWithTag(2) as! UILabel
 				label.text = genres[indexPath.row/2]
 				loadGenre(genre:genres[indexPath.row/2])
+				
+				if collectionViews.count < genres.count{
+					let cv = cell.viewWithTag(1) as! UICollectionView
+					cv.bounds = CGRect(origin: cv.bounds.origin, size: CGSize(width:UIScreen.main.bounds.width, height: cv.bounds.height))
+					print(cv.bounds.origin)
+					collectionViews.append(cv)
+				}
 			}
 			cell.layer.borderWidth = 0.5
 			cell.layer.borderColor = UIColor.lightGray.cgColor
@@ -76,7 +87,8 @@ class DiscoverDataSource: NSObject, UICollectionViewDataSource{
 			let image = cell.viewWithTag(1) as! UIImageView
 			
 			let value = label.text!
-			images[convertToNum(value)].append(image)
+			image.image = images[convertToNum(value)][indexPath.row]
+			//images[convertToNum(value)].append(image)
 			
 			return cell
 		}
@@ -153,11 +165,29 @@ class DiscoverDataSource: NSObject, UICollectionViewDataSource{
 	
 	func loadPoster(_ URL: Foundation.URL, _ genre: String, _ index:Int){
 		let request = URLRequest(url: URL)
-		NSURLConnection.sendAsynchronousRequest(request, queue: OperationQueue.main) { response, data, error in
-			if let imageData = data {
-				self.images[self.convertToNum(genre)][index].image = UIImage(data:imageData)
+//		NSURLConnection.sendAsynchronousRequest(request, queue: OperationQueue.main) { response, data, error in
+//			if let imageData = data {
+//				self.images[self.convertToNum(genre)][index] = UIImage(data:imageData)!
+//				if index==19{
+//					print(genre, " Loaded")
+//					self.collectionViews[self.convertToNum(genre)].reloadData()
+//				}
+//			}
+//		}
+		
+				DispatchQueue.global().async {
+					let data = try? Data(contentsOf: URL)
+					DispatchQueue.main.async {
+						if let d = data{
+							self.images[self.convertToNum(genre)][index] = UIImage(data:d)!
+						}
+						if index==19{
+							print(genre, " Loaded")
+							self.collectionViews[self.convertToNum(genre)].reloadData()
+						}
+					}
+				}
+				
 			}
-		}
-	}
 	
 }

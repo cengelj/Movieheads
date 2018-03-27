@@ -32,10 +32,10 @@ class CollectionLayout: UICollectionViewLayout {
 			let indexPath = IndexPath(item: item, section: 0)
 			var frame = CGRect()
 			if item%2==0{
-				frame = CGRect(origin: CGPoint(x: 0, y: getValue(indexPath.row)), size: CGSize(width: 375.0, height: 50.0))
+				frame = CGRect(origin: CGPoint(x: 0, y: getValue(indexPath.row)), size: CGSize(width: UIScreen.main.bounds.width, height: 50.0))
 			}
 			else{
-				frame = CGRect(origin: CGPoint(x: 0, y: getValue(indexPath.row)), size: CGSize(width: 375.0, height: 138.0))
+				frame = CGRect(origin: CGPoint(x: 0, y: getValue(indexPath.row)), size: CGSize(width: UIScreen.main.bounds.width, height: 138.0))
 			}
 			let attributes = UICollectionViewLayoutAttributes(forCellWith: indexPath)
 			attributes.frame = frame
