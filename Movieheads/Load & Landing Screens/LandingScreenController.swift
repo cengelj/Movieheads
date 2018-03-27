@@ -7,11 +7,18 @@
 //
 
 import UIKit
+import Pods_Movieheads
+import TMDBSwift
 
-class LandingScreenController: UIViewController {
+class LandingScreenController: UIViewController, UICollectionViewDelegate {
+	@IBOutlet weak var collectionView: UICollectionView!
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
+		if let layout = collectionView?.collectionViewLayout as? CollectionLayout {
+			layout.delegate = self
+		}
+		TMDBConfig.apikey = APIKeys.shared.key
 		print("loaded")
 		// Do any additional setup after loading the view, typically from a nib.
 	}
@@ -22,24 +29,11 @@ class LandingScreenController: UIViewController {
 	}
 	override var prefersStatusBarHidden: Bool{return true}
 	
-	@IBAction func toSearch(_ sender: UIButton) {
+
+	@IBAction func toSearch(_ sender: UIBarButtonItem) {
 		let storyboard = UIStoryboard(name: "Search", bundle: nil)
+		let controller = storyboard.instantiateInitialViewController()!
 		
-		let controller = storyboard.instantiateInitialViewController()!
-		//storyboard.instantiateViewController(withIdentifier: "InitialController") as! SearchController
-		self.present(controller, animated: true, completion: nil)
-		
-	}
-	@IBAction func toMovie(_ sender: UIButton) {
-		let storyboard = UIStoryboard(name: "MoviePage", bundle: nil)
-		let controller = storyboard.instantiateInitialViewController()!
-		//storyboard.instantiateViewController(withIdentifier: "Movie Controller") as! MovieController
-		self.present(controller, animated: true, completion: nil)
-	}
-	@IBAction func toLoad(_ sender: UIButton) {
-		let storyboard = UIStoryboard(name: "LaunchScreen", bundle: nil)
-		let controller = storyboard.instantiateInitialViewController()!
-		//storyboard.instantiateViewController(withIdentifier: "Load Screen Controller") as! LoadScreenController
 		self.present(controller, animated: true, completion: nil)
 	}
 	

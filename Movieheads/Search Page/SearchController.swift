@@ -17,7 +17,6 @@ class SearchController: UIViewController, UITableViewDelegate, UISearchBarDelega
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		TMDBConfig.apikey = APIKeys.shared.key
 		if let _ = tableView {		// To prevent accidental crashing while juggling view controllers
 			tableView.dataSource = searchDataSource
 			searchController.searchBar.delegate = self

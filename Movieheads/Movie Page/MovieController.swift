@@ -22,7 +22,6 @@ class MovieController: UIViewController {
 	var movie:MovieMDB!					// Set equal upon instanciation
 	
 	override func viewDidLoad() {
-
 		super.viewDidLoad()
 		setupView()
 		// Do any additional setup after loading the view, typically from a nib.
@@ -69,22 +68,27 @@ class MovieController: UIViewController {
 			if let jsonData = data,
 				let feed = (try? JSONSerialization.jsonObject(with: jsonData, options: .mutableContainers)) as? NSDictionary{
 				let results = feed.value(forKey: "results") as! NSArray
-				loop: for i in (0...results.count-1).reversed(){
-					let dict = results[i] as! NSDictionary
-					let country = dict.value(forKey: "iso_3166_1") as! NSString
-					if country == "US"{
-						let outer = dict.value(forKey: "release_dates") as! NSArray
-						let inner = outer[0] as! NSDictionary
-						let str = inner.value(forKey: "certification") as? String
-						DispatchQueue.main.async {						//Run it on the main thread as per swift guidelines
-							if let s = str {
-								if s == ""{self.setMPAA(string: "UR")}
-								else{self.setMPAA(string: s)}
+				if results.count > 0{
+					loop: for i in (0...results.count-1).reversed(){
+						let dict = results[i] as! NSDictionary
+						let country = dict.value(forKey: "iso_3166_1") as! NSString
+						if country == "US"{
+							let outer = dict.value(forKey: "release_dates") as! NSArray
+							let inner = outer[0] as! NSDictionary
+							let str = inner.value(forKey: "certification") as? String
+							DispatchQueue.main.async {						//Run it on the main thread as per swift guidelines
+								if let s = str {
+									if s == ""{self.setMPAA(string: "UR")}
+									else{self.setMPAA(string: s)}
+								}
+								else{self.setMPAA(string: "UR")}
 							}
-							else{self.setMPAA(string: "UR")}
+							break loop
 						}
-						break loop
 					}
+				}
+				else{
+					self.setMPAA(string: "UR")
 				}
 			}
 			}.resume()
