@@ -9,6 +9,7 @@
 import UIKit
 import Pods_Movieheads
 import TMDBSwift
+import ColorThiefSwift
 
 class DiscoverDataSource: NSObject, UICollectionViewDataSource, UICollectionViewDelegate{
 	var genres:[String] = ["Action", "Horror", "Drama", "Comedy", "Science Fiction"]
@@ -75,14 +76,16 @@ class DiscoverDataSource: NSObject, UICollectionViewDataSource, UICollectionView
 					collectionViews.append(cv)
 				}
 			}
-			cell.layer.borderWidth = 0.5
+			cell.layer.borderWidth = 1.0
 			cell.layer.borderColor = UIColor.lightGray.cgColor
 			
 			return cell
 		}
 		else {
 			cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MovieImage", for: indexPath)
-			cell.layer.borderWidth = 0.0
+			cell.layer.borderWidth = 1.0
+			cell.layer.borderColor = UIColor.black.cgColor
+			
 			let label = collectionView.viewWithTag(2) as! UILabel
 			let image = cell.viewWithTag(1) as! UIImageView
 			
@@ -102,8 +105,8 @@ class DiscoverDataSource: NSObject, UICollectionViewDataSource, UICollectionView
 		let storyboard = UIStoryboard(name: "MoviePage", bundle: nil)
 		let controller = storyboard.instantiateInitialViewController()!// as! MovieController
 		let sub = controller.childViewControllers[0] as! MovieController
-		sub.movie = (results[genre!])![indexPath.row]
 		
+		sub.movie = (results[genre!])![indexPath.row]
 		topMostController().present(controller, animated: true, completion: nil)
 	}
 	
@@ -181,6 +184,7 @@ class DiscoverDataSource: NSObject, UICollectionViewDataSource, UICollectionView
 			DispatchQueue.main.async {
 				if let d = data{
 					self.images[self.convertToNum(genre)][index] = UIImage(data:d)!
+					
 					self.collectionViews[self.convertToNum(genre)].reloadItems(at: [IndexPath(row: index, section:0)])
 				}
 				if index==19{

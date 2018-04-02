@@ -110,6 +110,7 @@
                                                                 <constraint firstAttribute="trailing" secondItem="b5l-0p-Vlb" secondAttribute="trailing" id="0ch-b3-chy"/>
                                                                 <constraint firstItem="b5l-0p-Vlb" firstAttribute="top" secondItem="fPb-ls-lr3" secondAttribute="top" id="9Xt-ES-68n"/>
                                                                 <constraint firstItem="b5l-0p-Vlb" firstAttribute="leading" secondItem="fPb-ls-lr3" secondAttribute="leading" id="GDX-xk-eHg"/>
+                                                                <constraint firstItem="b5l-0p-Vlb" firstAttribute="centerY" secondItem="fPb-ls-lr3" secondAttribute="centerY" id="Pyf-Au-eZh"/>
                                                                 <constraint firstAttribute="bottom" secondItem="b5l-0p-Vlb" secondAttribute="bottom" id="Vcu-4R-qLM"/>
                                                             </constraints>
                                                         </collectionViewCell>

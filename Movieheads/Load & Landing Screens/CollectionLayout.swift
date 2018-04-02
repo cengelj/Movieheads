@@ -59,25 +59,25 @@ class CollectionLayout: UICollectionViewLayout {
 	func getValue(_ input:Int) -> Int{
 		switch(input){
 			case 0:
-				return 25-25
+				return 0
 			case 1:
-				return 95-25-20-20+10+10
+				return 50
 			case 2:
-				return 240-25-20-20+10
+				return 208
 			case 3:
-				return 310-25-40-20-20+10+10
+				return 258
 			case 4:
-				return 455-25-40-20-20+10
+				return 416
 			case 5:
-				return 525-25-60-20-20-20+10+10
+				return 466
 			case 6:
-				return 670-25-60-20-20-20+10
+				return 624
 			case 7:
-				return 740-25-80-20-20-20-20+10+10
+				return 674
 			case 8:
-				return 885-25-80-20-20-20-20+10
+				return 832
 			case 9:
-				return 955-25-100-20-20-20-20-20+10+10
+				return 882
 			default:
 				return 0
 		}

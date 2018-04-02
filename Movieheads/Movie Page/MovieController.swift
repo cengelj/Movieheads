@@ -9,6 +9,7 @@
 import UIKit
 import Pods_Movieheads
 import TMDBSwift
+import ColorThiefSwift
 
 class MovieController: UIViewController {
 	@IBOutlet var movieBanner: UIImageView!
@@ -150,6 +151,22 @@ class MovieController: UIViewController {
 			DispatchQueue.main.async {
 				if let d = data{
 					self.movieBanner.image = UIImage(data: d)
+					var mainColor = ColorThief.getColor(from: UIImage(data:d)!)?.makeUIColor().withAlphaComponent(0.5)
+					var accColor = ColorThief.getPalette(from: self.movieBanner.image!, colorCount: 3)![0].makeUIColor().withAlphaComponent(0.5)
+					//accColor = accColor.colorWithBrightness(brightness:100.0)
+					mainColor = mainColor?.colorWithBrightness(brightness: 10.0)
+					
+					self.view.backgroundColor = mainColor
+					self.ratings.backgroundColor = UIColor.clear
+					print(self.ratings.subviews.count)
+					for view in self.ratings.subviews{
+						if let rating = view as? UICollectionViewCell{
+							rating.backgroundColor = accColor
+						}
+					}
+					print(self.ratings.subviews)
+					
+					self.view.reloadInputViews()
 				}
 			}
 		}
@@ -171,5 +188,20 @@ class MovieController: UIViewController {
 			topController = topController.presentedViewController!
 		}
 		return topController
+	}
+}
+
+public extension UIColor {
+	public func colorWithBrightness(brightness: CGFloat) -> UIColor {
+		var H: CGFloat = 0, S: CGFloat = 0, B: CGFloat = 0, A: CGFloat = 0
+		
+		if getHue(&H, saturation: &S, brightness: &B, alpha: &A) {
+			B += (brightness - 1.0)
+			B = max(min(B, 1.0), 0.0)
+			
+			return UIColor(hue: H, saturation: S, brightness: B, alpha: A)
+		}
+		
+		return self
 	}
 }
