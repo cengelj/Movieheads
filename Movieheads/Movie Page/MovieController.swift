@@ -145,19 +145,23 @@ class MovieController: UIViewController {
 	}
 	//Function to load banner. Maybe update to non-depreciated code?
 	func loadBanner(_ URL: Foundation.URL) {
-		let request = URLRequest(url: URL)
-		NSURLConnection.sendAsynchronousRequest(request, queue: OperationQueue.main) { response, data, error in
-			if let imageData = data {
-				self.movieBanner.image = UIImage(data: imageData)
+		DispatchQueue.global().async {
+			let data = try? Data(contentsOf: URL)
+			DispatchQueue.main.async {
+				if let d = data{
+					self.movieBanner.image = UIImage(data: d)
+				}
 			}
 		}
 	}
 	//Function to load poster. Maybe update to non-depreciated code?
 	func loadPoster(_ URL: Foundation.URL) {
-		let request = URLRequest(url: URL)
-		NSURLConnection.sendAsynchronousRequest(request, queue: OperationQueue.main) { response, data, error in
-			if let imageData = data {
-				self.movieImage.image = UIImage(data: imageData)
+		DispatchQueue.global().async {
+			let data = try? Data(contentsOf: URL)
+			DispatchQueue.main.async {
+				if let d = data{
+					self.movieImage.image = UIImage(data: d)
+				}
 			}
 		}
 	}
