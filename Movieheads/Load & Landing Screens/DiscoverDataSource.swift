@@ -10,7 +10,7 @@ import UIKit
 import Pods_Movieheads
 import TMDBSwift
 
-class DiscoverDataSource: NSObject, UICollectionViewDataSource{
+class DiscoverDataSource: NSObject, UICollectionViewDataSource, UICollectionViewDelegate{
 	var genres:[String] = ["Action", "Horror", "Drama", "Comedy", "Science Fiction"]
 	var results = ["String":[MovieMDB]()]
 	let resultCount = 20
@@ -94,6 +94,18 @@ class DiscoverDataSource: NSObject, UICollectionViewDataSource{
 		}
 		
 	}
+	func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+		let cell = collectionView.superview?.superview as! UICollectionViewCell
+		let label = cell.viewWithTag(2) as! UILabel
+		let genre = label.text
+		
+		let storyboard = UIStoryboard(name: "MoviePage", bundle: nil)
+		let controller = storyboard.instantiateInitialViewController()!// as! MovieController
+		let sub = controller.childViewControllers[0] as! MovieController
+		sub.movie = (results[genre!])![indexPath.row]
+		
+		topMostController().present(controller, animated: true, completion: nil)
+	}
 	
 	func loadGenre(genre:String){
 		var genreID = 0
@@ -164,31 +176,27 @@ class DiscoverDataSource: NSObject, UICollectionViewDataSource{
 	}
 	
 	func loadPoster(_ URL: Foundation.URL, _ genre: String, _ index:Int){
-		let request = URLRequest(url: URL)
-//		NSURLConnection.sendAsynchronousRequest(request, queue: OperationQueue.main) { response, data, error in
-//			if let imageData = data {
-//				self.images[self.convertToNum(genre)][index] = UIImage(data:imageData)!
-//				if index==19{
-//					print(genre, " Loaded")
-//					self.collectionViews[self.convertToNum(genre)].reloadData()
-//				}
-//			}
-//		}
-		
-				DispatchQueue.global().async {
-					let data = try? Data(contentsOf: URL)
-					DispatchQueue.main.async {
-						if let d = data{
-							self.images[self.convertToNum(genre)][index] = UIImage(data:d)!
-							self.collectionViews[self.convertToNum(genre)].reloadItems(at: [IndexPath(row: index, section:0)])
-						}
-						if index==19{
-							print(genre, " Loaded")
-							self.collectionViews[self.convertToNum(genre)].reloadData()
-						}
-					}
+		DispatchQueue.global().async {
+			let data = try? Data(contentsOf: URL)
+			DispatchQueue.main.async {
+				if let d = data{
+					self.images[self.convertToNum(genre)][index] = UIImage(data:d)!
+					self.collectionViews[self.convertToNum(genre)].reloadItems(at: [IndexPath(row: index, section:0)])
 				}
-				
+				if index==19{
+					print(genre, " Loaded")
+					self.collectionViews[self.convertToNum(genre)].reloadData()
+				}
 			}
+		}
+		
+	}
+	func topMostController() -> UIViewController {
+		var topController: UIViewController = UIApplication.shared.keyWindow!.rootViewController!
+		while (topController.presentedViewController != nil) {
+			topController = topController.presentedViewController!
+		}
+		return topController
+	}
 	
 }

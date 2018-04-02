@@ -116,7 +116,7 @@
                                                     </cells>
                                                     <connections>
                                                         <outlet property="dataSource" destination="aEn-np-Cfm" id="S7v-Kx-XQv"/>
-                                                        <outlet property="delegate" destination="aEn-np-Cfm" id="j6N-uL-ezL"/>
+                                                        <outlet property="delegate" destination="aEn-np-Cfm" id="kDp-J8-IpT"/>
                                                     </connections>
                                                 </collectionView>
                                             </subviews>
@@ -126,7 +126,6 @@
                                 </cells>
                                 <connections>
                                     <outlet property="dataSource" destination="aEn-np-Cfm" id="i1i-6R-V7S"/>
-                                    <outlet property="delegate" destination="VwZ-Jr-Z0z" id="LQ0-db-FqD"/>
                                 </connections>
                             </collectionView>
                         </subviews>
