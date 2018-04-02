@@ -180,6 +180,7 @@ class DiscoverDataSource: NSObject, UICollectionViewDataSource{
 					DispatchQueue.main.async {
 						if let d = data{
 							self.images[self.convertToNum(genre)][index] = UIImage(data:d)!
+							self.collectionViews[self.convertToNum(genre)].reloadItems(at: [IndexPath(row: index, section:0)])
 						}
 						if index==19{
 							print(genre, " Loaded")
