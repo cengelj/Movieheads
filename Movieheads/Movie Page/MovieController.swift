@@ -26,6 +26,10 @@ class MovieController: UIViewController {
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
+		let tap = UITapGestureRecognizer(target: self, action: #selector(MovieController.tapFunction(sender:)))
+		name.isUserInteractionEnabled = true
+		name.addGestureRecognizer(tap)
+		
 		setupView()
 		// Do any additional setup after loading the view, typically from a nib.
 	}
@@ -205,6 +209,29 @@ class MovieController: UIViewController {
 				}
 			}
 		}
+	}
+	@objc func tapFunction(sender:UITapGestureRecognizer) {
+		let firstActivityItem = movie.original_title
+		let secondActivityItem = URL(string: "https://www.themoviedb.org/movie/\(movie.id)")!
+		// If you want to put an image
+		let image = movieBanner.image!
+		
+		let activityViewController = UIActivityViewController(
+			activityItems: [firstActivityItem, secondActivityItem, image], applicationActivities: nil)
+		
+		// Anything you want to exclude
+		activityViewController.excludedActivityTypes =
+			[UIActivityType.postToWeibo,
+			UIActivityType.addToReadingList,
+			UIActivityType.assignToContact,
+			UIActivityType.openInIBooks,
+			UIActivityType.postToFlickr,
+			UIActivityType.postToTencentWeibo,
+			UIActivityType.postToVimeo,
+			UIActivityType.print,
+			UIActivityType.markupAsPDF]
+		
+		self.present(activityViewController, animated: true, completion: nil)
 	}
 	func topMostController() -> UIViewController {
 		var topController: UIViewController = UIApplication.shared.keyWindow!.rootViewController!
