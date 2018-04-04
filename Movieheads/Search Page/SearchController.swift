@@ -1,5 +1,5 @@
 //
-//   SearchController.swift
+//  SearchController.swift
 //  Movieheads
 //
 //  Created by Joseph Cengel (student LM) on 2/20/18.
