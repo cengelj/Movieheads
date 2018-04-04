@@ -211,7 +211,7 @@ class MovieController: UIViewController {
 		}
 	}
 	@objc func tapFunction(sender:UITapGestureRecognizer) {
-		let firstActivityItem = movie.original_title
+		let firstActivityItem = "\(String(describing: movie.original_title))"
 		let secondActivityItem = URL(string: "https://www.themoviedb.org/movie/\(movie.id)")!
 		// If you want to put an image
 		let image = movieBanner.image!

@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="is2-Mh-Mx6">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="HelveticaNeue.ttc">
+            <string>HelveticaNeue</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="WiQ-W3-Ip5">
+            <objects>
+                <navigationController storyboardIdentifier="FirstTime" useStoryboardIdentifierAsRestorationIdentifier="YES" id="is2-Mh-Mx6" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="j4c-UY-iyU">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="U5w-7f-XTt" kind="relationship" relationship="rootViewController" id="vox-wd-m1a"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="25g-nV-vaC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-370" y="110"/>
+        </scene>
+        <!--First Time Controller-->
+        <scene sceneID="pPW-TJ-2gB">
+            <objects>
+                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="U5w-7f-XTt" customClass="FirstTimeController" customModule="Movieheads" customModuleProvider="target" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="lmX-W0-0mb"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                </pageViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7gN-7K-y05" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <customObject id="dGd-0r-Nrg" customClass="FirstTimeController" customModule="Movieheads" customModuleProvider="target"/>
+            </objects>
+            <point key="canvasLocation" x="492" y="109"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="B7T-Lh-dVT">
+            <objects>
+                <viewController storyboardIdentifier="rating" useStoryboardIdentifierAsRestorationIdentifier="YES" id="39P-sy-yi9" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="49e-ra-XTW">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rating" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J3U-AW-mfw">
+                                <rect key="frame" x="100.5" y="284" width="174" height="70"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="60"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="J3U-AW-mfw" firstAttribute="centerX" secondItem="SRu-GX-PCJ" secondAttribute="centerX" id="RXr-tx-YHj"/>
+                            <constraint firstItem="J3U-AW-mfw" firstAttribute="centerY" secondItem="SRu-GX-PCJ" secondAttribute="centerY" id="WoQ-jU-eX6"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="SRu-GX-PCJ"/>
+                    </view>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rtS-DC-ZCN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2452" y="109"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="J1s-EF-wtO">
+            <objects>
+                <viewController storyboardIdentifier="enter" useStoryboardIdentifierAsRestorationIdentifier="YES" id="C39-NB-3Qo" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="re9-RO-jv6">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EcY-L6-zWM">
+                                <rect key="frame" x="117" y="284" width="141.5" height="70"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="60"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="EcY-L6-zWM" firstAttribute="centerY" secondItem="Cjr-Gm-Thn" secondAttribute="centerY" id="V1T-Ch-1qv"/>
+                            <constraint firstItem="EcY-L6-zWM" firstAttribute="centerX" secondItem="Cjr-Gm-Thn" secondAttribute="centerX" id="cRN-Ik-9lD"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Cjr-Gm-Thn"/>
+                    </view>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NpR-ls-AqE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3098" y="109"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="CZp-z3-OgI">
+            <objects>
+                <viewController storyboardIdentifier="genre" useStoryboardIdentifierAsRestorationIdentifier="YES" id="vW1-xM-Bb2" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="C7o-0j-1AE">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Genre" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qrb-sS-tI4">
+                                <rect key="frame" x="106.5" y="284" width="162.5" height="70"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="60"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="qrb-sS-tI4" firstAttribute="centerX" secondItem="PNy-0K-fzG" secondAttribute="centerX" id="GJg-Ki-oG9"/>
+                            <constraint firstItem="qrb-sS-tI4" firstAttribute="centerY" secondItem="PNy-0K-fzG" secondAttribute="centerY" id="fCB-vM-fjz"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="PNy-0K-fzG"/>
+                    </view>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zRf-vz-YUW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1148" y="108.39580209895054"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="7Mc-pa-Dg4">
+            <objects>
+                <viewController storyboardIdentifier="share" useStoryboardIdentifierAsRestorationIdentifier="YES" id="IfK-cN-SFH" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="12i-wL-n6f">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Share" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pyn-oR-Ifb">
+                                <rect key="frame" x="110" y="284" width="156" height="70"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="60"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="pyn-oR-Ifb" firstAttribute="centerX" secondItem="fOP-5k-KAV" secondAttribute="centerX" id="dMC-Ju-NCq"/>
+                            <constraint firstItem="pyn-oR-Ifb" firstAttribute="centerY" secondItem="fOP-5k-KAV" secondAttribute="centerY" id="sUc-7h-dBH"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="fOP-5k-KAV"/>
+                    </view>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SED-Vu-Z80" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1804" y="109"/>
+        </scene>
+    </scenes>
+</document>
