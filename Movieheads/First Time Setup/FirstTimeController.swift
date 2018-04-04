@@ -19,7 +19,7 @@ class FirstTimeController: UIPageViewController, UIPageViewControllerDelegate, U
 		if let first = pages.first{
 			setViewControllers([first], direction: UIPageViewControllerNavigationDirection.forward, animated: true, completion: nil)
 		}
-		var appearance = UIPageControl.appearance(whenContainedInInstancesOf: [UIPageViewController.self])
+		let appearance = UIPageControl.appearance(whenContainedInInstancesOf: [UIPageViewController.self])
 		appearance.pageIndicatorTintColor = UIColor.blue
 		appearance.currentPageIndicatorTintColor = UIColor.cyan
 		appearance.backgroundColor = UIColor.clear
@@ -44,6 +44,7 @@ class FirstTimeController: UIPageViewController, UIPageViewControllerDelegate, U
 	func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
 		let index = pages.index(of: viewController)! + 1
 		if index < pages.count {
+			usleep(30)
 			return pages[index]
 		}
 		else{
