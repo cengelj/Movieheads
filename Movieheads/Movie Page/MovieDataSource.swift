@@ -24,8 +24,8 @@ class MovieDataSource: NSObject, UICollectionViewDataSource{
 		else{
 			cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Rating", for: indexPath)
 		}
-		cell.layer.borderWidth = 0.5
-		cell.layer.borderColor = UIColor.lightGray.cgColor
+		cell.layer.borderWidth = 1.0
+		cell.layer.borderColor = UIColor.black.cgColor
 		
 		return cell
 	}

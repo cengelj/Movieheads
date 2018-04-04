@@ -22,6 +22,8 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ddD-gM-DlX">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="barTintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                     </navigationBar>
                     <connections>
                         <segue destination="nHl-kQ-IiJ" kind="relationship" relationship="rootViewController" id="llr-az-DlE"/>
@@ -41,7 +43,7 @@
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="aE9-8T-WhP">
                                 <rect key="frame" x="0.0" y="64" width="375" height="600"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <collectionViewLayout key="collectionViewLayout" id="KAw-NR-7mA" customClass="CollectionLayout" customModule="Movieheads" customModuleProvider="target"/>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="bottom" reuseIdentifier="Category" id="vfc-mq-onA">
@@ -54,11 +56,12 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Category" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cit-c2-vCs">
                                                     <rect key="frame" x="20" y="15" width="70" height="20"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
-                                                    <nil key="textColor"/>
+                                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                         </view>
+                                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.384490536971831" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstItem="cit-c2-vCs" firstAttribute="leading" secondItem="vfc-mq-onA" secondAttribute="leading" constant="20" id="XzP-Hm-zOt"/>
                                             <constraint firstAttribute="bottom" secondItem="cit-c2-vCs" secondAttribute="bottom" constant="15" id="uN6-ao-ftK"/>
@@ -75,7 +78,7 @@
                                                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" tag="1" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="waA-gS-HLO">
                                                     <rect key="frame" x="0.0" y="0.0" width="425" height="150"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                     <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="50" id="bRu-Fd-IuO">
                                                         <size key="itemSize" width="92" height="138"/>
                                                         <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -122,6 +125,7 @@
                                                 </collectionView>
                                             </subviews>
                                         </view>
+                                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                         <size key="customSize" width="92" height="138"/>
                                     </collectionViewCell>
                                 </cells>
@@ -130,7 +134,7 @@
                                 </connections>
                             </collectionView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="c1A-Im-Acz" firstAttribute="bottom" secondItem="aE9-8T-WhP" secondAttribute="bottom" constant="3" id="E95-sC-cLl"/>
                             <constraint firstItem="aE9-8T-WhP" firstAttribute="top" secondItem="c1A-Im-Acz" secondAttribute="top" id="jst-zR-Z2F"/>
@@ -141,6 +145,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="kE8-L9-YMZ">
                         <barButtonItem key="leftBarButtonItem" systemItem="search" id="nmT-vm-Xox">
+                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="toSearch:" destination="nHl-kQ-IiJ" id="ywA-Qg-XVf"/>
                             </connections>

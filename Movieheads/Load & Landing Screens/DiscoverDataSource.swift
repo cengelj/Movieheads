@@ -61,9 +61,12 @@ class DiscoverDataSource: NSObject, UICollectionViewDataSource, UICollectionView
 				cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Category", for: indexPath)
 				let label = cell.viewWithTag(1) as! UILabel
 				label.text = genres[indexPath.row/2]
+				cell.layer.borderWidth = 1.0
+				cell.layer.borderColor = UIColor.darkGray.cgColor
 			}
 			else{
 				cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MovieImages", for: indexPath)
+				cell.layer.borderWidth = 0.0
 				
 				let label = cell.viewWithTag(2) as! UILabel
 				label.text = genres[indexPath.row/2]
@@ -76,8 +79,6 @@ class DiscoverDataSource: NSObject, UICollectionViewDataSource, UICollectionView
 					collectionViews.append(cv)
 				}
 			}
-			cell.layer.borderWidth = 1.0
-			cell.layer.borderColor = UIColor.lightGray.cgColor
 			
 			return cell
 		}

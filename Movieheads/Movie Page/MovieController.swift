@@ -15,10 +15,12 @@ class MovieController: UIViewController {
 	@IBOutlet var movieBanner: UIImageView!
 	@IBOutlet var movieImage: UIImageView!
 	@IBOutlet var ratings:UICollectionView!
-	@IBOutlet var name:UITextView!
+	@IBOutlet var name:UILabel!
 	@IBOutlet weak var mpaa: UIImageView!
+	@IBOutlet weak var backButton: UIBarButtonItem!
 	var black = #imageLiteral(resourceName: "black")
 	var white = #imageLiteral(resourceName: "white")
+	
 	
 	var movie:MovieMDB!					// Set equal upon instanciation
 	
@@ -144,34 +146,53 @@ class MovieController: UIViewController {
 			}
 		}
 	}
-	//Function to load banner. Maybe update to non-depreciated code?
 	func loadBanner(_ URL: Foundation.URL) {
 		DispatchQueue.global().async {
 			let data = try? Data(contentsOf: URL)
 			DispatchQueue.main.async {
 				if let d = data{
+					// setting the actual image
 					self.movieBanner.image = UIImage(data: d)
-					var mainColor = ColorThief.getColor(from: UIImage(data:d)!)?.makeUIColor().withAlphaComponent(0.5)
-					var accColor = ColorThief.getPalette(from: self.movieBanner.image!, colorCount: 3)![0].makeUIColor().withAlphaComponent(0.5)
-					//accColor = accColor.colorWithBrightness(brightness:100.0)
-					mainColor = mainColor?.colorWithBrightness(brightness: 10.0)
 					
+					// Setting colors with their complements according to the image
+					var mainColor = ColorThief.getColor(from: UIImage(data:d)!)?.makeUIColor()
+					let pal = ColorThief.getPalette(from: self.movieBanner.image!, colorCount: 3)!
+					let accColor = pal[0].makeUIColor().withAlphaComponent(0.5)
+					let accColour = pal[1].makeUIColor().withAlphaComponent(0.2)
+					
+					self.name.backgroundColor = accColour
+					self.name.layer.borderColor = UIColor.black.cgColor
+					self.name.layer.borderWidth = 0.1
+					
+					
+					self.navigationController?.navigationBar.barTintColor = mainColor
+					self.backButton.tintColor = mainColor?.getComplement(color: mainColor!)
+					
+					mainColor = mainColor?.colorWithBrightness(brightness: 10.0).withAlphaComponent(0.5)
 					self.view.backgroundColor = mainColor
 					self.ratings.backgroundColor = UIColor.clear
-					print(self.ratings.subviews.count)
+					self.name.textColor = accColour.getComplement(color: accColour)
+					
+					
 					for view in self.ratings.subviews{
 						if let rating = view as? UICollectionViewCell{
 							rating.backgroundColor = accColor
+							if let label = rating.viewWithTag(1) as? UILabel{
+								label.textColor = accColor.getComplement(color: accColor)
+							}
+							else if let picker = rating.viewWithTag(2) as? UISegmentedControl{
+								picker.backgroundColor = UIColor.clear
+								picker.layer.borderWidth = 0.0
+								picker.tintColor = UIColor.black
+							}
 						}
 					}
-					print(self.ratings.subviews)
 					
 					self.view.reloadInputViews()
 				}
 			}
 		}
 	}
-	//Function to load poster. Maybe update to non-depreciated code?
 	func loadPoster(_ URL: Foundation.URL) {
 		DispatchQueue.global().async {
 			let data = try? Data(contentsOf: URL)
@@ -203,5 +224,16 @@ public extension UIColor {
 		}
 		
 		return self
+	}
+	public func getComplement(color: UIColor) -> UIColor {
+		
+		let ciColor = CIColor(color: color)
+		
+		// get the current values and make the difference from white:
+		let compRed: CGFloat = 1.0 - ciColor.red
+		let compGreen: CGFloat = 1.0 - ciColor.green
+		let compBlue: CGFloat = 1.0 - ciColor.blue
+		
+		return UIColor(red: compRed, green: compGreen, blue: compBlue, alpha: 1.0)
 	}
 }

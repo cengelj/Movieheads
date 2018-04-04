@@ -23,6 +23,9 @@ class SearchController: UIViewController, UITableViewDelegate, UISearchBarDelega
 			searchController.dimsBackgroundDuringPresentation = false
 			definesPresentationContext = true
 			tableView.tableHeaderView = searchController.searchBar
+			searchController.searchBar.barTintColor = UIColor.darkGray
+			tableView.backgroundColor = UIColor.darkGray
+			UIBarButtonItem.appearance(whenContainedInInstancesOf: [UISearchBar.self]).setTitleTextAttributes([NSAttributedStringKey(rawValue: NSAttributedStringKey.foregroundColor.rawValue): UIColor.white], for: .normal)
 		}
 	}
 	override func didReceiveMemoryWarning() {
