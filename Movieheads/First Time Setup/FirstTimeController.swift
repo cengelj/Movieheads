@@ -25,12 +25,15 @@ class FirstTimeController: UIPageViewController, UIPageViewControllerDelegate, U
 		appearance.backgroundColor = UIColor.clear
 		appearance.tintColor = UIColor.clear
 		self.view.backgroundColor = UIColor.clear
+		self.navigationController?.hidesBarsOnTap = true
 		//Check if first time setup
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
+	override var prefersStatusBarHidden: Bool{return true}
+	
 	func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
 		let index = pages.index(of: viewController)! - 1
 		if index >= 0 {
