@@ -9,10 +9,10 @@
 import UIKit
 
 class GenreController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
-
 	@IBOutlet weak var collectionView: UICollectionView!
 	let genres:[String] = ["Action", "Adventure", "Animation", "Comedy", "Crime", "Documentary", "Drama", "Family", "History", "Horror", "Mystery", "Romance", "Science Fiction", "TV Movie", "Thriller", "War", "Western"]
 	var selectedGenres = [String]()
+	
 	override func viewDidLoad() {
         super.viewDidLoad()
 		collectionView.delegate = self

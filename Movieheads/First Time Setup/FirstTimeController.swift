@@ -10,6 +10,7 @@ import UIKit
 
 class FirstTimeController: UIPageViewController, UIPageViewControllerDelegate, UIPageViewControllerDataSource {
 	var pages = [UIViewController]()
+	var genreController:GenreController!
 	override func viewDidLoad() {
         super.viewDidLoad()
 		self.dataSource = self
@@ -46,6 +47,15 @@ class FirstTimeController: UIPageViewController, UIPageViewControllerDelegate, U
 	
 	func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
 		let index = pages.index(of: viewController)! + 1
+		if index - 1 == 0{
+			let vc = viewController as! GenreController
+			if vc.selectedGenres.count < 3{
+				return nil
+			}
+			else{
+				genreController = vc
+			}
+		}
 		if index < pages.count {
 			usleep(30)
 			return pages[index]
@@ -58,6 +68,9 @@ class FirstTimeController: UIPageViewController, UIPageViewControllerDelegate, U
 	func finished(){
 		let storyboard = UIStoryboard(name: "Main", bundle: nil)
 		let controller = storyboard.instantiateInitialViewController()!
+		let sub = controller.childViewControllers[0] as! LandingScreenController
+
+		sub.genres = genreController.selectedGenres
 		
 		self.present(controller, animated: true, completion: nil)
 	}

@@ -12,12 +12,16 @@ import TMDBSwift
 
 class LandingScreenController: UIViewController, UICollectionViewDelegate {
 	@IBOutlet weak var collectionView: UICollectionView!
-	
+	var genres:[String]!
 	override func viewDidLoad() {
 		super.viewDidLoad()
+		
 		if let layout = collectionView?.collectionViewLayout as? CollectionLayout {
 			layout.delegate = self
 		}
+		let source = collectionView.dataSource as! DiscoverDataSource
+		source.genres = self.genres
+		
 		TMDBConfig.apikey = APIKeys.shared.key
 		print("loaded")
 		// Do any additional setup after loading the view, typically from a nib.

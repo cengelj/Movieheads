@@ -22,7 +22,7 @@ class DiscoverDataSource: NSObject, UICollectionViewDataSource, UICollectionView
 		super.init()
 		for number in 0..<genres.count{
 			images.append([UIImage]())
-			for i in 0..<20{
+			for _ in 0..<resultCount{
 				images[number].append(UIImage())
 			}
 		}
@@ -38,17 +38,16 @@ class DiscoverDataSource: NSObject, UICollectionViewDataSource, UICollectionView
 	}
 	func convertToNum(_ string:String) -> Int{
 		var genreID = 0
+		//ToFix
 		switch(string){
-			case "Action":
+			case genres[0]:
 				genreID = 0
-			case "Horror":
+			case genres[1]:
 				genreID = 1
-			case "Drama":
+			case genres[2]:
 				genreID = 2
-			case "Comedy":
+			case genres[3]:
 				genreID = 3
-			case "Science Fiction":
-				genreID = 4
 			default:
 				genreID = 0
 		}
