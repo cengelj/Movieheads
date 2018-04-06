@@ -15,6 +15,7 @@ class GenreController: UIViewController, UICollectionViewDelegate, UICollectionV
 	
 	override func viewDidLoad() {
         super.viewDidLoad()
+
 		collectionView.delegate = self
 		collectionView.dataSource = self
 		self.navigationController?.barHideOnTapGestureRecognizer.isEnabled = false

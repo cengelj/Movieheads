@@ -27,7 +27,6 @@ class FirstTimeController: UIPageViewController, UIPageViewControllerDelegate, U
 		appearance.tintColor = UIColor.clear
 		self.view.backgroundColor = UIColor.clear
 		self.navigationController?.hidesBarsOnTap = true
-		//Check if first time setup
     }
 
     override func didReceiveMemoryWarning() {
@@ -49,8 +48,28 @@ class FirstTimeController: UIPageViewController, UIPageViewControllerDelegate, U
 		let index = pages.index(of: viewController)! + 1
 		if index - 1 == 0{
 			let vc = viewController as! GenreController
-			if vc.selectedGenres.count < 3{
-				return nil
+			genreController = vc
+			if vc.selectedGenres.count == 0{
+				let alert = UIAlertController(title: "Genre Selection", message: "You haven't selected any genres, four default genres will be used if you don't select some. This can be changed in the settings", preferredStyle: .alert)
+				
+				alert.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
+				
+				self.present(alert, animated: true)
+				viewController.view.reloadInputViews()
+				return pages[index]
+			}
+			else if vc.selectedGenres.count < 3 {
+				var word = "genres"
+				if vc.selectedGenres.count == 1{
+					word = "genre"
+				}
+				let alert = UIAlertController(title: "Genre Selection", message: "You have only selected \(vc.selectedGenres.count) \(word). You can select up to four genres to display on the home screen.", preferredStyle: .alert)
+				
+				alert.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
+				
+				self.present(alert, animated: true)
+				viewController.view.reloadInputViews()
+				return pages[index]
 			}
 			else{
 				genreController = vc
@@ -69,8 +88,11 @@ class FirstTimeController: UIPageViewController, UIPageViewControllerDelegate, U
 		let storyboard = UIStoryboard(name: "Main", bundle: nil)
 		let controller = storyboard.instantiateInitialViewController()!
 		let sub = controller.childViewControllers[0] as! LandingScreenController
-
-		sub.genres = genreController.selectedGenres
+		
+		if !genreController.selectedGenres.isEmpty{
+			sub.genres = genreController.selectedGenres
+		}
+		
 		
 		self.present(controller, animated: true, completion: nil)
 	}

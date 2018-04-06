@@ -12,7 +12,7 @@ import TMDBSwift
 import ColorThiefSwift
 
 class DiscoverDataSource: NSObject, UICollectionViewDataSource, UICollectionViewDelegate{
-	var genres:[String] = ["Action", "Horror", "Drama", "Comedy", "Science Fiction"]
+	var genres:[String] = ["Action", "Horror", "Drama", "Comedy"]
 	var results = ["String":[MovieMDB]()]
 	let resultCount = 20
 	var images = [[UIImage]]()

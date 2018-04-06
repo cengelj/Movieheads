@@ -53,8 +53,7 @@ class MovieController: UIViewController {
 		if let path = movie.backdrop_path{
 			if let param = URL(string:"https://image.tmdb.org/t/p/w780/\(path)"){
 				loadBanner(param)
-		}
-		
+			}
 		}
 		
 		let blur = UIBlurEffect(style: UIBlurEffectStyle.prominent)	//Add blur to movie banner

@@ -12,7 +12,7 @@ import TMDBSwift
 
 class LandingScreenController: UIViewController, UICollectionViewDelegate {
 	@IBOutlet weak var collectionView: UICollectionView!
-	var genres:[String]!
+	var genres:[String] = ["Action", "Horror", "Drama", "Comedy"]
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
