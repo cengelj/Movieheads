@@ -20,6 +20,7 @@ class LandingScreenController: UIViewController, UICollectionViewDelegate {
 			layout.delegate = self
 		}
 		let source = collectionView.dataSource as! DiscoverDataSource
+		self.genres.sort()
 		source.genres = self.genres
 		
 		TMDBConfig.apikey = APIKeys.shared.key

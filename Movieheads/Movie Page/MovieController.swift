@@ -165,7 +165,8 @@ class MovieController: UIViewController {
 					let accColour = pal[1].makeUIColor().withAlphaComponent(0.2)
 					
 					self.name.backgroundColor = accColour
-					let attributes = [NSAttributedStringKey.strokeWidth: -1.0, NSAttributedStringKey.strokeColor : UIColor.black, NSAttributedStringKey.foregroundColor:accColor.getComplement(color: accColour.getComplement(color: accColour).withAlphaComponent(1.0)), NSAttributedStringKey.font : self.name.font] as [NSAttributedStringKey : Any]
+					//accColor.getComplement(color: accColour.getComplement(color: accColour).withAlphaComponent(1.0))
+					let attributes = [NSAttributedStringKey.strokeWidth: -0.5, NSAttributedStringKey.strokeColor : UIColor.black, NSAttributedStringKey.foregroundColor:UIColor.white, NSAttributedStringKey.font : self.name.font] as [NSAttributedStringKey : Any]
 					self.name.attributedText = NSAttributedString(string: self.name.text!, attributes: attributes)
 					self.name.layer.borderColor = UIColor.black.cgColor
 					self.name.layer.borderWidth = 0.1
@@ -177,8 +178,7 @@ class MovieController: UIViewController {
 					mainColor = mainColor?.colorWithBrightness(brightness: 2.5).withAlphaComponent(0.3)
 					self.view.backgroundColor = mainColor
 					self.ratings.backgroundColor = UIColor.clear
-					self.name.textColor = accColour.getComplement(color: accColour).withAlphaComponent(1.0)
-					
+					//self.name.textColor = accColour.getComplement(color: accColour).withAlphaComponent(1.0)
 					for view in self.ratings.subviews{
 						if let rating = view as? UICollectionViewCell{
 							rating.backgroundColor = accColor
@@ -190,6 +190,7 @@ class MovieController: UIViewController {
 							else if let picker = rating.viewWithTag(2) as? UISegmentedControl{
 								picker.backgroundColor = UIColor.clear
 								picker.layer.borderWidth = 0.0
+								//To-Do: Make it clear once we have icons.
 								picker.tintColor = accColor.getComplement(color: accColor)
 							}
 						}
