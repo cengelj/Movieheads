@@ -16,6 +16,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 	func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
 		// Override point for customization after application launch.
+		if let array = UserDefaults.standard.array(forKey: "genres") as? [String] {
+			let storyboard = UIStoryboard(name: "Main", bundle: nil)
+			let controller = storyboard.instantiateInitialViewController()!
+			let sub = controller.childViewControllers[0] as! LandingScreenController
+			sub.genres = array
+			
+			let appDelegate = UIApplication.shared.delegate as! AppDelegate
+			appDelegate.window = UIWindow(frame: UIScreen.main.bounds)
+			
+			appDelegate.window?.rootViewController = controller
+			appDelegate.window?.makeKeyAndVisible()
+		}
+		else{
+			let storyboard = UIStoryboard(name: "FirstTime", bundle: nil)
+			let controller = storyboard.instantiateInitialViewController()!
+			
+			let appDelegate = UIApplication.shared.delegate as! AppDelegate
+			appDelegate.window = UIWindow(frame: UIScreen.main.bounds)
+			
+			appDelegate.window?.rootViewController = controller
+			appDelegate.window?.makeKeyAndVisible()
+		}
+		
 		return true
 	}
 

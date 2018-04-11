@@ -13,14 +13,6 @@ class FirstTimeController: UIPageViewController, UIPageViewControllerDelegate, U
 	var genreController:GenreController!
 	override func viewDidLoad() {
         super.viewDidLoad()
-		if let array = UserDefaults.standard.array(forKey: "genres") as? [String] {
-			let storyboard = UIStoryboard(name: "Main", bundle: nil)
-			let controller = storyboard.instantiateInitialViewController()!
-			let sub = controller.childViewControllers[0] as! LandingScreenController
-			
-			sub.genres = array
-			self.present(controller, animated: true, completion: nil)
-		}
 		self.dataSource = self
 		self.delegate = self
 		
