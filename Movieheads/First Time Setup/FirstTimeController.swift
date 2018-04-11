@@ -13,6 +13,14 @@ class FirstTimeController: UIPageViewController, UIPageViewControllerDelegate, U
 	var genreController:GenreController!
 	override func viewDidLoad() {
         super.viewDidLoad()
+		if let array = UserDefaults.standard.array(forKey: "genres") as? [String] {
+			let storyboard = UIStoryboard(name: "Main", bundle: nil)
+			let controller = storyboard.instantiateInitialViewController()!
+			let sub = controller.childViewControllers[0] as! LandingScreenController
+			
+			sub.genres = array
+			self.present(controller, animated: true, completion: nil)
+		}
 		self.dataSource = self
 		self.delegate = self
 		
@@ -25,7 +33,7 @@ class FirstTimeController: UIPageViewController, UIPageViewControllerDelegate, U
 		appearance.currentPageIndicatorTintColor = UIColor.cyan
 		appearance.backgroundColor = UIColor.clear
 		appearance.tintColor = UIColor.clear
-		self.view.backgroundColor = UIColor.clear
+		
 		self.navigationController?.hidesBarsOnTap = true
     }
 
@@ -91,8 +99,12 @@ class FirstTimeController: UIPageViewController, UIPageViewControllerDelegate, U
 		
 		if !genreController.selectedGenres.isEmpty{
 			sub.genres = genreController.selectedGenres
+			UserDefaults.standard.set(genreController.selectedGenres, forKey: "genres")
 		}
-		
+		else{
+			UserDefaults.standard.set(sub.genres, forKey: "genres")
+		}
+		UserDefaults.standard.synchronize()
 		
 		self.present(controller, animated: true, completion: nil)
 	}
