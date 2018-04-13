@@ -56,16 +56,16 @@ class MovieController: UIViewController {
 			}
 		}
 		
-		let blur = UIBlurEffect(style: UIBlurEffectStyle.prominent)	//Add blur to movie banner
+		let blur = UIBlurEffect(style: .regular)	//Add blur to movie banner
 		let blurEffectView = UIVisualEffectView(effect: blur)
-		blurEffectView.alpha = 0.4
+		blurEffectView.alpha = 0.7
 		
 		blurEffectView.frame = movieBanner.bounds
 		blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
 		movieBanner.addSubview(blurEffectView)
 		
 		
-		movieBanner.tintColor = UIColor.black
+		//movieBanner.tintColor = UIColor.black
 		name.text = movie.title
 		
 		//Load MPAA rating from API
@@ -189,7 +189,7 @@ class MovieController: UIViewController {
 							else if let picker = rating.viewWithTag(2) as? UISegmentedControl{
 								picker.backgroundColor = UIColor.clear
 								picker.layer.borderWidth = 0.0
-								//To-Do: Make it clear once we have icons.
+								// To-Do: Make it clear once we have icons.
 								picker.tintColor = accColor.getComplement(color: accColor)
 							}
 						}

@@ -27,7 +27,7 @@
                                 <rect key="frame" x="192" y="521" width="167" height="126"/>
                             </imageView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="This product uses the TMDb API but is not endorsed or certified by TMDb." textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5W6-sh-sSW">
-                                <rect key="frame" x="16" y="561" width="156" height="86"/>
+                                <rect key="frame" x="16" y="551" width="156" height="96"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="Georgia" family="Georgia" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -43,7 +43,7 @@
                             <constraint firstItem="xfi-UN-TUE" firstAttribute="leading" secondItem="5W6-sh-sSW" secondAttribute="trailing" constant="20" id="5Xa-Nv-brS"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="5W6-sh-sSW" secondAttribute="bottom" constant="20" id="9pn-Db-qDN"/>
                             <constraint firstItem="FUa-UR-J7r" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="126" id="IQT-mR-usH"/>
-                            <constraint firstItem="5W6-sh-sSW" firstAttribute="top" secondItem="FUa-UR-J7r" secondAttribute="bottom" constant="40" id="KGm-Id-9ra"/>
+                            <constraint firstItem="5W6-sh-sSW" firstAttribute="top" secondItem="FUa-UR-J7r" secondAttribute="bottom" constant="30" id="KGm-Id-9ra"/>
                             <constraint firstItem="xfi-UN-TUE" firstAttribute="top" secondItem="FUa-UR-J7r" secondAttribute="bottom" id="M8B-ju-Ash"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="FUa-UR-J7r" secondAttribute="trailing" id="Sv7-Fn-ooA"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="xfi-UN-TUE" secondAttribute="trailing" constant="16" id="fmx-U7-tEC"/>
