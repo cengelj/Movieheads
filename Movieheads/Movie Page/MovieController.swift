@@ -203,7 +203,7 @@ class MovieController: UIViewController {
 					print("Colors set")
 					// Blurring the banner
 					let cimage = CIImage(data:d)
-					let blurredImage = cimage?.applyingGaussianBlur(sigma: 10.0)
+					let blurredImage = cimage?.applyingGaussianBlur(sigma: 5.0)
 					
 					let croppedImage = blurredImage?.cropped(to: (cimage?.extent)!)
 					
