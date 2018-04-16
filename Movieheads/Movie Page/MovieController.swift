@@ -22,8 +22,7 @@ class MovieController: UIViewController {
 	var black = #imageLiteral(resourceName: "black")
 	var white = #imageLiteral(resourceName: "white")
 	
-	
-	var movie:MovieMDB!					// Set equal upon instanciation
+	var movie:MovieMDB!					// Set equal upon instantiation
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -56,19 +55,6 @@ class MovieController: UIViewController {
 				loadBanner(param)
 			}
 		}
-		
-//		let blur = UIBlurEffect(style: .light)	//Add blur to movie banner
-//		let blurEffectView = UIVisualEffectView(effect: blur)
-//		blurEffectView.alpha = 0.7
-//
-//		blurEffectView.frame = movieBanner.bounds
-//		blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-//		blurEffectView.translatesAutoresizingMaskIntoConstraints = false
-//		movieBanner.backgroundColor = UIColor.clear
-//		movieBanner.insertSubview(blurEffectView, at: 0)
-		
-		
-		//movieBanner.tintColor = UIColor.black
 		name.text = movie.title
 		
 		//Load MPAA rating from API
@@ -106,42 +92,42 @@ class MovieController: UIViewController {
 	//Set images for MPAA, as well as aspect ratios and size
 	func setMPAA(string:String){
 		switch(string){
-			case "G":
-				mpaa.image = #imageLiteral(resourceName: "MPAA_G")
-				mpaa.addConstraint(NSLayoutConstraint(item: mpaa, attribute: NSLayoutAttribute.height, relatedBy: NSLayoutRelation.equal, toItem: mpaa, attribute: NSLayoutAttribute.width, multiplier: 1.0, constant: 0))
-				mpaa.frame = CGRect(origin: mpaa.frame.origin, size: CGSize(width: 40.0, height: 40.0))
-			case "PG":
-				mpaa.image = #imageLiteral(resourceName: "MPAA_PG")
-				mpaa.addConstraint(NSLayoutConstraint(item: mpaa, attribute: NSLayoutAttribute.height, relatedBy: NSLayoutRelation.equal, toItem: mpaa, attribute: NSLayoutAttribute.width, multiplier: 0.5333333333, constant: 0))
-				mpaa.frame = CGRect(origin: mpaa.frame.origin, size: CGSize(width: 75.0, height: 40.0))
-			case "NR":
-				mpaa.image = #imageLiteral(resourceName: "MPAA_NR")
-				mpaa.addConstraint(NSLayoutConstraint(item: mpaa, attribute: NSLayoutAttribute.height, relatedBy: NSLayoutRelation.equal, toItem: mpaa, attribute: NSLayoutAttribute.width, multiplier: 0.5333333333, constant: 0))
-				mpaa.frame = CGRect(origin: mpaa.frame.origin, size: CGSize(width: 75.0, height: 40.0))
-			case "UR":
-				mpaa.image = #imageLiteral(resourceName: "MPAA_UR")
-				mpaa.addConstraint(NSLayoutConstraint(item: mpaa, attribute: NSLayoutAttribute.height, relatedBy: NSLayoutRelation.equal, toItem: mpaa, attribute: NSLayoutAttribute.width, multiplier: 0.5333333333, constant: 0))
-				mpaa.frame = CGRect(origin: mpaa.frame.origin, size: CGSize(width: 75.0, height: 40.0))
-			case "PG-13":
-				mpaa.image = #imageLiteral(resourceName: "MPAA_PG13")
-				mpaa.addConstraint(NSLayoutConstraint(item: mpaa, attribute: NSLayoutAttribute.height, relatedBy: NSLayoutRelation.equal, toItem: mpaa, attribute: NSLayoutAttribute.width, multiplier: 0.2857142857, constant: 0))
-				mpaa.frame = CGRect(origin: mpaa.frame.origin, size: CGSize(width: 141.0, height: 40.0))
-			case "NC-17":
-				mpaa.image = #imageLiteral(resourceName: "MPAA_NC17")
-				mpaa.addConstraint(NSLayoutConstraint(item: mpaa, attribute: NSLayoutAttribute.height, relatedBy: NSLayoutRelation.equal, toItem: mpaa, attribute: NSLayoutAttribute.width, multiplier: 0.2857142857, constant: 0))
-				mpaa.frame = CGRect(origin: mpaa.frame.origin, size: CGSize(width: 141.0, height: 40.0))
-			case "R":
-				mpaa.image = #imageLiteral(resourceName: "MPAA_R")
-				mpaa.addConstraint(NSLayoutConstraint(item: mpaa, attribute: NSLayoutAttribute.height, relatedBy: NSLayoutRelation.equal, toItem: mpaa, attribute: NSLayoutAttribute.width, multiplier: 1.0, constant: 0))
-				mpaa.frame = CGRect(origin: mpaa.frame.origin, size: CGSize(width: 40.0, height: 40.0))
-			default:
-				mpaa.image = #imageLiteral(resourceName: "MPAA_NR")
-				mpaa.addConstraint(NSLayoutConstraint(item: mpaa, attribute: NSLayoutAttribute.height, relatedBy: NSLayoutRelation.equal, toItem: mpaa, attribute: NSLayoutAttribute.width, multiplier: 1.0, constant: 0))
-				mpaa.frame = CGRect(origin: mpaa.frame.origin, size: CGSize(width: 40.0, height: 40.0))
+		case "G":
+			mpaa.image = #imageLiteral(resourceName: "MPAA_G")
+			mpaa.addConstraint(NSLayoutConstraint(item: mpaa, attribute: NSLayoutAttribute.height, relatedBy: NSLayoutRelation.equal, toItem: mpaa, attribute: NSLayoutAttribute.width, multiplier: 1.0, constant: 0))
+			mpaa.frame = CGRect(origin: mpaa.frame.origin, size: CGSize(width: 40.0, height: 40.0))
+		case "PG":
+			mpaa.image = #imageLiteral(resourceName: "MPAA_PG")
+			mpaa.addConstraint(NSLayoutConstraint(item: mpaa, attribute: NSLayoutAttribute.height, relatedBy: NSLayoutRelation.equal, toItem: mpaa, attribute: NSLayoutAttribute.width, multiplier: 0.5333333333, constant: 0))
+			mpaa.frame = CGRect(origin: mpaa.frame.origin, size: CGSize(width: 75.0, height: 40.0))
+		case "NR":
+			mpaa.image = #imageLiteral(resourceName: "MPAA_NR")
+			mpaa.addConstraint(NSLayoutConstraint(item: mpaa, attribute: NSLayoutAttribute.height, relatedBy: NSLayoutRelation.equal, toItem: mpaa, attribute: NSLayoutAttribute.width, multiplier: 0.5333333333, constant: 0))
+			mpaa.frame = CGRect(origin: mpaa.frame.origin, size: CGSize(width: 75.0, height: 40.0))
+		case "UR":
+			mpaa.image = #imageLiteral(resourceName: "MPAA_UR")
+			mpaa.addConstraint(NSLayoutConstraint(item: mpaa, attribute: NSLayoutAttribute.height, relatedBy: NSLayoutRelation.equal, toItem: mpaa, attribute: NSLayoutAttribute.width, multiplier: 0.5333333333, constant: 0))
+			mpaa.frame = CGRect(origin: mpaa.frame.origin, size: CGSize(width: 75.0, height: 40.0))
+		case "PG-13":
+			mpaa.image = #imageLiteral(resourceName: "MPAA_PG13")
+			mpaa.addConstraint(NSLayoutConstraint(item: mpaa, attribute: NSLayoutAttribute.height, relatedBy: NSLayoutRelation.equal, toItem: mpaa, attribute: NSLayoutAttribute.width, multiplier: 0.2857142857, constant: 0))
+			mpaa.frame = CGRect(origin: mpaa.frame.origin, size: CGSize(width: 141.0, height: 40.0))
+		case "NC-17":
+			mpaa.image = #imageLiteral(resourceName: "MPAA_NC17")
+			mpaa.addConstraint(NSLayoutConstraint(item: mpaa, attribute: NSLayoutAttribute.height, relatedBy: NSLayoutRelation.equal, toItem: mpaa, attribute: NSLayoutAttribute.width, multiplier: 0.2857142857, constant: 0))
+			mpaa.frame = CGRect(origin: mpaa.frame.origin, size: CGSize(width: 141.0, height: 40.0))
+		case "R":
+			mpaa.image = #imageLiteral(resourceName: "MPAA_R")
+			mpaa.addConstraint(NSLayoutConstraint(item: mpaa, attribute: NSLayoutAttribute.height, relatedBy: NSLayoutRelation.equal, toItem: mpaa, attribute: NSLayoutAttribute.width, multiplier: 1.0, constant: 0))
+			mpaa.frame = CGRect(origin: mpaa.frame.origin, size: CGSize(width: 40.0, height: 40.0))
+		default:
+			mpaa.image = #imageLiteral(resourceName: "MPAA_NR")
+			mpaa.addConstraint(NSLayoutConstraint(item: mpaa, attribute: NSLayoutAttribute.height, relatedBy: NSLayoutRelation.equal, toItem: mpaa, attribute: NSLayoutAttribute.width, multiplier: 1.0, constant: 0))
+			mpaa.frame = CGRect(origin: mpaa.frame.origin, size: CGSize(width: 40.0, height: 40.0))
 		}
 	}
 	// Rating selection
-	// To-Do: Set icons and make prettier. 
+	// To-Do: Set icons and make prettier.
 	@IBAction func valueChanged(_ sender: UISegmentedControl) {
 		for i in 0...sender.selectedSegmentIndex{
 			sender.setTitle("X", forSegmentAt: i)
@@ -225,23 +211,23 @@ class MovieController: UIViewController {
 		
 		let firstActivityItem = "\(String(describing: movie.original_title))"
 		let secondActivityItem = URL(string: "https://www.themoviedb.org/movie/\(movie.id)")!
-
+		
 		let image = movieBanner.image!
-
+		
 		let activityViewController = UIActivityViewController(
 			activityItems: [firstActivityItem, secondActivityItem, image], applicationActivities: nil)
-
+		
 		activityViewController.excludedActivityTypes =
 			[UIActivityType.postToWeibo,
-			UIActivityType.addToReadingList,
-			UIActivityType.assignToContact,
-			UIActivityType.openInIBooks,
-			UIActivityType.postToFlickr,
-			UIActivityType.postToTencentWeibo,
-			UIActivityType.postToVimeo,
-			UIActivityType.print,
-			UIActivityType.markupAsPDF]
-
+			 UIActivityType.addToReadingList,
+			 UIActivityType.assignToContact,
+			 UIActivityType.openInIBooks,
+			 UIActivityType.postToFlickr,
+			 UIActivityType.postToTencentWeibo,
+			 UIActivityType.postToVimeo,
+			 UIActivityType.print,
+			 UIActivityType.markupAsPDF]
+		
 		self.present(activityViewController, animated: true, completion: nil)
 	}
 	func topMostController() -> UIViewController {
@@ -278,3 +264,4 @@ public extension UIColor {
 		return UIColor(red: compRed, green: compGreen, blue: compBlue, alpha: 1.0)
 	}
 }
+
