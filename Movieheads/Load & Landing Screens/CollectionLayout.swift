@@ -9,7 +9,7 @@
 import UIKit
 
 class CollectionLayout: UICollectionViewLayout {
-	weak var delegate:LandingScreenController!
+	weak var delegate:LandingScreenController! // check for deletion
 	fileprivate var numberOfColumns = 1
 	fileprivate var cellPadding: CGFloat = 2.0
 	fileprivate var cache = [UICollectionViewLayoutAttributes]()

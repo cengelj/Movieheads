@@ -6,6 +6,8 @@
 //  Copyright © 2018 Joseph Cengel (student LM). All rights reserved.
 //
 
+// might deprecate
+
 import UIKit
 
 class LoadScreenController: UIViewController {

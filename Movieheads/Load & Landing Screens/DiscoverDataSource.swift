@@ -6,6 +6,8 @@
 //  Copyright © 2018 Joseph Cengel (student LM). All rights reserved.
 //
 
+// no spaghet
+
 import UIKit
 import Pods_Movieheads
 import TMDBSwift
@@ -27,6 +29,7 @@ class DiscoverDataSource: NSObject, UICollectionViewDataSource, UICollectionView
 			}
 		}
 	}
+    
 	func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
 		if collectionView.tag==0{
 			return genres.count*2
@@ -36,6 +39,7 @@ class DiscoverDataSource: NSObject, UICollectionViewDataSource, UICollectionView
 		}
 		
 	}
+    
 	func convertToNum(_ string:String) -> Int{
 		var genreID = 0
 		//ToFix
@@ -53,6 +57,7 @@ class DiscoverDataSource: NSObject, UICollectionViewDataSource, UICollectionView
 		}
 		return genreID
 	}
+    
 	func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 		var cell:UICollectionViewCell
 		if collectionView.tag == 0{
@@ -78,8 +83,6 @@ class DiscoverDataSource: NSObject, UICollectionViewDataSource, UICollectionView
 					collectionViews.append(cv)
 				}
 			}
-			
-			return cell
 		}
 		else {
 			cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MovieImage", for: indexPath)
@@ -91,12 +94,11 @@ class DiscoverDataSource: NSObject, UICollectionViewDataSource, UICollectionView
 			
 			let value = label.text!
 			image.image = images[convertToNum(value)][indexPath.row]
-			//images[convertToNum(value)].append(image)
-			
-			return cell
 		}
+        return cell
 		
 	}
+    
 	func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
 		let cell = collectionView.superview?.superview as! UICollectionViewCell
 		let label = cell.viewWithTag(2) as! UILabel
@@ -162,6 +164,7 @@ class DiscoverDataSource: NSObject, UICollectionViewDataSource, UICollectionView
 			}
 		}
 	}
+    
 	func loadMovies(genre:String){
 		let movies = results[genre]
 		var count = 0
@@ -188,13 +191,13 @@ class DiscoverDataSource: NSObject, UICollectionViewDataSource, UICollectionView
 					self.collectionViews[self.convertToNum(genre)].reloadItems(at: [IndexPath(row: index, section:0)])
 				}
 				if index==19{
-					print(genre, " Loaded")
 					self.collectionViews[self.convertToNum(genre)].reloadData()
 				}
 			}
 		}
 		
 	}
+    
 	func topMostController() -> UIViewController {
 		var topController: UIViewController = UIApplication.shared.keyWindow!.rootViewController!
 		while (topController.presentedViewController != nil) {

@@ -6,6 +6,8 @@
 //  Copyright © 2018 Joseph Cengel (student LM). All rights reserved.
 //
 
+// no spaghet
+
 import UIKit
 import Pods_Movieheads
 import TMDBSwift
@@ -24,7 +26,6 @@ class LandingScreenController: UIViewController, UICollectionViewDelegate {
 		source.genres = self.genres
 		
 		TMDBConfig.apikey = APIKeys.shared.key
-		print("loaded")
 		// Do any additional setup after loading the view, typically from a nib.
 	}
 	

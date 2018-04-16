@@ -6,6 +6,8 @@
 //  Copyright © 2018 Joseph Cengel (student LM). All rights reserved.
 //
 
+// no spaghet
+
 import UIKit
 
 class SettingsController: UIViewController {
