@@ -46,6 +46,7 @@ class FirstTimeController: UIPageViewController, UIPageViewControllerDelegate, U
 	
 	func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
 		let index = pages.index(of: viewController)! + 1
+		
 		if index - 1 == 0{
 			let vc = viewController as! GenreController
 			genreController = vc
