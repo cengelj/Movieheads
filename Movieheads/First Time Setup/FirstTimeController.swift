@@ -71,9 +71,6 @@ class FirstTimeController: UIPageViewController, UIPageViewControllerDelegate, U
 				viewController.view.reloadInputViews()
 				return pages[index]
 			}
-			else{
-				genreController = vc
-			}
 		}
 		if index < pages.count {
 			usleep(30)
