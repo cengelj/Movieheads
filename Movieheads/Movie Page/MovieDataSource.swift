@@ -23,6 +23,23 @@ class MovieDataSource: NSObject, UICollectionViewDataSource{
 		}
 		else{
 			cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Rating", for: indexPath)
+			let picker = cell.viewWithTag(2) as! UISegmentedControl
+			let horror = #imageLiteral(resourceName: "horror").withRenderingMode(.alwaysOriginal)
+			let action = #imageLiteral(resourceName: "action").withRenderingMode(.alwaysOriginal)
+			let visual = #imageLiteral(resourceName: "visualfx").withRenderingMode(.alwaysOriginal)
+			let other = #imageLiteral(resourceName: "Image").withRenderingMode(.alwaysOriginal)
+			for i in 0..<5{
+				switch(indexPath.row){
+					case 1:
+						picker.setImage(horror, forSegmentAt: i)
+					case 3:
+						picker.setImage(action, forSegmentAt: i)
+					case 5:
+						picker.setImage(visual, forSegmentAt: i)
+					default:
+						picker.setImage(other, forSegmentAt: i)
+					}
+			}
 		}
 		cell.layer.borderWidth = 1.0
 		cell.layer.borderColor = UIColor.black.cgColor

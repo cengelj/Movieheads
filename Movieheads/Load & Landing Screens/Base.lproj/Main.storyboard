@@ -197,10 +197,37 @@
                                     <action selector="buttonPressed:" destination="r76-B1-0Iq" eventType="touchUpInside" id="wSp-Px-SX8"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="horror" translatesAutoresizingMaskIntoConstraints="NO" id="ovI-tn-otM">
+                                <rect key="frame" x="137.5" y="350.5" width="30" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="0p1-HD-YaA"/>
+                                    <constraint firstAttribute="width" constant="30" id="BWV-NI-U8I"/>
+                                </constraints>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="visualfx" translatesAutoresizingMaskIntoConstraints="NO" id="MNf-xa-uMO">
+                                <rect key="frame" x="207.5" y="350" width="30" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="bfK-CK-sQo"/>
+                                    <constraint firstAttribute="width" constant="30" id="dSO-kn-gni"/>
+                                </constraints>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="action" translatesAutoresizingMaskIntoConstraints="NO" id="PCA-z2-tCr">
+                                <rect key="frame" x="172.5" y="350" width="30" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="2UD-KV-3Id"/>
+                                    <constraint firstAttribute="width" constant="30" id="c7a-lq-vac"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="PCA-z2-tCr" firstAttribute="centerY" secondItem="0wc-Bu-Tq5" secondAttribute="centerY" id="4yf-jm-cRr"/>
+                            <constraint firstItem="ovI-tn-otM" firstAttribute="centerY" secondItem="0wc-Bu-Tq5" secondAttribute="centerY" id="Cq8-rF-eJG"/>
                             <constraint firstItem="xTQ-DT-SeR" firstAttribute="centerX" secondItem="0wc-Bu-Tq5" secondAttribute="centerX" id="FXT-Z3-hzo"/>
+                            <constraint firstItem="MNf-xa-uMO" firstAttribute="centerY" secondItem="0wc-Bu-Tq5" secondAttribute="centerY" id="abt-Me-PNE"/>
+                            <constraint firstItem="PCA-z2-tCr" firstAttribute="centerX" secondItem="0wc-Bu-Tq5" secondAttribute="centerX" id="k9S-kP-0Ed"/>
+                            <constraint firstItem="MNf-xa-uMO" firstAttribute="leading" secondItem="PCA-z2-tCr" secondAttribute="trailing" constant="5" id="pon-hl-0bV"/>
+                            <constraint firstItem="PCA-z2-tCr" firstAttribute="leading" secondItem="ovI-tn-otM" secondAttribute="trailing" constant="5" id="qIP-SP-xxA"/>
                             <constraint firstItem="0wc-Bu-Tq5" firstAttribute="bottom" secondItem="xTQ-DT-SeR" secondAttribute="bottom" constant="20" id="rqL-9l-e6F"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="0wc-Bu-Tq5"/>
@@ -215,6 +242,9 @@
         </scene>
     </scenes>
     <resources>
+        <image name="action" width="1024" height="1024"/>
         <image name="black" width="50" height="50"/>
+        <image name="horror" width="246" height="246"/>
+        <image name="visualfx" width="1024" height="1024"/>
     </resources>
 </document>

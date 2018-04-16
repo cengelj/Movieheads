@@ -11,6 +11,7 @@ import Pods_Movieheads
 import TMDBSwift
 import ColorThiefSwift
 
+
 class MovieController: UIViewController {
 	@IBOutlet var movieBanner: UIImageView!
 	@IBOutlet var movieImage: UIImageView!
@@ -56,16 +57,18 @@ class MovieController: UIViewController {
 			}
 		}
 		
-		let blur = UIBlurEffect(style: UIBlurEffectStyle.prominent)	//Add blur to movie banner
-		let blurEffectView = UIVisualEffectView(effect: blur)
-		blurEffectView.alpha = 0.4
+//		let blur = UIBlurEffect(style: .light)	//Add blur to movie banner
+//		let blurEffectView = UIVisualEffectView(effect: blur)
+//		blurEffectView.alpha = 0.7
+//
+//		blurEffectView.frame = movieBanner.bounds
+//		blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+//		blurEffectView.translatesAutoresizingMaskIntoConstraints = false
+//		movieBanner.backgroundColor = UIColor.clear
+//		movieBanner.insertSubview(blurEffectView, at: 0)
 		
-		blurEffectView.frame = movieBanner.bounds
-		blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-		movieBanner.addSubview(blurEffectView)
 		
-		
-		movieBanner.tintColor = UIColor.black
+		//movieBanner.tintColor = UIColor.black
 		name.text = movie.title
 		
 		//Load MPAA rating from API
@@ -162,6 +165,7 @@ class MovieController: UIViewController {
 					let pal = ColorThief.getPalette(from: self.movieBanner.image!, colorCount: 3)!
 					let accColor = pal[0].makeUIColor().withAlphaComponent(0.5)
 					let accColour = pal[1].makeUIColor().withAlphaComponent(0.2)
+					print("Colors determined")
 					
 					self.name.backgroundColor = accColour
 					//accColor.getComplement(color: accColour.getComplement(color: accColour).withAlphaComponent(1.0))
@@ -189,13 +193,20 @@ class MovieController: UIViewController {
 							else if let picker = rating.viewWithTag(2) as? UISegmentedControl{
 								picker.backgroundColor = UIColor.clear
 								picker.layer.borderWidth = 0.0
-								//To-Do: Make it clear once we have icons.
+								// To-Do: Make it clear once we have icons.
 								picker.tintColor = accColor.getComplement(color: accColor)
 							}
 						}
 					}
+					print("Colors set")
+					// Blurring the banner
+					let cimage = CIImage(data:d)
+					let blurredImage = cimage?.applyingGaussianBlur(sigma: 5.0)
 					
-					self.view.reloadInputViews()
+					let croppedImage = blurredImage?.cropped(to: (cimage?.extent)!)
+					
+					self.movieBanner.image = UIImage(ciImage: (croppedImage)!)
+					print("Blur Applied")
 				}
 			}
 		}
@@ -211,15 +222,15 @@ class MovieController: UIViewController {
 		}
 	}
 	@objc func tapFunction(sender:UITapGestureRecognizer) {
+		
 		let firstActivityItem = "\(String(describing: movie.original_title))"
 		let secondActivityItem = URL(string: "https://www.themoviedb.org/movie/\(movie.id)")!
-		// If you want to put an image
+
 		let image = movieBanner.image!
-		
+
 		let activityViewController = UIActivityViewController(
 			activityItems: [firstActivityItem, secondActivityItem, image], applicationActivities: nil)
-		
-		// Anything you want to exclude
+
 		activityViewController.excludedActivityTypes =
 			[UIActivityType.postToWeibo,
 			UIActivityType.addToReadingList,
@@ -230,7 +241,7 @@ class MovieController: UIViewController {
 			UIActivityType.postToVimeo,
 			UIActivityType.print,
 			UIActivityType.markupAsPDF]
-		
+
 		self.present(activityViewController, animated: true, completion: nil)
 	}
 	func topMostController() -> UIViewController {
