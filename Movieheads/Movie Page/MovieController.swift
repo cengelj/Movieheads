@@ -21,8 +21,6 @@ class MovieController: UIViewController {
 	@IBOutlet weak var backButton: UIBarButtonItem!
 	var black = #imageLiteral(resourceName: "black")
 	var white = #imageLiteral(resourceName: "white")
-	var originalImage:UIImage!
-	var sigma = 0.0
 	
 	
 	var movie:MovieMDB!					// Set equal upon instanciation
