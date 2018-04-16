@@ -30,11 +30,8 @@ class SearchDataSource: NSObject, UITableViewDataSource {
 		SearchMDB.movie(query: searchText, language: "en", page: 1, includeAdult: true, year: nil, primaryReleaseYear: nil) { (data, m) in
 			if let movies = m{
 				self.set(movies: movies)
-				tableView.reloadData()
 			}
-			else{
-				tableView.reloadData()
-			}
+			tableView.reloadData()
 		}
 	}
 	func set(movies:[MovieMDB]){
