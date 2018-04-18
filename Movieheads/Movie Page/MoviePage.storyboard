@@ -136,7 +136,7 @@
                                     <fragment content="Movie Title">
                                         <attributes>
                                             <color key="NSColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                            <font key="NSFont" size="30" name="Didot-Bold"/>
+                                            <font key="NSFont" size="30" name="ComicSansMS-Bold"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="truncatingTail" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
                                     </fragment>

@@ -27,7 +27,7 @@ class SearchDataSource: NSObject, UITableViewDataSource {
 	// To-Do: Limit user to 1 search every 10 seconds?
 	func filter(searchText: String, tableView: UITableView){
 		// Load Movie Names From API
-		SearchMDB.movie(query: searchText, language: "en", page: 1, includeAdult: true, year: nil, primaryReleaseYear: nil) { (data, m) in
+		SearchMDB.movie(query: searchText, language: "en", page: 1, includeAdult: true, year: nil, primaryReleaseYear: nil) { [unowned self] (data, m) in
 			if let movies = m{
 				self.set(movies: movies)
 			}

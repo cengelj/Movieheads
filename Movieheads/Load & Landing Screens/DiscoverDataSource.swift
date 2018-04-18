@@ -109,6 +109,7 @@ class DiscoverDataSource: NSObject, UICollectionViewDataSource, UICollectionView
 		let sub = controller.childViewControllers[0] as! MovieController
 		
 		sub.movie = (results[genre!])![indexPath.row]
+		let _ = sub.view
 		topMostController().present(controller, animated: true, completion: nil)
 	}
 	
@@ -157,7 +158,7 @@ class DiscoverDataSource: NSObject, UICollectionViewDataSource, UICollectionView
 			genreID = 0
 		}
 		//to-do: error handling
-		GenresMDB.genre_movies(genreId: genreID, include_adult_movies: true, language: "en") { (res, movies) in
+		GenresMDB.genre_movies(genreId: genreID, include_adult_movies: true, language: "en") { [unowned self] (res, movies) in
 			if let m = movies{
 				self.results[genre] = m
 				self.loadMovies(genre:genre)

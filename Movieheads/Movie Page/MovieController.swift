@@ -13,14 +13,14 @@ import ColorThiefSwift
 
 
 class MovieController: UIViewController {
-	@IBOutlet var movieBanner: UIImageView!
-	@IBOutlet var movieImage: UIImageView!
-	@IBOutlet var ratings:UICollectionView!
-	@IBOutlet var name:UILabel!
+	@IBOutlet weak var movieBanner: UIImageView!
+	@IBOutlet weak var movieImage: UIImageView!
+	@IBOutlet weak var ratings:UICollectionView!
+	@IBOutlet weak var name:UILabel!
 	@IBOutlet weak var mpaa: UIImageView!
 	@IBOutlet weak var backButton: UIBarButtonItem!
-	var black = #imageLiteral(resourceName: "black")
-	var white = #imageLiteral(resourceName: "white")
+	weak var black = #imageLiteral(resourceName: "black")
+	weak var white = #imageLiteral(resourceName: "white")
 	
 	var movie:MovieMDB!					// Set equal upon instantiation
 	
@@ -31,6 +31,7 @@ class MovieController: UIViewController {
 		name.addGestureRecognizer(tap)
 		
 		setupView()
+		print("loaded")
 		// Do any additional setup after loading the view, typically from a nib.
 	}
 	override func didReceiveMemoryWarning() {
@@ -41,25 +42,27 @@ class MovieController: UIViewController {
 	@IBAction func backButtonPressed(_ sender: UIBarButtonItem) {
 		topMostController().dismiss(animated: true) {
 			// Cache info here?
+			
 		}
 	}
 	
 	func setupView(){
-		if let path = movie.poster_path{		//Asynchronous loading of images
+		if let path = self.movie.poster_path{		//Asynchronous loading of images
 			if let param = URL(string:"https://image.tmdb.org/t/p/w300_and_h450_bestv2/\(path)"){
-				loadPoster(param)
+				self.loadPoster(param)
 			}
 		}
-		if let path = movie.backdrop_path{
+		if let path = self.movie.backdrop_path{
 			if let param = URL(string:"https://image.tmdb.org/t/p/w780/\(path)"){
-				loadBanner(param)
+				self.loadBanner(param)
 			}
 		}
+		
 		name.text = movie.title
 		
 		//Load MPAA rating from API
 		let request = URLRequest(url: URL(string: "https://api.themoviedb.org/3/movie/\(movie.id!)/release_dates?api_key=\(APIKeys.shared.key)")!)
-		URLSession.shared.dataTask(with: request){ data, response, error in
+		URLSession.shared.dataTask(with: request){ [unowned self] data, response, error in
 			if let jsonData = data,
 				let feed = (try? JSONSerialization.jsonObject(with: jsonData, options: .mutableContainers)) as? NSDictionary{
 				let results = feed.value(forKey: "results") as! NSArray
@@ -125,6 +128,7 @@ class MovieController: UIViewController {
 			mpaa.addConstraint(NSLayoutConstraint(item: mpaa, attribute: NSLayoutAttribute.height, relatedBy: NSLayoutRelation.equal, toItem: mpaa, attribute: NSLayoutAttribute.width, multiplier: 1.0, constant: 0))
 			mpaa.frame = CGRect(origin: mpaa.frame.origin, size: CGSize(width: 40.0, height: 40.0))
 		}
+		print("Rating Loaded")
 	}
 	// Rating selection
 	// To-Do: Set icons and make prettier.
@@ -141,31 +145,17 @@ class MovieController: UIViewController {
 	func loadBanner(_ URL: Foundation.URL) {
 		DispatchQueue.global().async {
 			let data = try? Data(contentsOf: URL)
-			DispatchQueue.main.async {
-				if let d = data{
-					// setting the actual image
-					self.movieBanner.image = UIImage(data: d)
-					
-					// Setting colors with their complements according to the image
-					var mainColor = ColorThief.getColor(from: UIImage(data:d)!)?.makeUIColor()
-					let pal = ColorThief.getPalette(from: self.movieBanner.image!, colorCount: 3)!
-					let accColor = pal[0].makeUIColor().withAlphaComponent(0.5)
-					let accColour = pal[1].makeUIColor().withAlphaComponent(0.2)
-					print("Colors determined")
-					
-					self.name.backgroundColor = accColour
-					//accColor.getComplement(color: accColour.getComplement(color: accColour).withAlphaComponent(1.0))
-					let attributes = [NSAttributedStringKey.strokeWidth: -0.5, NSAttributedStringKey.strokeColor : UIColor.black, NSAttributedStringKey.foregroundColor:UIColor.white, NSAttributedStringKey.font : self.name.font] as [NSAttributedStringKey : Any]
-					self.name.attributedText = NSAttributedString(string: self.name.text!, attributes: attributes)
-					self.name.layer.borderColor = UIColor.black.cgColor
-					self.name.layer.borderWidth = 0.1
-					
-					
-					self.navigationController?.navigationBar.barTintColor = mainColor
-					self.backButton.tintColor = mainColor?.getComplement(color: mainColor!)
-					
-					mainColor = mainColor?.colorWithBrightness(brightness: 2.5).withAlphaComponent(0.3)
-					self.view.backgroundColor = mainColor
+			if let d = data{
+				// setting the actual image
+				let image = UIImage(data:d)
+				
+				// Setting colors with their complements according to the image
+				var mainColor = ColorThief.getColor(from: image!)?.makeUIColor()
+				let pal = ColorThief.getPalette(from: image!, colorCount: 3)!
+				let accColor = pal[0].makeUIColor().withAlphaComponent(0.5)
+				let accColour = pal[1].makeUIColor().withAlphaComponent(0.2)
+				print("Colors determined")
+				DispatchQueue.main.async {
 					self.ratings.backgroundColor = UIColor.clear
 					//self.name.textColor = accColour.getComplement(color: accColour).withAlphaComponent(1.0)
 					for view in self.ratings.subviews{
@@ -185,7 +175,24 @@ class MovieController: UIViewController {
 						}
 					}
 					print("Colors set")
-					// Blurring the banner
+				}
+				
+				DispatchQueue.main.async {
+					self.name.backgroundColor = accColour
+					let attributes = [NSAttributedStringKey.strokeWidth: -0.5, NSAttributedStringKey.strokeColor : UIColor.black, NSAttributedStringKey.foregroundColor:UIColor.white, NSAttributedStringKey.font : self.name.font] as [NSAttributedStringKey : Any]
+					self.name.attributedText = NSAttributedString(string: self.name.text!, attributes: attributes)
+					self.name.layer.borderColor = UIColor.black.cgColor
+					self.name.layer.borderWidth = 0.1
+					
+					self.navigationController?.navigationBar.barTintColor = mainColor
+					self.backButton.tintColor = mainColor?.getComplement(color: mainColor!)
+					
+					mainColor = mainColor?.colorWithBrightness(brightness: 2.5).withAlphaComponent(0.3)
+					self.view.backgroundColor = mainColor
+				}
+				
+				// Blurring the banner
+				DispatchQueue.main.async {
 					let cimage = CIImage(data:d)
 					let blurredImage = cimage?.applyingGaussianBlur(sigma: 5.0)
 					
@@ -200,9 +207,10 @@ class MovieController: UIViewController {
 	func loadPoster(_ URL: Foundation.URL) {
 		DispatchQueue.global().async {
 			let data = try? Data(contentsOf: URL)
-			DispatchQueue.main.async {
-				if let d = data{
-					self.movieImage.image = UIImage(data: d)
+			if let d = data{
+				let image = UIImage(data: d)
+				DispatchQueue.main.async {
+					self.movieImage.image = image
 				}
 			}
 		}
