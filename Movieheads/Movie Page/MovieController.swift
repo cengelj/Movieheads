@@ -10,8 +10,6 @@ import UIKit
 import Pods_Movieheads
 import TMDBSwift
 import ColorThiefSwift
-
-
 class MovieController: UIViewController {
 	@IBOutlet weak var movieBanner: UIImageView!
 	@IBOutlet weak var movieImage: UIImageView!
@@ -19,6 +17,7 @@ class MovieController: UIViewController {
 	@IBOutlet weak var name:UILabel!
 	@IBOutlet weak var mpaa: UIImageView!
 	@IBOutlet weak var backButton: UIBarButtonItem!
+	@IBOutlet weak var collectionView: UICollectionView!
 	weak var black = #imageLiteral(resourceName: "black")
 	weak var white = #imageLiteral(resourceName: "white")
 	
@@ -29,6 +28,41 @@ class MovieController: UIViewController {
 		let tap = UITapGestureRecognizer(target: self, action: #selector(MovieController.tapFunction(sender:)))
 		name.isUserInteractionEnabled = true
 		name.addGestureRecognizer(tap)
+		var categories = [String]()
+		var categoriesTotal = ["Humor", "Drama", "Visual Effects", "Writing", "Acting", "Action", "Horror", "Plot Complexity"]
+		for genre in movie.genre_ids!{
+			switch(getGenre(genre: genre)){
+			case "Comedy":
+				categories.append(categoriesTotal.remove(at: categoriesTotal.index(of: "Humor")!))
+			case "Drama":
+				categories.append(categoriesTotal.remove(at: categoriesTotal.index(of: "Drama")!))
+			case "Science Fiction":
+				if !categories.contains("Visual Effects"){
+					categories.append(categoriesTotal.remove(at: categoriesTotal.index(of: "Visual Effects")!))
+				}
+			case "Animation":
+				if !categories.contains("Visual Effects"){
+					categories.append(categoriesTotal.remove(at: categoriesTotal.index(of: "Visual Effects")!))
+				}
+			case "Action":
+				categories.append(categoriesTotal.remove(at: categoriesTotal.index(of: "Action")!))
+			case "Horror":
+				categories.append(categoriesTotal.remove(at: categoriesTotal.index(of: "Horror")!))
+			case "Documentary":
+				categoriesTotal.remove(at: categoriesTotal.index(of: "Writing")!)
+				categoriesTotal.remove(at: categoriesTotal.index(of: "Acting")!)
+				categoriesTotal.remove(at: categoriesTotal.index(of: "Plot Complexity")!)
+			default:
+				print("nothing")
+			}
+		}
+		categories.reverse()
+		for category in categories{
+			categoriesTotal.insert(category, at: 0)
+		}
+		let DS = collectionView.dataSource as! MovieDataSource
+		DS.categories = categoriesTotal
+		print(categoriesTotal)
 		
 		setupView()
 		print("loaded")
@@ -244,6 +278,52 @@ class MovieController: UIViewController {
 			topController = topController.presentedViewController!
 		}
 		return topController
+	}
+	func getGenre(genre:Int) -> String{
+		var genreID = ""
+		switch(genre){
+		case 28:
+			genreID = "Action"
+		case 12:
+			genreID = "Adventure"
+		case 16:
+			genreID = "Animation"
+		case 35:
+			genreID = "Comedy"
+		case 80:
+			genreID = "Crime"
+		case 99:
+			genreID = "Documentary"
+		case 18:
+			genreID = "Drama"
+		case 10751:
+			genreID = "Family"
+		case 14:
+			genreID = "Fantasy"
+		case 36:
+			genreID = "History"
+		case 27:
+			genreID = "Horror"
+		case 10402:
+			genreID = "Music"
+		case 9648:
+			genreID = "Mystery"
+		case 10749:
+			genreID = "Romance"
+		case 878:
+			genreID = "Science Fiction"
+		case 10770:
+			genreID = "TV Movie"
+		case 53:
+			genreID = "Thriller"
+		case 10752:
+			genreID = "War"
+		case 37:
+			genreID = "Western"
+		default:
+			genreID = ""
+		}
+		return genreID
 	}
 }
 

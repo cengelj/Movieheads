@@ -9,7 +9,7 @@
 import UIKit
 
 class MovieDataSource: NSObject, UICollectionViewDataSource{
-	let categories:[String] = ["Comedy", "Plot Complexity", "Violence", "Acting", "Dialogue", "Other", "Other"]
+	var categories:[String] = ["Comedy", "Plot Complexity", "Violence", "Acting", "Dialogue", "Other", "Other"]
 	
 	func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
 		return categories.count*2

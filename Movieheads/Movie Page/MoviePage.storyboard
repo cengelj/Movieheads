@@ -175,6 +175,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="backButton" destination="7MA-BQ-XdW" id="Abw-m4-7Z0"/>
+                        <outlet property="collectionView" destination="9VJ-6e-6gr" id="wQ3-FQ-sHL"/>
                         <outlet property="movieBanner" destination="SzE-Hf-FbS" id="AQl-6h-wzc"/>
                         <outlet property="movieImage" destination="JZY-76-9gL" id="jTp-I0-YP1"/>
                         <outlet property="mpaa" destination="9RZ-am-RJp" id="T1w-x9-piw"/>
