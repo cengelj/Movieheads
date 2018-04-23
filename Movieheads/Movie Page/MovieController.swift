@@ -167,14 +167,7 @@ class MovieController: UIViewController {
 	// Rating selection
 	// To-Do: Set icons and make prettier.
 	@IBAction func valueChanged(_ sender: UISegmentedControl) {
-		for i in 0...sender.selectedSegmentIndex{
-			sender.setTitle("X", forSegmentAt: i)
-		}
-		if sender.selectedSegmentIndex+1 <= sender.numberOfSegments-1{
-			for i in sender.selectedSegmentIndex+1...sender.numberOfSegments-1{
-				sender.setTitle("O", forSegmentAt: i)
-			}
-		}
+		print(sender.subviews[sender.selectedSegmentIndex])
 	}
 	func loadBanner(_ URL: Foundation.URL) {
 		DispatchQueue.global().async {
@@ -352,4 +345,5 @@ public extension UIColor {
 		return UIColor(red: compRed, green: compGreen, blue: compBlue, alpha: 1.0)
 	}
 }
+
 

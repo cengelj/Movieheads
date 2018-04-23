@@ -23,27 +23,85 @@ class MovieDataSource: NSObject, UICollectionViewDataSource{
 		}
 		else{
 			cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Rating", for: indexPath)
-			let picker = cell.viewWithTag(2) as! UISegmentedControl
+			
+			let label = collectionView.cellForItem(at: IndexPath(item: indexPath.row-1, section: 0))?.viewWithTag(1) as! UILabel
+			
 			let horror = #imageLiteral(resourceName: "horror").withRenderingMode(.alwaysOriginal)
-			let action = #imageLiteral(resourceName: "action").withRenderingMode(.alwaysOriginal)
-			let visual = #imageLiteral(resourceName: "visualfx").withRenderingMode(.alwaysOriginal)
-			let other = #imageLiteral(resourceName: "Image").withRenderingMode(.alwaysOriginal)
-			for i in 0..<5{
-				switch(indexPath.row){
-					case 1:
-						picker.setImage(horror, forSegmentAt: i)
-					case 3:
-						picker.setImage(action, forSegmentAt: i)
-					case 5:
-						picker.setImage(visual, forSegmentAt: i)
-					default:
-						picker.setImage(other, forSegmentAt: i)
+			let picker = cell.viewWithTag(2) as! UISegmentedControl
+			let normalFont = UIFont(name: "Helvetica", size: 30.0)
+			
+			let attr = [NSAttributedStringKey.font: normalFont]
+			
+			
+			picker.setTitleTextAttributes(attr, for: .normal)
+			for i in 0..<3{
+				switch(label.text!){
+				case "Humor":
+					picker.setTitle("😂", forSegmentAt: i)
+					if i==0{
+						picker.removeBorders()
 					}
+				case "Drama":
+					picker.setTitle("😭", forSegmentAt: i)
+					if i==0{
+						picker.removeBorders()
+					}
+				case "Writing":
+					picker.setTitle("✏️", forSegmentAt: i)
+					if i==0{
+						picker.removeBorders()
+					}
+				case "Acting":
+					picker.setTitle("🎭", forSegmentAt: i)
+					if i==0{
+						picker.removeBorders()
+					}
+				case "Visual Effects":
+					picker.setTitle("👀", forSegmentAt: i)
+					if i==0{
+						picker.removeBorders()
+					}
+				case "Action":
+					picker.setTitle("💥", forSegmentAt: i)
+					if i==0{
+						picker.removeBorders()
+					}
+				case "Plot Complexity":
+					picker.setTitle("🤔", forSegmentAt: i)
+					if i==0{
+						picker.removeBorders()
+					}
+				case "Horror":
+					picker.setTitle("😱", forSegmentAt: i)
+					if i==0{
+						picker.removeBorders()
+					}
+				default:
+					print("Incorrect Genre")
+				}
 			}
+			picker.layer.borderWidth = 0.0
 		}
 		cell.layer.borderWidth = 1.0
 		cell.layer.borderColor = UIColor.black.cgColor
 		
 		return cell
+	}
+}
+extension UISegmentedControl {
+	func removeBorders() {
+		setBackgroundImage(imageWithColor(color: backgroundColor!), for: .normal, barMetrics: .default)
+		setBackgroundImage(imageWithColor(color: tintColor!), for: .selected, barMetrics: .default)
+		setDividerImage(imageWithColor(color: UIColor.clear), forLeftSegmentState: .normal, rightSegmentState: .normal, barMetrics: .default)
+	}
+	private func imageWithColor(color: UIColor) -> UIImage {
+		let rect = CGRect(x: 0.0, y: 0.0, width:  1.0, height: 1.0)
+		UIGraphicsBeginImageContext(rect.size)
+		let context = UIGraphicsGetCurrentContext()
+		context!.setFillColor(color.cgColor);
+		context!.fill(rect);
+		let image = UIGraphicsGetImageFromCurrentImageContext();
+		UIGraphicsEndImageContext();
+		return image!
 	}
 }
