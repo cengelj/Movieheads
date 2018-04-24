@@ -252,18 +252,6 @@ class MovieController: UIViewController {
 					self.name.attributedText = NSAttributedString(string: self.name.text!, attributes: attributes)
 					self.name.layer.borderColor = UIColor.black.cgColor
 					self.name.layer.borderWidth = 0.1
-					
-					UIView.animate(withDuration: 0.5, animations: {
-						self.navigationController?.navigationBar.barTintColor = mainColor
-					})
-					UIView.animate(withDuration: 0.5, animations: {
-						self.backButton.tintColor = mainColor?.getComplement(color: mainColor!)
-					})
-					
-					mainColor = mainColor?.colorWithBrightness(brightness: 2.5).withAlphaComponent(0.3)
-					UIView.animate(withDuration: 0.5, animations: {
-						self.view.backgroundColor = mainColor
-					})
 				}
 				
 				// Blurring the banner
@@ -275,14 +263,20 @@ class MovieController: UIViewController {
 					self.movieBanner.alpha = 0
 					
 					self.movieBanner.image = UIImage(ciImage: (croppedImage)!)
-					UIView.animate(withDuration: 0.5, animations: {
+					
+					// Fade all objects back in
+					UIView.animate(withDuration: 1.0, animations: {
+						self.logo.alpha = 0
+						self.navigationController?.navigationBar.barTintColor = mainColor
+						self.backButton.tintColor = mainColor?.getComplement(color: mainColor!)
 						self.movieBanner.alpha = 1
 						self.movieImage.alpha = 1
 						self.mpaa.alpha = 1
 						self.name.alpha = 1
-						self.ratings.alpha = 1
 						self.collectionView.alpha = 1
-						self.logo.alpha = 0
+						self.ratings.alpha = 1
+						self.view.backgroundColor = mainColor?.colorWithBrightness(brightness: 2.5).withAlphaComponent(0.3)
+						
 					})
 					self.rotating = false
 					self.activityIndicator.stopAnimating()
