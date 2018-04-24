@@ -21,7 +21,7 @@ class MovieController: UIViewController {
 	@IBOutlet weak var collectionView: UICollectionView!
 	@IBOutlet weak var logo: UIImageView!
 	@IBOutlet weak var activityIndicator: UIActivityIndicatorView!
-	var savedRatings = [String:(Double, Int)]()
+	var savedRatings = [String:[Double]]()
 	var userRatings = [String:Int]()
 	weak var black = #imageLiteral(resourceName: "black")
 	weak var white = #imageLiteral(resourceName: "white")
@@ -35,7 +35,7 @@ class MovieController: UIViewController {
 		let ds = collectionView.dataSource as! MovieDataSource
 		ds.movie = movie
 		
-		savedRatings = UserDefaults.standard.dictionary(forKey: "ratings") as! [String:(Double, Int)]
+		savedRatings = UserDefaults.standard.dictionary(forKey: "ratings") as! [String:[Double]]
 		userRatings = UserDefaults.standard.dictionary(forKey: "userRatings") as! [String:Int]
 		
 		mpaa.alpha = 0
@@ -95,7 +95,8 @@ class MovieController: UIViewController {
 		topMostController().dismiss(animated: true) {
 			// Save ratings here
 			UserDefaults.standard.set(self.savedRatings, forKey: "ratings")
-			UserDefaults.standard.set(self.userRatings, forKey: "UserRatings")
+			UserDefaults.standard.set(self.userRatings, forKey: "userRatings")
+			print(self.movie.id)
 		}
 	}
 	func rotateView(){
@@ -197,22 +198,22 @@ class MovieController: UIViewController {
 	@IBAction func valueChanged(_ sender: UISegmentedControl) {
 		let ds = collectionView.dataSource as! MovieDataSource
 		let categoryNum = ds.categories.index(of: identifySegment(sender))!
-		
-		if let r = savedRatings["\(movie.id!).\(categoryNum)"]{
-			if let y = userRatings["\(movie.id!).\(categoryNum)"]{
-				let sum = r.0*Double(r.1) - Double(y)
-				let avg = (r.0*Double(r.1)+Double(sender.selectedSegmentIndex))/(Double(r.1))
-				savedRatings["\(movie.id!).\(categoryNum)"] = (avg, r.1)
+		let index = String(describing: "\(movie.id!).\(categoryNum)")
+		if let r = savedRatings[index]{
+			if let y = userRatings[index]{
+				let sum = r[0]*Double(r[1]) - Double(y)
+				let avg = (sum+Double(sender.selectedSegmentIndex))/(Double(r[1]))
+				savedRatings[index] = [avg, Double(r[1])]
 			}
 			else{
-				let avg = (r.0*Double(r.1)+Double(sender.selectedSegmentIndex))/(Double(r.1)+1.0)
-				savedRatings["\(movie.id!).\(categoryNum)"] = (avg, r.1+1)
+				let avg = (r[0]*Double(r[1])+Double(sender.selectedSegmentIndex))/(Double(r[1])+1.0)
+				savedRatings[index] = [avg, Double(r[1]+1.0)]
 			}
 		}
 		else{
-			savedRatings["\(movie.id).\(categoryNum)"] = (Double(sender.selectedSegmentIndex), 1)
+			savedRatings[index] = [Double(sender.selectedSegmentIndex), 1.0]
 		}
-		userRatings["\(movie.id!).\(categoryNum)"] = sender.selectedSegmentIndex
+		userRatings[index] = sender.selectedSegmentIndex
 		
 		var num = 0.0
 		switch(sender.selectedSegmentIndex){
@@ -235,13 +236,13 @@ class MovieController: UIViewController {
 			}
 			else if view.frame.midX < CGFloat(num){
 				UIView.animate(withDuration: 0.5, animations: {
-					view.alpha = 0.8
+					view.alpha = 0.5
 					view.tintColor = UIColor.lightGray
 				})
 			}
 			else{
 				UIView.animate(withDuration: 0.5, animations: {
-					view.alpha = 0.5
+					view.alpha = 0.2
 					view.tintColor = UIColor.lightGray
 				})
 			}
