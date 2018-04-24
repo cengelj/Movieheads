@@ -13,11 +13,15 @@ import UIKit
 class SettingsController: UIViewController {
 	let gradient = CAGradientLayer()
 
+	@IBOutlet weak var exportButton: UIButton!
 	@IBOutlet weak var button: UIButton!
 	override func viewDidLoad() {
         super.viewDidLoad()
 		button.layer.cornerRadius = 10
 		button.clipsToBounds = true
+		
+		exportButton.layer.cornerRadius = 10
+		exportButton.clipsToBounds = true
 		
 		let layer = CAGradientLayer()
 		layer.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
@@ -44,8 +48,15 @@ class SettingsController: UIViewController {
 		self.present(alert, animated: true)
 		
 	}
-	
-    /*
+	@IBAction func exportPressed(_ sender: UIButton) {
+		let userRatings = UserDefaults.standard.dictionary(forKey: "userRatings") as! [String:Int]
+		var str = ""
+		for (id, rating) in userRatings{
+			str += "\(id):\(rating);"
+		}
+		print(str)
+	}
+	/*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
