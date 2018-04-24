@@ -34,52 +34,53 @@ class MovieDataSource: NSObject, UICollectionViewDataSource{
 			
 			
 			picker.setTitleTextAttributes(attr, for: .normal)
-			for i in 0..<3{
-				switch(label.text!){
-				case "Humor":
-					picker.setTitle("😂", forSegmentAt: i)
-					if i==0{
-						picker.removeBorders()
+				for i in 0..<3{
+					switch(label.text!){
+					case "Humor":
+						picker.setTitle("😂", forSegmentAt: i)
+						if i==0{
+							picker.removeBorders()
+						}
+					case "Drama":
+						picker.setTitle("😭", forSegmentAt: i)
+						if i==0{
+							picker.removeBorders()
+						}
+					case "Writing":
+						picker.setTitle("✏️", forSegmentAt: i)
+						if i==0{
+							picker.removeBorders()
+						}
+					case "Acting":
+						picker.setTitle("🎭", forSegmentAt: i)
+						if i==0{
+							picker.removeBorders()
+						}
+					case "Visual Effects":
+						picker.setTitle("👀", forSegmentAt: i)
+						if i==0{
+							picker.removeBorders()
+						}
+					case "Action":
+						picker.setTitle("💥", forSegmentAt: i)
+						if i==0{
+							picker.removeBorders()
+						}
+					case "Plot Complexity":
+						picker.setTitle("🤔", forSegmentAt: i)
+						if i==0{
+							picker.removeBorders()
+						}
+					case "Horror":
+						picker.setTitle("😱", forSegmentAt: i)
+						if i==0{
+							picker.removeBorders()
+						}
+					default:
+						print("Incorrect Genre")
 					}
-				case "Drama":
-					picker.setTitle("😭", forSegmentAt: i)
-					if i==0{
-						picker.removeBorders()
-					}
-				case "Writing":
-					picker.setTitle("✏️", forSegmentAt: i)
-					if i==0{
-						picker.removeBorders()
-					}
-				case "Acting":
-					picker.setTitle("🎭", forSegmentAt: i)
-					if i==0{
-						picker.removeBorders()
-					}
-				case "Visual Effects":
-					picker.setTitle("👀", forSegmentAt: i)
-					if i==0{
-						picker.removeBorders()
-					}
-				case "Action":
-					picker.setTitle("💥", forSegmentAt: i)
-					if i==0{
-						picker.removeBorders()
-					}
-				case "Plot Complexity":
-					picker.setTitle("🤔", forSegmentAt: i)
-					if i==0{
-						picker.removeBorders()
-					}
-				case "Horror":
-					picker.setTitle("😱", forSegmentAt: i)
-					if i==0{
-						picker.removeBorders()
-					}
-				default:
-					print("Incorrect Genre")
 				}
-			}
+			
 			picker.layer.borderWidth = 0.0
 		}
 		cell.layer.borderWidth = 1.0
@@ -97,9 +98,9 @@ extension UISegmentedControl {
 	private func imageWithColor(color: UIColor) -> UIImage {
 		let rect = CGRect(x: 0.0, y: 0.0, width:  1.0, height: 1.0)
 		UIGraphicsBeginImageContext(rect.size)
-		let context = UIGraphicsGetCurrentContext()
-		context!.setFillColor(color.cgColor);
-		context!.fill(rect);
+		//let context = UIGraphicsGetCurrentContext()
+		//context!.setFillColor(color.cgColor);
+		//context!.fill(rect);
 		let image = UIGraphicsGetImageFromCurrentImageContext();
 		UIGraphicsEndImageContext();
 		return image!

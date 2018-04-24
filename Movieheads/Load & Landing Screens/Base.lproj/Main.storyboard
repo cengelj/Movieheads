@@ -184,7 +184,7 @@
                                 </constraints>
                                 <state key="normal">
                                     <attributedString key="attributedTitle">
-                                        <fragment content="Reset Favorite Genres">
+                                        <fragment content="Erase User Data">
                                             <attributes>
                                                 <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 <font key="NSFont" size="20" name="HoeflerText-Regular"/>

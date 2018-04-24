@@ -18,13 +18,22 @@ class MovieController: UIViewController {
 	@IBOutlet weak var mpaa: UIImageView!
 	@IBOutlet weak var backButton: UIBarButtonItem!
 	@IBOutlet weak var collectionView: UICollectionView!
+	@IBOutlet weak var logo: UIImageView!
+	@IBOutlet weak var activityIndicator: UIActivityIndicatorView!
 	weak var black = #imageLiteral(resourceName: "black")
 	weak var white = #imageLiteral(resourceName: "white")
+	var rotating = true
 	
 	var movie:MovieMDB!					// Set equal upon instantiation
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
+		activityIndicator.startAnimating()
+		mpaa.alpha = 0
+		name.alpha = 0
+		ratings.alpha = 0
+		collectionView.alpha = 0
+		rotateView()
 		let tap = UITapGestureRecognizer(target: self, action: #selector(MovieController.tapFunction(sender:)))
 		name.isUserInteractionEnabled = true
 		name.addGestureRecognizer(tap)
@@ -77,6 +86,15 @@ class MovieController: UIViewController {
 		topMostController().dismiss(animated: true) {
 			// Cache info here?
 			
+		}
+	}
+	func rotateView(){
+		UIView.animate(withDuration: 0.5, delay: 0, options: .curveLinear, animations: { [unowned self] () -> Void in
+			self.logo.transform = self.logo.transform.rotated(by: CGFloat(Double.pi / 2.0))
+		}) { (finished) -> Void in
+			if self.rotating{
+				self.rotateView()
+			}
 		}
 	}
 	
@@ -167,7 +185,31 @@ class MovieController: UIViewController {
 	// Rating selection
 	// To-Do: Set icons and make prettier.
 	@IBAction func valueChanged(_ sender: UISegmentedControl) {
-		print(sender.subviews[sender.selectedSegmentIndex])
+		var num = 0.0
+		switch(sender.selectedSegmentIndex){
+		case 0:
+			num = 28.0
+		case 1:
+			num = 85.0
+		case 2:
+			num = 142.0
+		default:
+			print("oof")
+		}
+		for view in sender.subviews{
+			if view.frame.midX == CGFloat(num){
+				UIView.animate(withDuration: 0.5, animations: {
+					view.alpha = 1.0
+					view.tintColor = UIColor.red
+				})
+			}
+			else{
+				UIView.animate(withDuration: 0.5, animations: {
+					view.alpha = 0.5
+					view.tintColor = UIColor.lightGray
+				})
+			}
+		}
 	}
 	func loadBanner(_ URL: Foundation.URL) {
 		DispatchQueue.global().async {
@@ -211,11 +253,17 @@ class MovieController: UIViewController {
 					self.name.layer.borderColor = UIColor.black.cgColor
 					self.name.layer.borderWidth = 0.1
 					
-					self.navigationController?.navigationBar.barTintColor = mainColor
-					self.backButton.tintColor = mainColor?.getComplement(color: mainColor!)
+					UIView.animate(withDuration: 0.5, animations: {
+						self.navigationController?.navigationBar.barTintColor = mainColor
+					})
+					UIView.animate(withDuration: 0.5, animations: {
+						self.backButton.tintColor = mainColor?.getComplement(color: mainColor!)
+					})
 					
 					mainColor = mainColor?.colorWithBrightness(brightness: 2.5).withAlphaComponent(0.3)
-					self.view.backgroundColor = mainColor
+					UIView.animate(withDuration: 0.5, animations: {
+						self.view.backgroundColor = mainColor
+					})
 				}
 				
 				// Blurring the banner
@@ -224,9 +272,21 @@ class MovieController: UIViewController {
 					let blurredImage = cimage?.applyingGaussianBlur(sigma: 5.0)
 					
 					let croppedImage = blurredImage?.cropped(to: (cimage?.extent)!)
+					self.movieBanner.alpha = 0
 					
 					self.movieBanner.image = UIImage(ciImage: (croppedImage)!)
-					print("Blur Applied")
+					UIView.animate(withDuration: 0.5, animations: {
+						self.movieBanner.alpha = 1
+						self.movieImage.alpha = 1
+						self.mpaa.alpha = 1
+						self.name.alpha = 1
+						self.ratings.alpha = 1
+						self.collectionView.alpha = 1
+						self.logo.alpha = 0
+					})
+					self.rotating = false
+					self.activityIndicator.stopAnimating()
+					print("loaded")
 				}
 			}
 		}
@@ -237,6 +297,7 @@ class MovieController: UIViewController {
 			if let d = data{
 				let image = UIImage(data: d)
 				DispatchQueue.main.async {
+					self.movieImage.alpha = 0
 					self.movieImage.image = image
 				}
 			}
