@@ -219,7 +219,7 @@ class MovieController: UIViewController {
 				let image = UIImage(data:d)
 				
 				// Setting colors with their complements according to the image
-				var mainColor = ColorThief.getColor(from: image!)?.makeUIColor()
+				let mainColor = ColorThief.getColor(from: image!)?.makeUIColor()
 				let pal = ColorThief.getPalette(from: image!, colorCount: 3)!
 				let accColor = pal[0].makeUIColor().withAlphaComponent(0.5)
 				let accColour = pal[1].makeUIColor().withAlphaComponent(0.2)
