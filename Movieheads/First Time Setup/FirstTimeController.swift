@@ -15,6 +15,10 @@ class FirstTimeController: UIPageViewController, UIPageViewControllerDelegate, U
         super.viewDidLoad()
 		self.dataSource = self
 		self.delegate = self
+		let dict = [String:(Double, Int)]()
+		let dic = [String:Int]()
+		UserDefaults.standard.set(dict, forKey: "ratings")
+		UserDefaults.standard.set(dic, forKey: "userRatings")
 		
 		pages = [self.getViewController(withIdentifier: "genre"), self.getViewController(withIdentifier: "share"), self.getViewController(withIdentifier: "rating"), self.getViewController(withIdentifier: "enter")]
 		if let first = pages.first{

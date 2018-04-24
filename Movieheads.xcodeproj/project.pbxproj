@@ -13,7 +13,6 @@
 		1E91EDB520751B99007B4053 /* FirstTimeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E91EDB420751B99007B4053 /* FirstTimeController.swift */; };
 		1E91EDB72076467B007B4053 /* GenreController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E91EDB62076467B007B4053 /* GenreController.swift */; };
 		1E91EDB9207BBEAC007B4053 /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E91EDB8207BBEAC007B4053 /* SettingsController.swift */; };
-		1E937F05208E46D9009B2B88 /* CustomSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E937F04208E46D9009B2B88 /* CustomSegmentedControl.swift */; };
 		1E987905203CAA7400947638 /* MovieController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E987904203CAA7400947638 /* MovieController.swift */; };
 		1E98790A203CAF1400947638 /* LandingScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E987909203CAF1400947638 /* LandingScreenController.swift */; };
 		1E98790C203CAF4000947638 /* MoviePage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1E98790B203CAF4000947638 /* MoviePage.storyboard */; };
@@ -59,7 +58,6 @@
 		1E91EDB420751B99007B4053 /* FirstTimeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstTimeController.swift; sourceTree = "<group>"; };
 		1E91EDB62076467B007B4053 /* GenreController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenreController.swift; sourceTree = "<group>"; };
 		1E91EDB8207BBEAC007B4053 /* SettingsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
-		1E937F04208E46D9009B2B88 /* CustomSegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSegmentedControl.swift; sourceTree = "<group>"; };
 		1E987904203CAA7400947638 /* MovieController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieController.swift; sourceTree = "<group>"; };
 		1E987909203CAF1400947638 /* LandingScreenController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingScreenController.swift; sourceTree = "<group>"; };
 		1E98790B203CAF4000947638 /* MoviePage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MoviePage.storyboard; sourceTree = "<group>"; };
@@ -135,7 +133,6 @@
 				1E987904203CAA7400947638 /* MovieController.swift */,
 				1E9F845C203F3629007CF0DD /* MovieDataSource.swift */,
 				1E98790B203CAF4000947638 /* MoviePage.storyboard */,
-				1E937F04208E46D9009B2B88 /* CustomSegmentedControl.swift */,
 			);
 			path = "Movie Page";
 			sourceTree = "<group>";
@@ -550,7 +547,6 @@
 				1EBBA9F0204980EF0014AFAA /* APIKeys.swift in Sources */,
 				D0936F7F204717DE00813A20 /* SearchDataSource.swift in Sources */,
 				1E6A3EA020615B5700B1D98B /* CollectionLayout.swift in Sources */,
-				1E937F05208E46D9009B2B88 /* CustomSegmentedControl.swift in Sources */,
 				1E9F845D203F3629007CF0DD /* MovieDataSource.swift in Sources */,
 				1EA31EAE2034A5CD0092E4B8 /* LoadScreenController.swift in Sources */,
 				1E91EDB9207BBEAC007B4053 /* SettingsController.swift in Sources */,

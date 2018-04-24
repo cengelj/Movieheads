@@ -7,9 +7,12 @@
 //
 
 import UIKit
+import Pods_Movieheads
+import TMDBSwift
 
 class MovieDataSource: NSObject, UICollectionViewDataSource{
 	var categories:[String] = ["Comedy", "Plot Complexity", "Violence", "Acting", "Dialogue", "Other", "Other"]
+	var movie:MovieMDB!
 	
 	func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
 		return categories.count*2
@@ -79,6 +82,16 @@ class MovieDataSource: NSObject, UICollectionViewDataSource{
 				}
 			
 			picker.layer.borderWidth = 0.0
+			
+			let savedRatings = UserDefaults.standard.dictionary(forKey: "ratings") as! [String:(Double, Int)]
+			let userRatings = UserDefaults.standard.dictionary(forKey: "userRatings") as! [String:Int]
+			if let r = userRatings["\(movie.id!).\(indexPath.row/2)"]{
+				picker.selectedSegmentIndex = r
+			}
+			else if let r = savedRatings["\(movie.id!).\(indexPath.row/2)"]{
+				let x = round(r.0)
+				picker.selectedSegmentIndex = Int(x)
+			}
 		}
 		cell.layer.borderWidth = 1.0
 		cell.layer.borderColor = UIColor.black.cgColor

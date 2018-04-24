@@ -10,6 +10,7 @@ import UIKit
 import Pods_Movieheads
 import TMDBSwift
 import ColorThiefSwift
+
 class MovieController: UIViewController {
 	@IBOutlet weak var movieBanner: UIImageView!
 	@IBOutlet weak var movieImage: UIImageView!
@@ -20,6 +21,8 @@ class MovieController: UIViewController {
 	@IBOutlet weak var collectionView: UICollectionView!
 	@IBOutlet weak var logo: UIImageView!
 	@IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+	var savedRatings = [String:(Double, Int)]()
+	var userRatings = [String:Int]()
 	weak var black = #imageLiteral(resourceName: "black")
 	weak var white = #imageLiteral(resourceName: "white")
 	var rotating = true
@@ -29,6 +32,12 @@ class MovieController: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		activityIndicator.startAnimating()
+		let ds = collectionView.dataSource as! MovieDataSource
+		ds.movie = movie
+		
+		savedRatings = UserDefaults.standard.dictionary(forKey: "ratings") as! [String:(Double, Int)]
+		userRatings = UserDefaults.standard.dictionary(forKey: "userRatings") as! [String:Int]
+		
 		mpaa.alpha = 0
 		name.alpha = 0
 		ratings.alpha = 0
@@ -84,8 +93,9 @@ class MovieController: UIViewController {
 	override var prefersStatusBarHidden: Bool{return true}
 	@IBAction func backButtonPressed(_ sender: UIBarButtonItem) {
 		topMostController().dismiss(animated: true) {
-			// Cache info here?
-			
+			// Save ratings here
+			UserDefaults.standard.set(self.savedRatings, forKey: "ratings")
+			UserDefaults.standard.set(self.userRatings, forKey: "UserRatings")
 		}
 	}
 	func rotateView(){
@@ -182,9 +192,28 @@ class MovieController: UIViewController {
 		}
 		print("Rating Loaded")
 	}
+	
 	// Rating selection
-	// To-Do: Set icons and make prettier.
 	@IBAction func valueChanged(_ sender: UISegmentedControl) {
+		let ds = collectionView.dataSource as! MovieDataSource
+		let categoryNum = ds.categories.index(of: identifySegment(sender))!
+		
+		if let r = savedRatings["\(movie.id!).\(categoryNum)"]{
+			if let y = userRatings["\(movie.id!).\(categoryNum)"]{
+				let sum = r.0*Double(r.1) - Double(y)
+				let avg = (r.0*Double(r.1)+Double(sender.selectedSegmentIndex))/(Double(r.1))
+				savedRatings["\(movie.id!).\(categoryNum)"] = (avg, r.1)
+			}
+			else{
+				let avg = (r.0*Double(r.1)+Double(sender.selectedSegmentIndex))/(Double(r.1)+1.0)
+				savedRatings["\(movie.id!).\(categoryNum)"] = (avg, r.1+1)
+			}
+		}
+		else{
+			savedRatings["\(movie.id).\(categoryNum)"] = (Double(sender.selectedSegmentIndex), 1)
+		}
+		userRatings["\(movie.id!).\(categoryNum)"] = sender.selectedSegmentIndex
+		
 		var num = 0.0
 		switch(sender.selectedSegmentIndex){
 		case 0:
@@ -196,11 +225,18 @@ class MovieController: UIViewController {
 		default:
 			print("oof")
 		}
+		
 		for view in sender.subviews{
 			if view.frame.midX == CGFloat(num){
 				UIView.animate(withDuration: 0.5, animations: {
 					view.alpha = 1.0
 					view.tintColor = UIColor.red
+				})
+			}
+			else if view.frame.midX < CGFloat(num){
+				UIView.animate(withDuration: 0.5, animations: {
+					view.alpha = 0.8
+					view.tintColor = UIColor.lightGray
 				})
 			}
 			else{
@@ -209,6 +245,29 @@ class MovieController: UIViewController {
 					view.tintColor = UIColor.lightGray
 				})
 			}
+			
+		}
+	}
+	func identifySegment(_ control:UISegmentedControl) -> String{
+		switch(control.titleForSegment(at: 0)!){
+		case "😂":
+			return "Humor"
+		case "😭":
+			return "Drama"
+		case "✏️":
+			return "Writing"
+		case "🎭":
+			return "Acting"
+		case "👀":
+			return "Visual Effects"
+		case "💥":
+			return "Action"
+		case "🤔":
+			return "Plot Complexity"
+		case "😱":
+			return "Horror"
+		default:
+			return "nil"
 		}
 	}
 	func loadBanner(_ URL: Foundation.URL) {
@@ -373,8 +432,8 @@ class MovieController: UIViewController {
 		}
 		return genreID
 	}
+	
 }
-
 public extension UIColor {
 	public func colorWithBrightness(brightness: CGFloat) -> UIColor {
 		var H: CGFloat = 0, S: CGFloat = 0, B: CGFloat = 0, A: CGFloat = 0
@@ -400,5 +459,4 @@ public extension UIColor {
 		return UIColor(red: compRed, green: compGreen, blue: compBlue, alpha: 1.0)
 	}
 }
-
 
