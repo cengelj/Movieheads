@@ -46,7 +46,6 @@ class SettingsController: UIViewController {
 		alert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: nil))
 		
 		self.present(alert, animated: true)
-		
 	}
 	@IBAction func exportPressed(_ sender: UIButton) {
 		let userRatings = UserDefaults.standard.dictionary(forKey: "userRatings") as! [String:Int]
@@ -56,14 +55,5 @@ class SettingsController: UIViewController {
 		}
 		print(str)
 	}
-	/*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
