@@ -124,6 +124,38 @@ class MovieDataSource: NSObject, UICollectionViewDataSource{
 			else if let r = savedRatings[index]{
 				let x = round(r[0])
 				picker.selectedSegmentIndex = Int(x)
+				
+				var num = 0.0
+				switch(Int(x)){
+				case 0:
+					num = 28.0
+				case 1:
+					num = 85.0
+				case 2:
+					num = 142.0
+				default:
+					print("oof")
+				}
+				for view in picker.subviews{
+					if view.frame.midX == CGFloat(num){
+						UIView.animate(withDuration: 0.5, animations: {
+							view.alpha = 1.0
+							view.tintColor = UIColor.red
+						})
+					}
+					else if view.frame.midX < CGFloat(num){
+						UIView.animate(withDuration: 0.5, animations: {
+							view.alpha = 0.5
+							view.tintColor = UIColor.lightGray
+						})
+					}
+					else{
+						UIView.animate(withDuration: 0.5, animations: {
+							view.alpha = 0.2
+							view.tintColor = UIColor.lightGray
+						})
+					}
+				}
 			}
 		}
 		cell.layer.borderWidth = 1.0

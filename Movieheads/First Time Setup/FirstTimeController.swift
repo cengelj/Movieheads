@@ -11,12 +11,43 @@ import UIKit
 class FirstTimeController: UIPageViewController, UIPageViewControllerDelegate, UIPageViewControllerDataSource {
 	var pages = [UIViewController]()
 	var genreController:GenreController!
+	
 	override func viewDidLoad() {
         super.viewDidLoad()
+		
 		self.dataSource = self
 		self.delegate = self
-		let dict = [String:(Double, Int)]()
+		var dict = [String:[Double]]()
 		let dic = [String:Int]()
+		
+		let str = Importer().getString()
+		var i = 0
+		var start = 0
+		var key = ""
+		var end = false
+		for char in str{
+			if end{
+				if var arr = dict[key]{
+					arr[1] += 1.0
+				}
+				else{
+					dict[key] = [Double(String(char))!,1.0]
+					print(key, ":", Double(String(char))!)
+				}
+				end = false
+			}
+			else if char == ":"{
+				let startIndex = str.index(str.startIndex, offsetBy: start)
+				let endIndex = str.index(str.startIndex, offsetBy: i)
+				key = String(str[startIndex..<endIndex])
+				end = true
+			}
+			else if char == ";"{
+				start = i + 1
+			}
+			i += 1
+		}
+		
 		UserDefaults.standard.set(dict, forKey: "ratings")
 		UserDefaults.standard.set(dic, forKey: "userRatings")
 		
