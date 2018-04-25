@@ -105,11 +105,11 @@ class DiscoverDataSource: NSObject, UICollectionViewDataSource, UICollectionView
 		let genre = label.text
 		
 		let storyboard = UIStoryboard(name: "MoviePage", bundle: nil)
-		let controller = storyboard.instantiateInitialViewController()!// as! MovieController
+		let controller = storyboard.instantiateInitialViewController()! // as! MovieController
 		let sub = controller.childViewControllers[0] as! MovieController
 		
 		sub.movie = (results[genre!])![indexPath.row]
-		let _ = sub.view
+		//let _ = sub.view
 		topMostController().present(controller, animated: true, completion: nil)
 	}
 	

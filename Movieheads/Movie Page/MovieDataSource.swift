@@ -10,7 +10,7 @@ import UIKit
 import Pods_Movieheads
 import TMDBSwift
 
-class MovieDataSource: NSObject, UICollectionViewDataSource{
+class MovieDataSource: NSObject, UICollectionViewDataSource, UICollectionViewDelegate{
 	var categories:[String] = ["Comedy", "Plot Complexity", "Violence", "Acting", "Dialogue", "Other", "Other"]
 	var movie:MovieMDB!
 	
@@ -139,19 +139,19 @@ class MovieDataSource: NSObject, UICollectionViewDataSource{
 				for view in picker.subviews{
 					if view.frame.midX == CGFloat(num){
 						UIView.animate(withDuration: 0.5, animations: {
-							view.alpha = 1.0
+							view.alpha = 0.7
 							view.tintColor = UIColor.red
 						})
 					}
 					else if view.frame.midX < CGFloat(num){
 						UIView.animate(withDuration: 0.5, animations: {
-							view.alpha = 0.5
+							view.alpha = 0.3
 							view.tintColor = UIColor.lightGray
 						})
 					}
 					else{
 						UIView.animate(withDuration: 0.5, animations: {
-							view.alpha = 0.2
+							view.alpha = 0.1
 							view.tintColor = UIColor.lightGray
 						})
 					}
@@ -162,6 +162,62 @@ class MovieDataSource: NSObject, UICollectionViewDataSource{
 		cell.layer.borderColor = UIColor.black.cgColor
 		
 		return cell
+	}
+	func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+		if indexPath.row%2 == 0{
+			let name = categories[indexPath.row/2]
+			print(collectionView.frame.minY)
+			//let rect = CGRect(x: collectionView.bounds.midX-150.0, y: (collectionView.superview?.bounds.midY)!, width: 0.0, height: 0.0)
+			let rect = CGRect(x: collectionView.bounds.midX-150.0, y: collectionView.frame.minY+(CGFloat(indexPath.row/2))*62.5, width: 0.0, height: 0.0)
+			let textView = UITextView(frame: rect)
+			let tap = UITapGestureRecognizer(target: self, action: #selector(MovieDataSource.tapFunction(sender:)))
+			textView.addGestureRecognizer(tap)
+			textView.isUserInteractionEnabled = true
+			
+			textView.contentMode = .center
+			textView.textAlignment = .center
+			collectionView.superview?.addSubview(textView)
+			
+			UIView.animate(withDuration: 0.5, animations: {
+				textView.frame = CGRect(x: collectionView.bounds.midX-150.0, y: collectionView.frame.minY+(CGFloat(indexPath.row/2))*62.5, width: 300.0, height: 100.0)
+				
+					//CGRect(x: collectionView.bounds.midX-150.0, y: (collectionView.superview?.bounds.midY)!, width: 300.0, height: 100.0)
+			})
+			UIView.animate(withDuration: 0.2, animations: {
+				textView.layer.cornerRadius = 10.0
+				textView.clipsToBounds = true
+			})
+			UIView.animate(withDuration: 0.5, animations: {
+				switch(name){
+				case "Humor":
+					textView.text = "Humor Debug Description"
+				case "Drama":
+					textView.text = "Drama Debug Description"
+				case "Visual Effects":
+					textView.text = "Visual Effects Debug Description"
+				case "Writing":
+					textView.text = "Writing Debug Description"
+				case "Acting":
+					textView.text = "Acting Debug Description"
+				case "Action":
+					textView.text = "Action Debug Description"
+				case "Horror":
+					textView.text = "Horror Debug Description"
+				case "Plot Complexity":
+					textView.text = "Plot Complexity Debug Description"
+				default:
+					print("This isn't supposed to happen")
+				}
+			})
+		}
+	}
+	@objc func tapFunction(sender:UITapGestureRecognizer) {
+		UIView.animate(withDuration: 0.5, animations: {
+			let textView = sender.view as! UITextView
+			textView.frame = CGRect(x: textView.frame.minX, y: textView.frame.minY, width: 0.0, height: 0.0)
+		}) { (boo) in
+			sender.view?.removeFromSuperview()
+		}
 	}
 }
 extension UISegmentedControl {
