@@ -167,8 +167,7 @@ class MovieDataSource: NSObject, UICollectionViewDataSource, UICollectionViewDel
 		if indexPath.row%2 == 0{
 			let name = categories[indexPath.row/2]
 			print(collectionView.frame.minY)
-			//let rect = CGRect(x: collectionView.bounds.midX-150.0, y: (collectionView.superview?.bounds.midY)!, width: 0.0, height: 0.0)
-			let rect = CGRect(x: collectionView.bounds.midX-150.0, y: collectionView.frame.minY+(CGFloat(indexPath.row/2))*62.5, width: 0.0, height: 0.0)
+			let rect = CGRect(x: collectionView.bounds.midX-150.0, y: (CGFloat(indexPath.row/2))*60.5, width: 0.0, height: 0.0)
 			let textView = UITextView(frame: rect)
 			let tap = UITapGestureRecognizer(target: self, action: #selector(MovieDataSource.tapFunction(sender:)))
 			textView.addGestureRecognizer(tap)
@@ -176,37 +175,40 @@ class MovieDataSource: NSObject, UICollectionViewDataSource, UICollectionViewDel
 			
 			textView.contentMode = .center
 			textView.textAlignment = .center
-			collectionView.superview?.addSubview(textView)
-			
+			collectionView.addSubview(textView)
 			UIView.animate(withDuration: 0.5, animations: {
-				textView.frame = CGRect(x: collectionView.bounds.midX-150.0, y: collectionView.frame.minY+(CGFloat(indexPath.row/2))*62.5, width: 300.0, height: 100.0)
-				
-					//CGRect(x: collectionView.bounds.midX-150.0, y: (collectionView.superview?.bounds.midY)!, width: 300.0, height: 100.0)
+				if indexPath.row/2 == 7{
+					textView.frame = CGRect(x: collectionView.bounds.midX-150.0, y: (CGFloat(indexPath.row/2))*60.5, width: 300.0, height: -100.0)
+				}
+				else{
+					textView.frame = CGRect(x: collectionView.bounds.midX-150.0, y: (CGFloat(indexPath.row/2))*60.5, width: 300.0, height: 100.0)
+				}
 			})
 			UIView.animate(withDuration: 0.2, animations: {
 				textView.layer.cornerRadius = 10.0
 				textView.clipsToBounds = true
 			})
+			textView.font = UIFont(name: "Comic Sans MS Bold", size: 12.0)
 			UIView.animate(withDuration: 0.5, animations: {
 				switch(name){
 				case "Humor":
-					textView.text = "Humor Debug Description"
+					textView.text = "This category is for how much you laughed during the film. This category does not deal with the quality of the humor, just how funny it was overall. A movie does not need to be a comedy to be funny, and it can be funny despite the original intention (see also: The Room). "
 				case "Drama":
-					textView.text = "Drama Debug Description"
+					textView.text = "This category is for how dramatic the film is. This includes, but is not limited to, intense personal relationships and conflict between protagonist and friends."
 				case "Visual Effects":
-					textView.text = "Visual Effects Debug Description"
+					textView.text = "This category is for the quality of the visual effects in the film. Visual Effects include, but are not limited to, CGI, animations, green screen, camera angles and lighting. "
 				case "Writing":
-					textView.text = "Writing Debug Description"
+					textView.text = "This category is for the quality of the film's writing. This includes, but is not limited to, dialogue, plot, characters, and conflict"
 				case "Acting":
-					textView.text = "Acting Debug Description"
+					textView.text = "This category is for the overall acting of the film's characters. This includes, but is not limited to, actor chemistry, actor facial expressions and actor line delivery (does their tone match their character."
 				case "Action":
-					textView.text = "Action Debug Description"
+					textView.text = "This category is simply for the overall amount of action in the film. Generally, an action movie with the same amount of action as a movie from a seperate category should recieve a lower score than the other movie. "
 				case "Horror":
-					textView.text = "Horror Debug Description"
+					textView.text = "This category is for how scary the film was. This includes, but is not limited to, residual horror (after the movie is off), horror during the film, and how scary the movie was overall."
 				case "Plot Complexity":
-					textView.text = "Plot Complexity Debug Description"
+					textView.text = "This category is for how difficult it was to follow the plot of the movie. I.E were there large twists, places where you needed to rewind to understand a scene, etc."
 				default:
-					print("This isn't supposed to happen")
+					textView.text = "ERROR"
 				}
 			})
 		}
