@@ -131,6 +131,7 @@
                                 </cells>
                                 <connections>
                                     <outlet property="dataSource" destination="aEn-np-Cfm" id="i1i-6R-V7S"/>
+                                    <outlet property="delegate" destination="VwZ-Jr-Z0z" id="clj-TV-Gle"/>
                                 </connections>
                             </collectionView>
                         </subviews>

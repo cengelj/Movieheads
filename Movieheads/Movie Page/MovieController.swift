@@ -96,7 +96,6 @@ class MovieController: UIViewController {
 			// Save ratings here
 			UserDefaults.standard.set(self.savedRatings, forKey: "ratings")
 			UserDefaults.standard.set(self.userRatings, forKey: "userRatings")
-			print(self.movie.id)
 		}
 	}
 	func rotateView(){

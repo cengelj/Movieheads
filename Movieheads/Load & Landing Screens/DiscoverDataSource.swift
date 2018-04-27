@@ -37,7 +37,6 @@ class DiscoverDataSource: NSObject, UICollectionViewDataSource, UICollectionView
 		else{
 			return 20
 		}
-		
 	}
     
 	func convertToNum(_ string:String) -> Int{
@@ -109,8 +108,8 @@ class DiscoverDataSource: NSObject, UICollectionViewDataSource, UICollectionView
 		let sub = controller.childViewControllers[0] as! MovieController
 		
 		sub.movie = (results[genre!])![indexPath.row]
-		//let _ = sub.view
 		topMostController().present(controller, animated: true, completion: nil)
+		
 	}
 	
 	func loadGenre(genre:String){
@@ -157,7 +156,7 @@ class DiscoverDataSource: NSObject, UICollectionViewDataSource, UICollectionView
 		default:
 			genreID = 0
 		}
-		//to-do: error handling
+		// to-do: error handling
 		GenresMDB.genre_movies(genreId: genreID, include_adult_movies: true, language: "en") { [unowned self] (res, movies) in
 			if let m = movies{
 				self.results[genre] = m
@@ -198,7 +197,6 @@ class DiscoverDataSource: NSObject, UICollectionViewDataSource, UICollectionView
 		}
 		
 	}
-    
 	func topMostController() -> UIViewController {
 		var topController: UIViewController = UIApplication.shared.keyWindow!.rootViewController!
 		while (topController.presentedViewController != nil) {
