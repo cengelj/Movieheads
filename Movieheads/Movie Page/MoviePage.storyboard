@@ -23,6 +23,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="YAq-LD-XGX">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                     </navigationBar>
                     <connections>
                         <segue destination="hf4-1p-3HC" kind="relationship" relationship="rootViewController" id="bkg-8M-vUs"/>
@@ -42,7 +43,7 @@
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="9VJ-6e-6gr">
                                 <rect key="frame" x="10" y="234" width="355" height="433"/>
-                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="PDT-eA-CWj">
                                     <size key="itemSize" width="170" height="50"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -107,27 +108,29 @@
                                     <outlet property="delegate" destination="Ilv-hx-KsD" id="Rkd-E4-WjM"/>
                                 </connections>
                             </collectionView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="black" translatesAutoresizingMaskIntoConstraints="NO" id="SzE-Hf-FbS">
+                            <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="black" translatesAutoresizingMaskIntoConstraints="NO" id="SzE-Hf-FbS">
                                 <rect key="frame" x="0.0" y="64" width="375" height="96"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="white" translatesAutoresizingMaskIntoConstraints="NO" id="JZY-76-9gL">
+                            <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="white" translatesAutoresizingMaskIntoConstraints="NO" id="JZY-76-9gL">
                                 <rect key="frame" x="25" y="0.0" width="105" height="140.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="JZY-76-9gL" secondAttribute="height" multiplier="3:4" id="7jq-CS-jyc"/>
                                     <constraint firstAttribute="width" constant="105" id="wvd-kt-bi1"/>
                                 </constraints>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="black" translatesAutoresizingMaskIntoConstraints="NO" id="9RZ-am-RJp">
+                            <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="black" translatesAutoresizingMaskIntoConstraints="NO" id="9RZ-am-RJp">
                                 <rect key="frame" x="325" y="120" width="50" height="40"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="3ku-zz-yiq"/>
                                 </constraints>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Image" translatesAutoresizingMaskIntoConstraints="NO" id="dj9-gI-LCG">
-                                <rect key="frame" x="67" y="417" width="240" height="240"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="loading" translatesAutoresizingMaskIntoConstraints="NO" id="dj9-gI-LCG">
+                                <rect key="frame" x="37" y="357" width="300" height="300"/>
                                 <constraints>
+                                    <constraint firstAttribute="height" constant="300" id="F3X-OO-Kom"/>
+                                    <constraint firstAttribute="width" constant="300" id="XaK-YB-agx"/>
                                     <constraint firstAttribute="width" secondItem="dj9-gI-LCG" secondAttribute="height" multiplier="1:1" id="kZo-W8-XIj"/>
                                 </constraints>
                             </imageView>
@@ -155,7 +158,7 @@
                                 <color key="color" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </activityIndicatorView>
                         </subviews>
-                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="9RZ-am-RJp" firstAttribute="trailing" secondItem="SzE-Hf-FbS" secondAttribute="trailing" id="1Fk-65-99z"/>
                             <constraint firstItem="SzE-Hf-FbS" firstAttribute="leading" secondItem="xIh-jk-xoj" secondAttribute="leading" id="4AF-kq-cMc"/>
@@ -172,12 +175,10 @@
                             <constraint firstItem="e7H-M8-jfe" firstAttribute="leading" secondItem="xIh-jk-xoj" secondAttribute="leading" constant="10" id="dJJ-NG-RBd"/>
                             <constraint firstItem="xIh-jk-xoj" firstAttribute="trailing" secondItem="9VJ-6e-6gr" secondAttribute="trailing" constant="10" id="dVF-cI-OhM"/>
                             <constraint firstItem="SzE-Hf-FbS" firstAttribute="top" secondItem="xIh-jk-xoj" secondAttribute="top" id="fWu-YY-VpX"/>
-                            <constraint firstItem="xIh-jk-xoj" firstAttribute="trailing" secondItem="dj9-gI-LCG" secondAttribute="trailing" constant="68" id="k8f-lk-dj2"/>
                             <constraint firstItem="9VJ-6e-6gr" firstAttribute="top" secondItem="e7H-M8-jfe" secondAttribute="bottom" constant="10" id="n0D-hz-ke2"/>
                             <constraint firstItem="e7H-M8-jfe" firstAttribute="top" secondItem="SzE-Hf-FbS" secondAttribute="bottom" constant="5" id="pvM-Bk-JUx"/>
                             <constraint firstItem="Voj-TZ-k09" firstAttribute="centerY" secondItem="0qj-ao-PD6" secondAttribute="centerY" id="vXA-Nf-Kx4"/>
                             <constraint firstItem="dj9-gI-LCG" firstAttribute="centerX" secondItem="0qj-ao-PD6" secondAttribute="centerX" id="y1R-wJ-ELc"/>
-                            <constraint firstItem="dj9-gI-LCG" firstAttribute="leading" secondItem="xIh-jk-xoj" secondAttribute="leading" constant="67" id="zQF-Bt-S4K"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="xIh-jk-xoj"/>
                     </view>
@@ -207,8 +208,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Image" width="260" height="262"/>
         <image name="black" width="50" height="50"/>
+        <image name="loading" width="1024" height="1024"/>
         <image name="white" width="50" height="50"/>
     </resources>
 </document>

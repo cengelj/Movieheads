@@ -31,7 +31,7 @@ class GenreViewController: UIViewController, UICollectionViewDelegate, UICollect
 	override var prefersStatusBarHidden: Bool{return true}
 	
 	func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-		return 80
+		return 100
 	}
 	func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 		let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MovieImage", for: indexPath)
@@ -44,7 +44,7 @@ class GenreViewController: UIViewController, UICollectionViewDelegate, UICollect
 	}
 	func loadGenre(){
 		print("loading genre")
-		for i in 0..<5{
+		for i in 1...5{
 			DiscoverMovieMDB.genreList(genreId: id, page: Double(i)) { [unowned self] (ret, movies) in
 				if let m = movies{
 					if i == 0{

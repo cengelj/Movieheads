@@ -157,8 +157,16 @@ class DiscoverDataSource: NSObject, UICollectionViewDataSource, UICollectionView
 			genreID = 0
 		}
 		// to-do: error handling
-		GenresMDB.genre_movies(genreId: genreID, include_adult_movies: true, language: "en") { [unowned self] (res, movies) in
+//		GenresMDB.genre_movies(genreId: genreID, include_adult_movies: true, language: "en") { [unowned self] (res, movies) in
+//			if let m = movies{
+//				print(m.count)
+//				self.results[genre] = m
+//				self.loadMovies(genre:genre)
+//			}
+//		}
+		DiscoverMovieMDB.genreList(genreId: genreID, page: 1) { [unowned self] (ret, movies) in
 			if let m = movies{
+				print(m.count)
 				self.results[genre] = m
 				self.loadMovies(genre:genre)
 			}
