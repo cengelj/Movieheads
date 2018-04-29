@@ -12,9 +12,8 @@ import UIKit
 
 class SettingsController: UIViewController {
 	let gradient = CAGradientLayer()
-
-	@IBOutlet weak var exportButton: UIButton!
 	@IBOutlet weak var button: UIButton!
+	
 	override func viewDidLoad() {
         super.viewDidLoad()
 		button.layer.cornerRadius = 10
@@ -23,6 +22,7 @@ class SettingsController: UIViewController {
 		exportButton.layer.cornerRadius = 10
 		exportButton.clipsToBounds = true
 		
+		// Setting up the gradient
 		let layer = CAGradientLayer()
 		layer.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
 		layer.colors = [UIColor.darkGray.cgColor, UIColor.gray.cgColor]
@@ -46,14 +46,6 @@ class SettingsController: UIViewController {
 		alert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: nil))
 		
 		self.present(alert, animated: true)
-	}
-	@IBAction func exportPressed(_ sender: UIButton) {
-		let userRatings = UserDefaults.standard.dictionary(forKey: "userRatings") as! [String:Int]
-		var str = ""
-		for (id, rating) in userRatings{
-			str += "\(id):\(rating);"
-		}
-		print(str)
 	}
 
 }

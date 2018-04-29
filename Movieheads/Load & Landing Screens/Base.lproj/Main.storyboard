@@ -219,34 +219,10 @@
                                     <constraint firstAttribute="width" constant="30" id="c7a-lq-vac"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="E1H-uC-Ofj" userLabel="Export Ratings">
-                                <rect key="frame" x="50" y="575" width="275" height="32"/>
-                                <color key="backgroundColor" red="0.7019608021" green="0.7019608021" blue="0.7019608021" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="275" id="CdJ-I2-NYv"/>
-                                </constraints>
-                                <state key="normal">
-                                    <attributedString key="attributedTitle">
-                                        <fragment content="Export Ratings">
-                                            <attributes>
-                                                <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                <font key="NSFont" size="20" name="HoeflerText-Regular"/>
-                                                <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                            </attributes>
-                                        </fragment>
-                                    </attributedString>
-                                </state>
-                                <connections>
-                                    <action selector="buttonPressed:" destination="r76-B1-0Iq" eventType="touchUpInside" id="ZcE-Hb-4VN"/>
-                                    <action selector="exportPressed:" destination="r76-B1-0Iq" eventType="touchUpInside" id="ckM-px-u62"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="E1H-uC-Ofj" firstAttribute="centerX" secondItem="0wc-Bu-Tq5" secondAttribute="centerX" id="078-wk-VAL"/>
                             <constraint firstItem="PCA-z2-tCr" firstAttribute="centerY" secondItem="0wc-Bu-Tq5" secondAttribute="centerY" id="4yf-jm-cRr"/>
-                            <constraint firstItem="xTQ-DT-SeR" firstAttribute="top" secondItem="E1H-uC-Ofj" secondAttribute="bottom" constant="8" id="COM-Om-UYT"/>
                             <constraint firstItem="ovI-tn-otM" firstAttribute="centerY" secondItem="0wc-Bu-Tq5" secondAttribute="centerY" id="Cq8-rF-eJG"/>
                             <constraint firstItem="xTQ-DT-SeR" firstAttribute="centerX" secondItem="0wc-Bu-Tq5" secondAttribute="centerX" id="FXT-Z3-hzo"/>
                             <constraint firstItem="MNf-xa-uMO" firstAttribute="centerY" secondItem="0wc-Bu-Tq5" secondAttribute="centerY" id="abt-Me-PNE"/>
@@ -259,7 +235,6 @@
                     </view>
                     <connections>
                         <outlet property="button" destination="xTQ-DT-SeR" id="pHd-e5-Rpf"/>
-                        <outlet property="exportButton" destination="E1H-uC-Ofj" id="mB0-dS-6qz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hBd-ny-ckt" userLabel="First Responder" sceneMemberID="firstResponder"/>
