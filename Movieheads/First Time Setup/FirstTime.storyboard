@@ -12,10 +12,12 @@
     <customFonts key="customFonts">
         <array key="HelveticaNeue.ttc">
             <string>HelveticaNeue</string>
-            <string>HelveticaNeue-Medium</string>
         </array>
         <array key="HelveticaNeueLights.ttc">
             <string>HelveticaNeue-Thin</string>
+        </array>
+        <array key="HoeflerText.ttc">
+            <string>HoeflerText-Regular</string>
         </array>
     </customFonts>
     <scenes>
@@ -115,9 +117,9 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="lAm-ej-WkE">
-                                <rect key="frame" x="0.0" y="120" width="375" height="498"/>
+                                <rect key="frame" x="20" y="165" width="335" height="453"/>
                                 <color key="backgroundColor" red="0.0" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="jBP-NH-zKE">
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="20" minimumInteritemSpacing="10" id="jBP-NH-zKE">
                                     <size key="itemSize" width="180" height="40"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -125,7 +127,7 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="genre" id="m4r-yD-dGv">
-                                        <rect key="frame" x="0.0" y="0.0" width="180" height="40"/>
+                                        <rect key="frame" x="77.5" y="0.0" width="180" height="40"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                             <rect key="frame" x="0.0" y="0.0" width="180" height="40"/>
@@ -146,20 +148,22 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose Your Genres" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kMe-4X-5hd">
-                                <rect key="frame" x="45.5" y="64" width="285" height="36"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="30"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose Your Genres" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kMe-4X-5hd">
+                                <rect key="frame" x="57" y="114" width="262.5" height="31"/>
+                                <fontDescription key="fontDescription" name="HoeflerText-Regular" family="Hoefler Text" pointSize="30"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
+                                <color key="shadowColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <size key="shadowOffset" width="0.0" height="1"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" red="0.42419573664665222" green="0.97264891862869263" blue="0.98710089921951294" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="kMe-4X-5hd" firstAttribute="top" secondItem="PNy-0K-fzG" secondAttribute="top" id="8ib-0s-RTg"/>
-                            <constraint firstItem="PNy-0K-fzG" firstAttribute="trailing" secondItem="lAm-ej-WkE" secondAttribute="trailing" id="Kj3-JL-Kkg"/>
+                            <constraint firstItem="kMe-4X-5hd" firstAttribute="top" secondItem="PNy-0K-fzG" secondAttribute="top" constant="50" id="8ib-0s-RTg"/>
+                            <constraint firstItem="PNy-0K-fzG" firstAttribute="trailing" secondItem="lAm-ej-WkE" secondAttribute="trailing" constant="20" id="Kj3-JL-Kkg"/>
                             <constraint firstItem="lAm-ej-WkE" firstAttribute="top" secondItem="kMe-4X-5hd" secondAttribute="bottom" constant="20" id="PPA-gJ-MUp"/>
                             <constraint firstItem="PNy-0K-fzG" firstAttribute="bottom" secondItem="lAm-ej-WkE" secondAttribute="bottom" id="hXO-oE-WiE"/>
-                            <constraint firstItem="lAm-ej-WkE" firstAttribute="leading" secondItem="PNy-0K-fzG" secondAttribute="leading" id="moe-ia-NVP"/>
+                            <constraint firstItem="lAm-ej-WkE" firstAttribute="leading" secondItem="PNy-0K-fzG" secondAttribute="leading" constant="20" id="moe-ia-NVP"/>
                             <constraint firstItem="kMe-4X-5hd" firstAttribute="centerX" secondItem="PNy-0K-fzG" secondAttribute="centerX" id="nkb-Kr-Yqn"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="PNy-0K-fzG"/>

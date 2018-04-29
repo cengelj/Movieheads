@@ -15,6 +15,12 @@ class GenreController: UIViewController, UICollectionViewDelegate, UICollectionV
 	
 	override func viewDidLoad() {
         super.viewDidLoad()
+		collectionView.backgroundColor = UIColor.clear
+		
+		let layer = CAGradientLayer()
+		layer.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
+		layer.colors = [UIColor.green.withAlphaComponent(0.1).cgColor, UIColor.cyan.cgColor]
+		view.layer.insertSublayer(layer, at: 0)
 		
 		collectionView.delegate = self
 		collectionView.dataSource = self
@@ -29,27 +35,43 @@ class GenreController: UIViewController, UICollectionViewDelegate, UICollectionV
 	}
 	func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 		let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "genre", for: indexPath)
+		cell.layer.cornerRadius = 10
+		cell.clipsToBounds = true
+		
 		let label = cell.viewWithTag(1) as! UILabel
 		label.text = genres[indexPath.row]
-		cell.backgroundColor = UIColor.blue
+		cell.backgroundColor = UIColor.red.withAlphaComponent(0.05)
 		
 		return cell
 	}
 	func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-		let cell = collectionView.cellForItem(at: indexPath)
+		let cell = collectionView.cellForItem(at: indexPath)!
 		let genre = genres[indexPath.row]
-		cell?.backgroundColor = UIColor.blue.withAlphaComponent(0.5)
+		
+		let layer = CAGradientLayer()
+		layer.frame = CGRect(x: cell.bounds.minX, y: cell.bounds.minY, width: (cell.bounds.width), height: (cell.bounds.height))
+		layer.colors = [UIColor.red.withAlphaComponent(0.2).cgColor, UIColor.red]
+		cell.layer.insertSublayer(layer, at: 0)
 		
 		if selectedGenres.contains(genre){
 			print(genres[indexPath.row], " deselected")
 			selectedGenres.remove(at: selectedGenres.index(of: genre)!)
-			cell?.backgroundColor = UIColor.blue
+			
+			for lay in cell.layer.sublayers!{
+				if let l = lay as? CAGradientLayer{
+					l.removeFromSuperlayer()
+				}
+			}
 		}
 		else{
 			if selectedGenres.count >= 4{
 				let rem = selectedGenres.remove(at: 0)
-				collectionView.cellForItem(at: IndexPath(row: genres.index(of: rem)!, section: 0))?.backgroundColor = UIColor.blue
-				
+				collectionView.cellForItem(at: IndexPath(row: genres.index(of: rem)!, section: 0))?.backgroundColor = UIColor.blue.withAlphaComponent(0.05)
+				for lay in (collectionView.cellForItem(at: IndexPath(row: genres.index(of: rem)!, section: 0))?.layer.sublayers)!{
+					if let l = lay as? CAGradientLayer{
+						l.removeFromSuperlayer()
+					}
+				}
 			}
 			selectedGenres.append(genre)
 		}

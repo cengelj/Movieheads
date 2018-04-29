@@ -14,42 +14,11 @@ class FirstTimeController: UIPageViewController, UIPageViewControllerDelegate, U
 	
 	override func viewDidLoad() {
         super.viewDidLoad()
+		importData()
 		
+		self.navigationController?.isNavigationBarHidden = true
 		self.dataSource = self
 		self.delegate = self
-		var dict = [String:[Double]]()
-		let dic = [String:Int]()
-		
-		let str = Importer().getString()
-		var i = 0
-		var start = 0
-		var key = ""
-		var end = false
-		for char in str{
-			if end{
-				if var arr = dict[key]{
-					arr[1] += 1.0
-				}
-				else{
-					dict[key] = [Double(String(char))!,1.0]
-					print(key, ":", Double(String(char))!)
-				}
-				end = false
-			}
-			else if char == ":"{
-				let startIndex = str.index(str.startIndex, offsetBy: start)
-				let endIndex = str.index(str.startIndex, offsetBy: i)
-				key = String(str[startIndex..<endIndex])
-				end = true
-			}
-			else if char == ";"{
-				start = i + 1
-			}
-			i += 1
-		}
-		
-		UserDefaults.standard.set(dict, forKey: "ratings")
-		UserDefaults.standard.set(dic, forKey: "userRatings")
 		
 		pages = [self.getViewController(withIdentifier: "genre"), self.getViewController(withIdentifier: "share"), self.getViewController(withIdentifier: "rating"), self.getViewController(withIdentifier: "enter")]
 		if let first = pages.first{
@@ -57,11 +26,10 @@ class FirstTimeController: UIPageViewController, UIPageViewControllerDelegate, U
 		}
 		let appearance = UIPageControl.appearance(whenContainedInInstancesOf: [UIPageViewController.self])
 		appearance.pageIndicatorTintColor = UIColor.blue
-		appearance.currentPageIndicatorTintColor = UIColor.cyan
-		appearance.backgroundColor = UIColor.clear
+		appearance.currentPageIndicatorTintColor = UIColor.red
+		appearance.backgroundColor = UIColor.cyan
 		appearance.tintColor = UIColor.clear
-		
-		self.navigationController?.hidesBarsOnTap = true
+		self.view.backgroundColor = UIColor.clear
     }
 
     override func didReceiveMemoryWarning() {
@@ -144,8 +112,42 @@ class FirstTimeController: UIPageViewController, UIPageViewControllerDelegate, U
 			let firstViewControllerIndex = pages.index(of: firstViewController) else {
 				return 0
 		}
-		
 		return firstViewControllerIndex
+	}
+	
+	func importData(){
+		var dict = [String:[Double]]()
+		let dic = [String:Int]()
+		
+		let str = Importer().getString()
+		var i = 0
+		var start = 0
+		var key = ""
+		var end = false
+		for char in str{
+			if end{
+				if var arr = dict[key]{
+					arr[1] += 1.0
+				}
+				else{
+					dict[key] = [Double(String(char))!,1.0]
+					print(key, ":", Double(String(char))!)
+				}
+				end = false
+			}
+			else if char == ":"{
+				let startIndex = str.index(str.startIndex, offsetBy: start)
+				let endIndex = str.index(str.startIndex, offsetBy: i)
+				key = String(str[startIndex..<endIndex])
+				end = true
+			}
+			else if char == ";"{
+				start = i + 1
+			}
+			i += 1
+		}
+		UserDefaults.standard.set(dict, forKey: "ratings")
+		UserDefaults.standard.set(dic, forKey: "userRatings")
 	}
 
 }
