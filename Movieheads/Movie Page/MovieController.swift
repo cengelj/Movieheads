@@ -392,13 +392,6 @@ class MovieController: UIViewController {
 		
 		self.present(activityViewController, animated: true, completion: nil)
 	}
-	func topMostController() -> UIViewController {
-		var topController: UIViewController = UIApplication.shared.keyWindow!.rootViewController!
-		while (topController.presentedViewController != nil) {
-			topController = topController.presentedViewController!
-		}
-		return topController
-	}
 	func getGenre(genre:Int) -> String{
 		var genreID = ""
 		switch(genre){

@@ -98,13 +98,4 @@ class LandingScreenController: UIViewController, UICollectionViewDelegate {
 		}
 		return genreID
 	}
-	func topMostController() -> UIViewController {
-		var topController: UIViewController = UIApplication.shared.keyWindow!.rootViewController!
-		while (topController.presentedViewController != nil) {
-			topController = topController.presentedViewController!
-		}
-		return topController
-	}
-	
-	
 }

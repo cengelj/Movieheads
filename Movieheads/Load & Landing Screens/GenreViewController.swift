@@ -97,15 +97,17 @@ class GenreViewController: UIViewController, UICollectionViewDelegate, UICollect
 		sub.movie = results[indexPath.row]
 		topMostController().present(controller, animated: true, completion: nil)
 	}
+	@IBAction func backButtonPressed(_ sender: UIBarButtonItem) {
+		topMostController().dismiss(animated: true) {
+		}
+	}
+}
+public extension UIViewController{
 	func topMostController() -> UIViewController {
 		var topController: UIViewController = UIApplication.shared.keyWindow!.rootViewController!
 		while (topController.presentedViewController != nil) {
 			topController = topController.presentedViewController!
 		}
 		return topController
-	}
-	@IBAction func backButtonPressed(_ sender: UIBarButtonItem) {
-		topMostController().dismiss(animated: true) {
-		}
 	}
 }

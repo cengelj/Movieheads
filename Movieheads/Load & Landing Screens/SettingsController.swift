@@ -11,16 +11,12 @@
 import UIKit
 
 class SettingsController: UIViewController {
-	let gradient = CAGradientLayer()
 	@IBOutlet weak var button: UIButton!
 	
 	override func viewDidLoad() {
         super.viewDidLoad()
 		button.layer.cornerRadius = 10
 		button.clipsToBounds = true
-		
-		exportButton.layer.cornerRadius = 10
-		exportButton.clipsToBounds = true
 		
 		// Setting up the gradient
 		let layer = CAGradientLayer()

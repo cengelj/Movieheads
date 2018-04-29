@@ -54,13 +54,4 @@ class SearchController: UIViewController, UITableViewDelegate, UISearchBarDelega
 		topMostController().present(controller, animated: true, completion: nil)
 		
 	}
-	func topMostController() -> UIViewController {
-		var topController: UIViewController = UIApplication.shared.keyWindow!.rootViewController!
-		while (topController.presentedViewController != nil) {
-			topController = topController.presentedViewController!
-		}
-		return topController
-	}
-	
-	
 }
