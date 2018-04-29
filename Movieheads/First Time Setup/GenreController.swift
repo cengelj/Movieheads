@@ -66,7 +66,6 @@ class GenreController: UIViewController, UICollectionViewDelegate, UICollectionV
 		else{
 			if selectedGenres.count >= 4{
 				let rem = selectedGenres.remove(at: 0)
-				collectionView.cellForItem(at: IndexPath(row: genres.index(of: rem)!, section: 0))?.backgroundColor = UIColor.blue.withAlphaComponent(0.05)
 				for lay in (collectionView.cellForItem(at: IndexPath(row: genres.index(of: rem)!, section: 0))?.layer.sublayers)!{
 					if let l = lay as? CAGradientLayer{
 						l.removeFromSuperlayer()
