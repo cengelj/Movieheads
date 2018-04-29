@@ -129,26 +129,39 @@ class MovieController: UIViewController {
 				let feed = (try? JSONSerialization.jsonObject(with: jsonData, options: .mutableContainers)) as? NSDictionary{
 				let results = feed.value(forKey: "results") as! NSArray
 				if results.count > 0{
+					var mpaas = [String]()
 					loop: for i in (0...results.count-1).reversed(){
+						print("bang")
 						let dict = results[i] as! NSDictionary
 						let country = dict.value(forKey: "iso_3166_1") as! NSString
 						if country == "US"{
 							let outer = dict.value(forKey: "release_dates") as! NSArray
-							let inner = outer[0] as! NSDictionary
-							let str = inner.value(forKey: "certification") as? String
-							DispatchQueue.main.async {						//Run it on the main thread as per swift guidelines
-								if let s = str {
-									if s == ""{self.setMPAA(string: "UR")}
-									else{self.setMPAA(string: s)}
+							for inn in outer{
+								let inner = inn as! NSDictionary
+								let str = inner.value(forKey: "certification") as? String
+								if let s = str{
+									print(s)
+									mpaas.append(s)
 								}
-								else{self.setMPAA(string: "UR")}
+							}
+							break loop
+						}
+					}
+					// Choose the highest rating from the list and set it
+					let priority = ["X", "NC-17", "R", "PG-13", "PG", "G", ""]
+					loop: for rating in priority{
+						if mpaas.contains(rating){
+							DispatchQueue.main.async {
+								self.setMPAA(string: rating)
 							}
 							break loop
 						}
 					}
 				}
 				else{
-					self.setMPAA(string: "UR")
+					DispatchQueue.main.async {
+						self.setMPAA(string: "UR")
+					}
 				}
 			}
 			}.resume()
