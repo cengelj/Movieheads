@@ -14,7 +14,7 @@ import TMDBSwift
 
 class LandingScreenController: UIViewController, UICollectionViewDelegate {
 	@IBOutlet weak var collectionView: UICollectionView!
-	var genres:[String] = ["Action", "Horror", "Drama", "Comedy"]
+	var genres:[String] = ["Action", "Horror", "Drama", "Comedy"]		// These are set according to the user preferences
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
@@ -26,13 +26,9 @@ class LandingScreenController: UIViewController, UICollectionViewDelegate {
 		source.genres = self.genres
 		
 		TMDBConfig.apikey = APIKeys.shared.key
-		// Do any additional setup after loading the view, typically from a nib.
 	}
 	
-	override func didReceiveMemoryWarning() {
-		super.didReceiveMemoryWarning()
-		// Dispose of any resources that can be recreated.
-	}
+	override func didReceiveMemoryWarning() {super.didReceiveMemoryWarning()}
 	override var prefersStatusBarHidden: Bool{return true}
 
 	@IBAction func toSearch(_ sender: UIBarButtonItem) {
@@ -58,7 +54,7 @@ class LandingScreenController: UIViewController, UICollectionViewDelegate {
 	}
 	func convert(_ genre:String) -> Int{
 		var genreID = 0
-		switch(genre){
+		switch(genre){					// Convert string to TMDB genre id
 		case "Action":
 			genreID = 28
 		case "Adventure":

@@ -99,6 +99,7 @@ class MovieController: UIViewController {
 		}
 	}
 	func rotateView(){
+		UIView.setAnimationsEnabled(true)
 		UIView.animate(withDuration: 0.5, delay: 0, options: .curveLinear, animations: { [unowned self] () -> Void in
 			self.logo.transform = self.logo.transform.rotated(by: CGFloat(Double.pi / 2.0))
 		}) { (finished) -> Void in
@@ -131,7 +132,6 @@ class MovieController: UIViewController {
 				if results.count > 0{
 					var mpaas = [String]()
 					loop: for i in (0...results.count-1).reversed(){
-						print("bang")
 						let dict = results[i] as! NSDictionary
 						let country = dict.value(forKey: "iso_3166_1") as! NSString
 						if country == "US"{
