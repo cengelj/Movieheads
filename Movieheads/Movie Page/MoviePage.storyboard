@@ -204,7 +204,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iCy-Wg-CEl" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <customObject id="Ilv-hx-KsD" customClass="MovieDataSource" customModule="Movieheads" customModuleProvider="target"/>
             </objects>
-            <point key="canvasLocation" x="-178.40000000000001" y="115.59220389805098"/>
+            <point key="canvasLocation" x="-596" y="116"/>
         </scene>
     </scenes>
     <resources>
