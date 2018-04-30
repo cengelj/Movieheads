@@ -19,8 +19,24 @@ class FirstTimeController: UIPageViewController, UIPageViewControllerDelegate, U
 		self.navigationController?.isNavigationBarHidden = true
 		self.dataSource = self
 		self.delegate = self
+		let genreController = self.getViewController(withIdentifier: "genre")
+		let ratingController = self.getViewController(withIdentifier: "rating")
+		let enterController = self.getViewController(withIdentifier: "enter")
 		
-		pages = [self.getViewController(withIdentifier: "genre"), self.getViewController(withIdentifier: "share"), self.getViewController(withIdentifier: "rating"), self.getViewController(withIdentifier: "enter")]
+		// Set up rating controller
+		
+		let layer = CAGradientLayer()
+		layer.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
+		layer.colors = [UIColor.red.withAlphaComponent(0.01).cgColor, UIColor.cyan.cgColor]
+		ratingController.view.layer.insertSublayer(layer, at: 0)
+		
+		// Set up enter controller
+		let layer1 = CAGradientLayer()
+		layer1.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
+		layer1.colors = [UIColor.yellow.withAlphaComponent(0.01).cgColor, UIColor.cyan.cgColor]
+		enterController.view.layer.insertSublayer(layer1, at: 0)
+		
+		pages = [genreController, ratingController, enterController]
 		if let first = pages.first{
 			setViewControllers([first], direction: UIPageViewControllerNavigationDirection.forward, animated: true, completion: nil)
 		}

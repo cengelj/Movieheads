@@ -140,7 +140,6 @@ class MovieController: UIViewController {
 								let inner = inn as! NSDictionary
 								let str = inner.value(forKey: "certification") as? String
 								if let s = str{
-									print(s)
 									mpaas.append(s)
 								}
 							}

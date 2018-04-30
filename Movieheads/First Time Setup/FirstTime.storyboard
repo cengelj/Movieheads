@@ -10,14 +10,15 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="HelveticaNeue.ttc">
-            <string>HelveticaNeue</string>
+        <array key="Helvetica.ttc">
+            <string>Helvetica</string>
         </array>
-        <array key="HelveticaNeueLights.ttc">
-            <string>HelveticaNeue-Thin</string>
+        <array key="Papyrus.ttc">
+            <string>Papyrus</string>
+            <string>Papyrus-Condensed</string>
         </array>
-        <array key="HoeflerText.ttc">
-            <string>HoeflerText-Regular</string>
+        <array key="Zapfino.ttf">
+            <string>Zapfino</string>
         </array>
     </customFonts>
     <scenes>
@@ -50,63 +51,150 @@
             </objects>
             <point key="canvasLocation" x="492" y="109"/>
         </scene>
-        <!--View Controller-->
+        <!--Rating Demo Controller-->
         <scene sceneID="B7T-Lh-dVT">
             <objects>
-                <viewController storyboardIdentifier="rating" useStoryboardIdentifierAsRestorationIdentifier="YES" id="39P-sy-yi9" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="rating" useStoryboardIdentifierAsRestorationIdentifier="YES" id="39P-sy-yi9" customClass="RatingDemoController" customModule="Movieheads" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="49e-ra-XTW">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rating" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J3U-AW-mfw">
-                                <rect key="frame" x="100.5" y="306" width="174" height="70"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="60"/>
+                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rating Movies" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ViB-vM-vz4">
+                                <rect key="frame" x="16" y="70" width="279.5" height="102.5"/>
+                                <fontDescription key="fontDescription" name="Zapfino" family="Zapfino" pointSize="30"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                                <color key="shadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <size key="shadowOffset" width="1" height="-1"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Good" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DvN-Wz-nZx">
+                                <rect key="frame" x="298" y="220" width="63.5" height="39"/>
+                                <fontDescription key="fontDescription" name="Papyrus" family="Papyrus" pointSize="25"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bad" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BSx-2z-hg2">
+                                <rect key="frame" x="29" y="220" width="47" height="39"/>
+                                <fontDescription key="fontDescription" name="Papyrus" family="Papyrus" pointSize="25"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rate movies you've seen..." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Keo-Ds-mdj">
+                                <rect key="frame" x="19" y="285" width="239" height="46.5"/>
+                                <fontDescription key="fontDescription" name="Papyrus-Condensed" family="Papyrus" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Based on our categories" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zYV-5B-aLf">
+                                <rect key="frame" x="133.5" y="335" width="225.5" height="46.5"/>
+                                <fontDescription key="fontDescription" name="Papyrus-Condensed" family="Papyrus" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Then decide on a movie to watch..." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u9u-ew-Cuc">
+                                <rect key="frame" x="16" y="531.5" width="316" height="47"/>
+                                <fontDescription key="fontDescription" name="Papyrus-Condensed" family="Papyrus" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Based on other people's ratings!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JgC-VI-O0d">
+                                <rect key="frame" x="60" y="578.5" width="299" height="47"/>
+                                <fontDescription key="fontDescription" name="Papyrus-Condensed" family="Papyrus" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="🎭" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A2J-jZ-sFm">
+                                <rect key="frame" x="162" y="210" width="50" height="58"/>
+                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="50"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="🎭" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7aK-we-E2q">
+                                <rect key="frame" x="238" y="210" width="50" height="58"/>
+                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="50"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="🎭" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2o6-cT-ayk">
+                                <rect key="frame" x="86" y="210" width="50" height="58"/>
+                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="50"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="J3U-AW-mfw" firstAttribute="centerX" secondItem="SRu-GX-PCJ" secondAttribute="centerX" id="RXr-tx-YHj"/>
-                            <constraint firstItem="J3U-AW-mfw" firstAttribute="centerY" secondItem="SRu-GX-PCJ" secondAttribute="centerY" id="WoQ-jU-eX6"/>
+                            <constraint firstItem="JgC-VI-O0d" firstAttribute="top" secondItem="u9u-ew-Cuc" secondAttribute="bottom" id="2ED-oY-iCs"/>
+                            <constraint firstItem="BSx-2z-hg2" firstAttribute="top" secondItem="SRu-GX-PCJ" secondAttribute="top" constant="200" id="2z7-NJ-2Fo"/>
+                            <constraint firstItem="Keo-Ds-mdj" firstAttribute="leading" secondItem="SRu-GX-PCJ" secondAttribute="leading" constant="19" id="5hK-Mw-r4Z"/>
+                            <constraint firstItem="SRu-GX-PCJ" firstAttribute="trailing" secondItem="zYV-5B-aLf" secondAttribute="trailing" constant="16" id="FH2-85-ZBT"/>
+                            <constraint firstItem="2o6-cT-ayk" firstAttribute="leading" secondItem="BSx-2z-hg2" secondAttribute="trailing" constant="10" id="JY8-Oo-Mps"/>
+                            <constraint firstItem="u9u-ew-Cuc" firstAttribute="top" secondItem="zYV-5B-aLf" secondAttribute="bottom" constant="150" id="P6h-ew-ptv"/>
+                            <constraint firstItem="zYV-5B-aLf" firstAttribute="height" secondItem="Keo-Ds-mdj" secondAttribute="height" id="SBW-fv-BtR"/>
+                            <constraint firstItem="SRu-GX-PCJ" firstAttribute="trailing" secondItem="JgC-VI-O0d" secondAttribute="trailing" constant="16" id="UaA-aZ-gBF"/>
+                            <constraint firstItem="DvN-Wz-nZx" firstAttribute="leading" secondItem="7aK-we-E2q" secondAttribute="trailing" constant="10" id="VQ7-Et-uVt"/>
+                            <constraint firstItem="A2J-jZ-sFm" firstAttribute="top" secondItem="SRu-GX-PCJ" secondAttribute="top" constant="190" id="X4h-3A-dQJ"/>
+                            <constraint firstItem="2o6-cT-ayk" firstAttribute="top" secondItem="SRu-GX-PCJ" secondAttribute="top" constant="190" id="a9w-U9-84b"/>
+                            <constraint firstItem="A2J-jZ-sFm" firstAttribute="leading" secondItem="2o6-cT-ayk" secondAttribute="trailing" constant="26" id="ceE-AA-TBV"/>
+                            <constraint firstItem="ViB-vM-vz4" firstAttribute="leading" secondItem="SRu-GX-PCJ" secondAttribute="leading" constant="16" id="d17-rs-bZy"/>
+                            <constraint firstItem="Keo-Ds-mdj" firstAttribute="top" secondItem="A2J-jZ-sFm" secondAttribute="bottom" constant="17" id="eR9-0c-HbU"/>
+                            <constraint firstItem="ViB-vM-vz4" firstAttribute="top" secondItem="SRu-GX-PCJ" secondAttribute="top" constant="50" id="fWr-07-Kcw"/>
+                            <constraint firstItem="zYV-5B-aLf" firstAttribute="top" secondItem="Keo-Ds-mdj" secondAttribute="bottom" constant="3.5" id="gpW-qg-Foj"/>
+                            <constraint firstItem="A2J-jZ-sFm" firstAttribute="centerX" secondItem="SRu-GX-PCJ" secondAttribute="centerX" id="hlw-Gj-2JP"/>
+                            <constraint firstItem="7aK-we-E2q" firstAttribute="top" secondItem="SRu-GX-PCJ" secondAttribute="top" constant="190" id="hzm-jn-3XZ"/>
+                            <constraint firstItem="u9u-ew-Cuc" firstAttribute="leading" secondItem="SRu-GX-PCJ" secondAttribute="leading" constant="16" id="j2A-rg-42u"/>
+                            <constraint firstItem="DvN-Wz-nZx" firstAttribute="top" secondItem="SRu-GX-PCJ" secondAttribute="top" constant="200" id="ldd-bG-A2c"/>
+                            <constraint firstItem="7aK-we-E2q" firstAttribute="leading" secondItem="A2J-jZ-sFm" secondAttribute="trailing" constant="26" id="w9H-6N-ypn"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="SRu-GX-PCJ"/>
                     </view>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
-                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="badIcon" destination="2o6-cT-ayk" id="wN0-ej-LVt"/>
+                        <outlet property="badLabel" destination="BSx-2z-hg2" id="bTw-WV-9tT"/>
+                        <outlet property="goodIcon" destination="7aK-we-E2q" id="54x-I5-IQN"/>
+                        <outlet property="goodLabel" destination="DvN-Wz-nZx" id="12V-5z-5aw"/>
+                        <outlet property="middleIcon" destination="A2J-jZ-sFm" id="0MW-wS-eps"/>
+                        <outlet property="titleLabel" destination="ViB-vM-vz4" id="sVh-Z5-H6C"/>
+                        <outletCollection property="instructions" destination="Keo-Ds-mdj" collectionClass="NSMutableArray" id="Fy2-dY-uc6"/>
+                        <outletCollection property="instructions" destination="zYV-5B-aLf" collectionClass="NSMutableArray" id="urr-Hc-Fmm"/>
+                        <outletCollection property="instructions" destination="u9u-ew-Cuc" collectionClass="NSMutableArray" id="kk2-Ps-ZQC"/>
+                        <outletCollection property="instructions" destination="JgC-VI-O0d" collectionClass="NSMutableArray" id="Frd-7I-4Ps"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rtS-DC-ZCN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2452" y="109"/>
+            <point key="canvasLocation" x="1844" y="108.39580209895054"/>
         </scene>
-        <!--View Controller-->
+        <!--Enter Controller-->
         <scene sceneID="J1s-EF-wtO">
             <objects>
-                <viewController storyboardIdentifier="enter" useStoryboardIdentifierAsRestorationIdentifier="YES" id="C39-NB-3Qo" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="enter" useStoryboardIdentifierAsRestorationIdentifier="YES" id="C39-NB-3Qo" customClass="EnterController" customModule="Movieheads" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="re9-RO-jv6">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EcY-L6-zWM">
-                                <rect key="frame" x="117" y="306" width="141.5" height="70"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="60"/>
-                                <nil key="textColor"/>
+                                <rect key="frame" x="87.5" y="70" width="200.5" height="203"/>
+                                <fontDescription key="fontDescription" name="Zapfino" family="Zapfino" pointSize="60"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="EcY-L6-zWM" firstAttribute="centerY" secondItem="Cjr-Gm-Thn" secondAttribute="centerY" id="V1T-Ch-1qv"/>
+                            <constraint firstItem="EcY-L6-zWM" firstAttribute="top" secondItem="Cjr-Gm-Thn" secondAttribute="top" constant="50" id="WiD-Jz-tg3"/>
                             <constraint firstItem="EcY-L6-zWM" firstAttribute="centerX" secondItem="Cjr-Gm-Thn" secondAttribute="centerX" id="cRN-Ik-9lD"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Cjr-Gm-Thn"/>
                     </view>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
-                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NpR-ls-AqE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3098" y="109"/>
+            <point key="canvasLocation" x="2509.5999999999999" y="107.49625187406298"/>
         </scene>
         <!--Genre Controller-->
         <scene sceneID="CZp-z3-OgI">
@@ -117,7 +205,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="lAm-ej-WkE">
-                                <rect key="frame" x="20" y="165" width="335" height="453"/>
+                                <rect key="frame" x="20" y="159" width="335" height="508"/>
                                 <color key="backgroundColor" red="0.0" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="20" minimumInteritemSpacing="10" id="jBP-NH-zKE">
                                     <size key="itemSize" width="180" height="40"/>
@@ -134,8 +222,8 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Category" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="20" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8Xx-OW-a2w">
-                                                    <rect key="frame" x="43.5" y="6" width="94.5" height="29.5"/>
-                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="25"/>
+                                                    <rect key="frame" x="37" y="0.5" width="106" height="39"/>
+                                                    <fontDescription key="fontDescription" name="Papyrus" family="Papyrus" pointSize="25"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -149,8 +237,8 @@
                                 </cells>
                             </collectionView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose Your Genres" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kMe-4X-5hd">
-                                <rect key="frame" x="57" y="114" width="262.5" height="31"/>
-                                <fontDescription key="fontDescription" name="HoeflerText-Regular" family="Hoefler Text" pointSize="30"/>
+                                <rect key="frame" x="68.5" y="70" width="238" height="69"/>
+                                <fontDescription key="fontDescription" name="Zapfino" family="Zapfino" pointSize="20"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                                 <color key="shadowColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -168,8 +256,8 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="PNy-0K-fzG"/>
                     </view>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
-                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="collectionView" destination="lAm-ej-WkE" id="7aM-Nf-rfp"/>
                     </connections>
@@ -177,35 +265,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zRf-vz-YUW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1148" y="108.39580209895054"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="7Mc-pa-Dg4">
-            <objects>
-                <viewController storyboardIdentifier="share" useStoryboardIdentifierAsRestorationIdentifier="YES" id="IfK-cN-SFH" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="12i-wL-n6f">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Share" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pyn-oR-Ifb">
-                                <rect key="frame" x="110" y="306" width="156" height="70"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="60"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                        <constraints>
-                            <constraint firstItem="pyn-oR-Ifb" firstAttribute="centerX" secondItem="fOP-5k-KAV" secondAttribute="centerX" id="dMC-Ju-NCq"/>
-                            <constraint firstItem="pyn-oR-Ifb" firstAttribute="centerY" secondItem="fOP-5k-KAV" secondAttribute="centerY" id="sUc-7h-dBH"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="fOP-5k-KAV"/>
-                    </view>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
-                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="SED-Vu-Z80" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1804" y="109"/>
         </scene>
     </scenes>
 </document>

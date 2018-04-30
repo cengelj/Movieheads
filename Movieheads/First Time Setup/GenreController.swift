@@ -14,7 +14,7 @@ class GenreController: UIViewController, UICollectionViewDelegate, UICollectionV
 	var selectedGenres = [String]()
 	
 	override func viewDidLoad() {
-        super.viewDidLoad()
+		super.viewDidLoad()
 		collectionView.backgroundColor = UIColor.clear
 		
 		let layer = CAGradientLayer()
@@ -25,11 +25,11 @@ class GenreController: UIViewController, UICollectionViewDelegate, UICollectionV
 		collectionView.delegate = self
 		collectionView.dataSource = self
 		self.navigationController?.barHideOnTapGestureRecognizer.isEnabled = false
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
+	}
+	
+	override func didReceiveMemoryWarning() {
+		super.didReceiveMemoryWarning()
+	}
 	func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
 		return genres.count
 	}
@@ -41,6 +41,14 @@ class GenreController: UIViewController, UICollectionViewDelegate, UICollectionV
 		let label = cell.viewWithTag(1) as! UILabel
 		label.text = genres[indexPath.row]
 		cell.backgroundColor = UIColor.red.withAlphaComponent(0.05)
+		cell.alpha = 0.0
+		if indexPath.row == 0{
+			cell.alpha = 1.0
+		}
+		if indexPath.row == 16{
+			animateAppearance()
+			cell.alpha = 1.0
+		}
 		
 		return cell
 	}
@@ -76,4 +84,16 @@ class GenreController: UIViewController, UICollectionViewDelegate, UICollectionV
 		}
 		
 	}
+	func animateAppearance(_ i:Int=0){
+		let cells = collectionView.visibleCells
+		UIView.animate(withDuration: 0.05, animations: {
+			cells[i].alpha = 1.0
+		}) { (b) in
+			if i < 16{
+				let j = i + 1
+				self.animateAppearance(j)
+			}
+		}
+	}
 }
+
