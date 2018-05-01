@@ -187,7 +187,7 @@ class MovieDataSource: NSObject, UICollectionViewDataSource, UICollectionViewDel
 				textView.layer.cornerRadius = 10.0
 				textView.clipsToBounds = true
 			})
-			textView.font = UIFont(name: "Comic Sans MS Bold", size: 12.0)
+			textView.font = UIFont(name: "Helvetica Neue Light", size: 12.0)
 			UIView.animate(withDuration: 0.5, animations: {
 				switch(name){
 				case "Humor":
