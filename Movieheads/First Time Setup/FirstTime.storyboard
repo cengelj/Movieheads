@@ -10,12 +10,15 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
+        <array key="BradleyHand-Bold.ttf">
+            <string>BradleyHandITCTT-Bold</string>
+        </array>
         <array key="Helvetica.ttc">
             <string>Helvetica</string>
         </array>
-        <array key="Papyrus.ttc">
-            <string>Papyrus</string>
-            <string>Papyrus-Condensed</string>
+        <array key="Noteworthy.ttc">
+            <string>Noteworthy-Bold</string>
+            <string>Noteworthy-Light</string>
         </array>
         <array key="Zapfino.ttf">
             <string>Zapfino</string>
@@ -41,7 +44,7 @@
         <!--First Time Controller-->
         <scene sceneID="pPW-TJ-2gB">
             <objects>
-                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="U5w-7f-XTt" customClass="FirstTimeController" customModule="Movieheads" customModuleProvider="target" sceneMemberID="viewController">
+                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" pageSpacing="2" navigationOrientation="horizontal" spineLocation="max" id="U5w-7f-XTt" customClass="FirstTimeController" customModule="Movieheads" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="lmX-W0-0mb"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
@@ -68,38 +71,38 @@
                                 <size key="shadowOffset" width="1" height="-1"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Good" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DvN-Wz-nZx">
-                                <rect key="frame" x="298" y="220" width="63.5" height="39"/>
-                                <fontDescription key="fontDescription" name="Papyrus" family="Papyrus" pointSize="25"/>
+                                <rect key="frame" x="298" y="220" width="56" height="40"/>
+                                <fontDescription key="fontDescription" name="Noteworthy-Bold" family="Noteworthy" pointSize="25"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bad" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BSx-2z-hg2">
-                                <rect key="frame" x="29" y="220" width="47" height="39"/>
-                                <fontDescription key="fontDescription" name="Papyrus" family="Papyrus" pointSize="25"/>
+                                <rect key="frame" x="31.5" y="220" width="44.5" height="40"/>
+                                <fontDescription key="fontDescription" name="Noteworthy-Bold" family="Noteworthy" pointSize="25"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rate movies you've seen..." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Keo-Ds-mdj">
-                                <rect key="frame" x="19" y="285" width="239" height="46.5"/>
-                                <fontDescription key="fontDescription" name="Papyrus-Condensed" family="Papyrus" pointSize="30"/>
+                                <rect key="frame" x="19" y="285" width="243" height="40"/>
+                                <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="25"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Based on our categories" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zYV-5B-aLf">
-                                <rect key="frame" x="133.5" y="335" width="225.5" height="46.5"/>
-                                <fontDescription key="fontDescription" name="Papyrus-Condensed" family="Papyrus" pointSize="30"/>
+                                <rect key="frame" x="129" y="328.5" width="230" height="40"/>
+                                <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="25"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Then decide on a movie to watch..." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u9u-ew-Cuc">
-                                <rect key="frame" x="16" y="531.5" width="316" height="47"/>
-                                <fontDescription key="fontDescription" name="Papyrus-Condensed" family="Papyrus" pointSize="30"/>
+                                <rect key="frame" x="16" y="518.5" width="321" height="40"/>
+                                <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="25"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Based on other people's ratings!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JgC-VI-O0d">
-                                <rect key="frame" x="60" y="578.5" width="299" height="47"/>
-                                <fontDescription key="fontDescription" name="Papyrus-Condensed" family="Papyrus" pointSize="30"/>
+                                <rect key="frame" x="58.5" y="558.5" width="300.5" height="40"/>
+                                <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="25"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -176,16 +179,55 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EcY-L6-zWM">
-                                <rect key="frame" x="87.5" y="70" width="200.5" height="203"/>
+                                <rect key="frame" x="87.5" y="241" width="200.5" height="205"/>
                                 <fontDescription key="fontDescription" name="Zapfino" family="Zapfino" pointSize="60"/>
-                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="textColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
                                 <nil key="highlightedColor"/>
+                                <color key="shadowColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <size key="shadowOffset" width="0.0" height="-2"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="action" translatesAutoresizingMaskIntoConstraints="NO" id="dtA-D4-QDz">
+                                <rect key="frame" x="230" y="522" width="150" height="150"/>
+                                <color key="tintColor" red="0.16728877652758301" green="0.0" blue="0.70647604695431476" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="150" id="bKS-M2-5Xa"/>
+                                    <constraint firstAttribute="width" constant="150" id="x9k-K4-bfr"/>
+                                </constraints>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="upsideActionFlip" translatesAutoresizingMaskIntoConstraints="NO" id="bqv-6k-TSS">
+                                <rect key="frame" x="-5" y="-5" width="150" height="150"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="150" id="UZV-Xn-1hD"/>
+                                    <constraint firstAttribute="height" constant="150" id="jey-9E-QwV"/>
+                                </constraints>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="actionFlipped" translatesAutoresizingMaskIntoConstraints="NO" id="2cU-et-yUE">
+                                <rect key="frame" x="-5" y="522" width="150" height="150"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="150" id="TC3-fh-vkI"/>
+                                    <constraint firstAttribute="width" constant="150" id="j9f-Dn-VEF"/>
+                                </constraints>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="upsideAction" translatesAutoresizingMaskIntoConstraints="NO" id="iBw-cQ-DiA">
+                                <rect key="frame" x="230" y="-5" width="150" height="150"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="150" id="tI2-co-xe7"/>
+                                    <constraint firstAttribute="height" constant="150" id="wWT-dX-gTQ"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="EcY-L6-zWM" firstAttribute="top" secondItem="Cjr-Gm-Thn" secondAttribute="top" constant="50" id="WiD-Jz-tg3"/>
+                            <constraint firstItem="Cjr-Gm-Thn" firstAttribute="bottom" secondItem="2cU-et-yUE" secondAttribute="bottom" constant="-5" id="6uf-3w-ja4"/>
+                            <constraint firstItem="2cU-et-yUE" firstAttribute="leading" secondItem="Cjr-Gm-Thn" secondAttribute="leading" constant="-5" id="83I-3b-B1T"/>
+                            <constraint firstItem="EcY-L6-zWM" firstAttribute="centerY" secondItem="Cjr-Gm-Thn" secondAttribute="centerY" id="EPe-39-qAD"/>
+                            <constraint firstItem="Cjr-Gm-Thn" firstAttribute="trailing" secondItem="iBw-cQ-DiA" secondAttribute="trailing" constant="-5" id="NTG-wM-uvG"/>
                             <constraint firstItem="EcY-L6-zWM" firstAttribute="centerX" secondItem="Cjr-Gm-Thn" secondAttribute="centerX" id="cRN-Ik-9lD"/>
+                            <constraint firstItem="Cjr-Gm-Thn" firstAttribute="bottom" secondItem="dtA-D4-QDz" secondAttribute="bottom" constant="-5" id="gce-EE-l8H"/>
+                            <constraint firstItem="Cjr-Gm-Thn" firstAttribute="trailing" secondItem="dtA-D4-QDz" secondAttribute="trailing" constant="-5" id="i9O-0z-Ea8"/>
+                            <constraint firstItem="bqv-6k-TSS" firstAttribute="leading" secondItem="Cjr-Gm-Thn" secondAttribute="leading" constant="-5" id="lfP-MY-UL2"/>
+                            <constraint firstItem="Cjr-Gm-Thn" firstAttribute="top" secondItem="bqv-6k-TSS" secondAttribute="top" constant="25" id="pqq-Cg-bsK"/>
+                            <constraint firstItem="Cjr-Gm-Thn" firstAttribute="top" secondItem="iBw-cQ-DiA" secondAttribute="top" constant="25" id="rPB-FN-1Yi"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Cjr-Gm-Thn"/>
                     </view>
@@ -205,7 +247,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="lAm-ej-WkE">
-                                <rect key="frame" x="20" y="159" width="335" height="508"/>
+                                <rect key="frame" x="20" y="128.5" width="335" height="538.5"/>
                                 <color key="backgroundColor" red="0.0" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="20" minimumInteritemSpacing="10" id="jBP-NH-zKE">
                                     <size key="itemSize" width="180" height="40"/>
@@ -222,8 +264,8 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Category" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="20" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8Xx-OW-a2w">
-                                                    <rect key="frame" x="37" y="0.5" width="106" height="39"/>
-                                                    <fontDescription key="fontDescription" name="Papyrus" family="Papyrus" pointSize="25"/>
+                                                    <rect key="frame" x="47" y="0.0" width="86" height="40"/>
+                                                    <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="25"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -237,8 +279,8 @@
                                 </cells>
                             </collectionView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose Your Genres" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kMe-4X-5hd">
-                                <rect key="frame" x="68.5" y="70" width="238" height="69"/>
-                                <fontDescription key="fontDescription" name="Zapfino" family="Zapfino" pointSize="20"/>
+                                <rect key="frame" x="60" y="70" width="255" height="38.5"/>
+                                <fontDescription key="fontDescription" name="BradleyHandITCTT-Bold" family="Bradley Hand" pointSize="30"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                                 <color key="shadowColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -267,4 +309,10 @@
             <point key="canvasLocation" x="1148" y="108.39580209895054"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="action" width="298" height="295"/>
+        <image name="actionFlipped" width="298" height="295"/>
+        <image name="upsideAction" width="298" height="295"/>
+        <image name="upsideActionFlip" width="298" height="295"/>
+    </resources>
 </document>

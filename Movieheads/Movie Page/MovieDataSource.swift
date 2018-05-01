@@ -29,7 +29,6 @@ class MovieDataSource: NSObject, UICollectionViewDataSource, UICollectionViewDel
 			
 			let label = collectionView.cellForItem(at: IndexPath(item: indexPath.row-1, section: 0))?.viewWithTag(1) as! UILabel
 			
-			let _ = #imageLiteral(resourceName: "horror").withRenderingMode(.alwaysOriginal)
 			let picker = cell.viewWithTag(2) as! UISegmentedControl
 			let normalFont = UIFont(name: "Helvetica", size: 30.0)
 			

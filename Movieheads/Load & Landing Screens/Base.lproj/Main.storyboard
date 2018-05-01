@@ -64,6 +64,7 @@
                                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.384490536971831" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstItem="cit-c2-vCs" firstAttribute="leading" secondItem="vfc-mq-onA" secondAttribute="leading" constant="20" id="XzP-Hm-zOt"/>
+                                            <constraint firstAttribute="trailing" secondItem="cit-c2-vCs" secondAttribute="trailing" constant="285" id="ef4-Ms-fBa"/>
                                             <constraint firstAttribute="bottom" secondItem="cit-c2-vCs" secondAttribute="bottom" constant="15" id="uN6-ao-ftK"/>
                                         </constraints>
                                         <size key="customSize" width="375" height="50"/>
@@ -198,38 +199,29 @@
                                     <action selector="buttonPressed:" destination="r76-B1-0Iq" eventType="touchUpInside" id="wSp-Px-SX8"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="horror" translatesAutoresizingMaskIntoConstraints="NO" id="ovI-tn-otM">
-                                <rect key="frame" x="137.5" y="350.5" width="30" height="30"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="horror" translatesAutoresizingMaskIntoConstraints="NO" id="3JL-OS-qQN">
+                                <rect key="frame" x="325" y="617" width="50" height="50"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="0p1-HD-YaA"/>
-                                    <constraint firstAttribute="width" constant="30" id="BWV-NI-U8I"/>
+                                    <constraint firstAttribute="height" constant="50" id="sw7-jd-5IX"/>
+                                    <constraint firstAttribute="width" constant="50" id="xOi-78-STA"/>
                                 </constraints>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="visualfx" translatesAutoresizingMaskIntoConstraints="NO" id="MNf-xa-uMO">
-                                <rect key="frame" x="207.5" y="350" width="30" height="30"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="visualfx" translatesAutoresizingMaskIntoConstraints="NO" id="69A-Sr-jd3">
+                                <rect key="frame" x="0.0" y="617" width="50" height="50"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="bfK-CK-sQo"/>
-                                    <constraint firstAttribute="width" constant="30" id="dSO-kn-gni"/>
-                                </constraints>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="action" translatesAutoresizingMaskIntoConstraints="NO" id="PCA-z2-tCr">
-                                <rect key="frame" x="172.5" y="350" width="30" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="2UD-KV-3Id"/>
-                                    <constraint firstAttribute="width" constant="30" id="c7a-lq-vac"/>
+                                    <constraint firstAttribute="width" constant="50" id="KjU-Ld-xvs"/>
+                                    <constraint firstAttribute="height" constant="50" id="Qop-R2-tGQ"/>
                                 </constraints>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="PCA-z2-tCr" firstAttribute="centerY" secondItem="0wc-Bu-Tq5" secondAttribute="centerY" id="4yf-jm-cRr"/>
-                            <constraint firstItem="ovI-tn-otM" firstAttribute="centerY" secondItem="0wc-Bu-Tq5" secondAttribute="centerY" id="Cq8-rF-eJG"/>
                             <constraint firstItem="xTQ-DT-SeR" firstAttribute="centerX" secondItem="0wc-Bu-Tq5" secondAttribute="centerX" id="FXT-Z3-hzo"/>
-                            <constraint firstItem="MNf-xa-uMO" firstAttribute="centerY" secondItem="0wc-Bu-Tq5" secondAttribute="centerY" id="abt-Me-PNE"/>
-                            <constraint firstItem="PCA-z2-tCr" firstAttribute="centerX" secondItem="0wc-Bu-Tq5" secondAttribute="centerX" id="k9S-kP-0Ed"/>
-                            <constraint firstItem="MNf-xa-uMO" firstAttribute="leading" secondItem="PCA-z2-tCr" secondAttribute="trailing" constant="5" id="pon-hl-0bV"/>
-                            <constraint firstItem="PCA-z2-tCr" firstAttribute="leading" secondItem="ovI-tn-otM" secondAttribute="trailing" constant="5" id="qIP-SP-xxA"/>
+                            <constraint firstItem="0wc-Bu-Tq5" firstAttribute="bottom" secondItem="3JL-OS-qQN" secondAttribute="bottom" id="apD-jF-TEd"/>
+                            <constraint firstItem="0wc-Bu-Tq5" firstAttribute="bottom" secondItem="69A-Sr-jd3" secondAttribute="bottom" id="eEB-BQ-3vh"/>
+                            <constraint firstItem="0wc-Bu-Tq5" firstAttribute="trailing" secondItem="3JL-OS-qQN" secondAttribute="trailing" id="q82-M0-ooB"/>
                             <constraint firstItem="0wc-Bu-Tq5" firstAttribute="bottom" secondItem="xTQ-DT-SeR" secondAttribute="bottom" constant="20" id="rqL-9l-e6F"/>
+                            <constraint firstItem="69A-Sr-jd3" firstAttribute="leading" secondItem="0wc-Bu-Tq5" secondAttribute="leading" id="yTm-82-Nfr"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="0wc-Bu-Tq5"/>
                     </view>
@@ -243,9 +235,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="action" width="1024" height="1024"/>
         <image name="black" width="50" height="50"/>
-        <image name="horror" width="246" height="246"/>
-        <image name="visualfx" width="1024" height="1024"/>
+        <image name="horror" width="297" height="297"/>
+        <image name="visualfx" width="294" height="293"/>
     </resources>
 </document>
