@@ -64,7 +64,6 @@
                                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.384490536971831" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstItem="cit-c2-vCs" firstAttribute="leading" secondItem="vfc-mq-onA" secondAttribute="leading" constant="20" id="XzP-Hm-zOt"/>
-                                            <constraint firstAttribute="trailing" secondItem="cit-c2-vCs" secondAttribute="trailing" constant="285" id="ef4-Ms-fBa"/>
                                             <constraint firstAttribute="bottom" secondItem="cit-c2-vCs" secondAttribute="bottom" constant="15" id="uN6-ao-ftK"/>
                                         </constraints>
                                         <size key="customSize" width="375" height="50"/>
